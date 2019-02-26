@@ -1,0 +1,8 @@
+app_api:
+    resource: "../src/Controller/Api"
+    type: annotation
+    defaults:
+        _format: json
+
+api_login_check:
+    path: /api/login_check

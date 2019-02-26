@@ -1,0 +1,161 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+        <section id="content">
+            <div class="container">
+                <div class="row">
+
+                    {% if app.session.flashBag.has('success') %}
+                        <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                            {% for msg in app.session.flashBag.get('success') %}
+                                {{ msg }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    {% if app.session.flashBag.has('error') %}
+                        <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                            {% for msg in app.session.flashBag.get('error') %}
+                                {{ msg }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div id="card-widgets" class="seaction col s12 m6 l6">
+                        <h4 class="header">{{ 'user.account.account.title'|trans }}</h4>
+                        <div id="profile-card" class="card" style="overflow: hidden; min-height: 425px">
+                            <div class="card-image waves-effect waves-block waves-light" id="card-compte" style="">
+                            </div>
+                            <div class="card-content">
+                                <img src="{{ asset('assets/user/office/img/boy.png') }}" alt="" class="circle responsive-img activator card-profile-image gradient-45deg-blue-indigo gradient-shadow padding-2">
+                                <a title="modifier" class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <h5 class="card-title activator grey-text text-darken-4">{{ app.user.prenom ~ ' '~ app.user.nom }}</h5>
+                                <p>
+                                    <i class="material-icons">cake</i>{{ app.user.datenaissance | date('d/m/Y') }}</p>
+                                <p>
+                                    <i class="material-icons">perm_identity</i>{{ app.user.username }}</p>
+                                <p>
+                                    <i class="material-icons">perm_phone_msg</i> {{ app.user.telephone }}</p>
+                                <p>
+                                    <i class="material-icons">email</i> {{ app.user.email }}</p>
+                            </div>
+                            <div class="card-reveal" style="display: none; transform: translateY(0px);">
+                                <span class="card-title grey-text text-darken-4">
+                                    {{ app.user.prenom ~ ' '~ app.user.nom }}<br>
+                                    {{ app.user.datenaissance | date('d/m/Y') }}
+                                  <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{ 'user.account.account.modif.content'|trans }}</p>
+                                <div class="row">
+                                    <form class="col s12" method="post" action="{{ path('compte') }}">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">call</i>
+                                                <input id="telephone" name="telephone" maxlength="15" required value="{{ app.user.telephone }}" type="text">
+                                                <label for="telephone">{{ 'user.account.account.modif.phone'|trans }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <button class="btn btn-success waves-effect waves-light right gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action">{{ 'user.valid'|trans }}
+                                                        <i class="material-icons right">send</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-widgets" class="seaction col s12 m6 l6">
+                        <h4 class="header">{{ 'user.account.password.title'|trans }}</h4>
+                        <div class="card" style="min-height: 425px">
+                            <div class="card-content">
+                                <p>{{ 'user.account.password.content'|trans }}</p>
+                                <div class="row">
+                                    <form class="col s12" method="post" action="{{ path('updatepassword') }}">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">lock_outline</i>
+                                                <input id="mdp_actuel" name="password_old" maxlength="30" required type="password">
+                                                <label for="mdp_actuel">{{ 'user.account.password.password1'|trans }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">lock_outline</i>
+                                                <input id="new_mdp" name="password_new" maxlength="30" required type="password">
+                                                <label for="new_mdp">{{ 'user.account.password.password2'|trans }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">lock_outline</i>
+                                                <input id="new_mdp_confirm" name="password_confirmation" maxlength="30" required type="password">
+                                                <label for="new_mdp_confirm">{{ 'user.account.password.password2_confirm'|trans }}</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <button class="btn btn-success waves-effect waves-light right gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action">{{ 'user.valid'|trans }}
+                                                        <i class="material-icons right">send</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><div id="card-widgets" class="seaction col s12">
+                        <h4 class="header">{{ 'user.account.iban.title'|trans }}</h4>
+                        <div class="card">
+                            <div class="card-content">
+                                <p>{{ 'user.account.iban.content'|trans }}</p>
+                                <div class="row">
+                                    {% if user.iban is null %}
+                                        <form class="col s12" method="post" action="{{ path('addIban') }}">
+                                            <div class="row">
+                                                <div class="input-field col s12 l6">
+                                                    <i class="material-icons prefix">account_balance_wallet</i>
+                                                    <input id="iban" name="iban" maxlength="38" required type="text">
+                                                    <label for="iban">{{ 'user.account.iban.iban'|trans }}</label>
+                                                </div>
+                                                <div class="input-field col s12 l6">
+                                                    <i class="material-icons prefix">account_balance</i>
+                                                    <input id="bic" name="bic" maxlength="12" required type="text">
+                                                    <label for="bic">{{ 'user.account.iban.bic'|trans }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <button class="btn btn-success waves-effect waves-light gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action" style="display: block; margin: auto;">{{ 'user.valid'|trans }}
+                                                            <i class="material-icons right">send</i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% else %}
+                                        <div class="col s12 l4 offset-l4 gradient-45deg-brown-brown gradient-shadow white-text padding-2">
+                                            {{ 'user.account.iban.monRib'|trans }}<br>
+                                            <b>{{ 'user.account.iban.iban'|trans }} {{ user.iban }} <br>
+                                                {{ 'user.account.iban.bic'|trans }}  {{ user.bic }}</b>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

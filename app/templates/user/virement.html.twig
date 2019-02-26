@@ -1,0 +1,127 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            {% if app.session.flashBag.has('success') %}
+                <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if app.session.flashBag.has('error') %}
+                <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="contenu">
+                    <div class="gradient-45deg-light-blue-indigo gradient-shadow mt-2 mb-2" style="padding: 20px;">
+                        <p>
+                            Pour alimenter votre compte Cryptizy en Euro, vous avez <b>2 possibilités :</b><br><br>
+                        <ul>
+                            <li>1- Dépôt par carte bancaire (frais de 1.9%+0.15€ par dépôt appliqués par notre prestataire de paiement)</li>
+                            <li>2- Dépôt par virement bancaire (gratuit et sans frais)</li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6 l4 test6" style="margin-bottom: 35px;">
+                        <h1 class="gradient-45deg-indigo-blue gradient-shadow">Depôt sécurisé par carte bancaire</h1>
+                        {% if depot.permission == 1 %}
+                        <p>
+                            En choisissant cette option <b>vous serez redirigé vers notre prestataire de service de paiement sécurisé
+                                Lydia.com</b> pour effectuer un dépôt par carte bancaire <br><br> {{ 'user.depositPage.minimum'|trans }} 20€ <br><br> max : 1000€ par dépôt par carte bancaire
+                        </p>
+                        <ul class="social">
+                            <li style="display: inline-block">
+                                <img src="{{ asset('assets/user/office/img/visa.png') }}" style="width: 50px;">
+                            </li>
+                            <li style="display: inline-block">
+                                <img src="{{ asset('assets/user/office/img/mastercard.png') }}" style="width: 50px;">
+                            </li>
+                        </ul>
+                        {{ form_start(form, { attr: { class: 'login-form' } }) }}
+                            <table id="t1">
+                                <tr>
+                                    <th>Montant à déposer</th>
+                                    <th>Frais CB (1.9%+0.15€)</th>
+                                    <th>Montant total</th>
+                                </tr>
+                                <tr class="item">
+                                    <td>{{ form_row(form.montant_depot, {'attr': {'class': 'depot'} }) }}</td>
+                                    <td>{{ form_row(form.frais, {'attr': {'class': 'frais'} }) }}</td>
+                                    <td>{{ form_row(form.montant, {'attr': {'class': 'costBtc'} }) }}</td>
+                                </tr>
+                            </table>
+                            <div class="input-field col s12" id="index">
+                                {{ form_widget(form.submit) }}
+                            </div>
+                        {{ form_end(form) }}
+                        <center><img src="{{ asset('assets/user/office/img/secure.png') }}" class="mt-5"></center>
+                        {% else %}
+                            <center>
+                            <p>
+                                <h5>Dépôt par carte bancaire : Mise à jour en cours, veuillez passer par le virement bancaire directement...</h5>
+                            </p>
+                            <i class="material-icons blue-text" style="font-size: 200px;">screen_lock_landscape</i>
+                            </center>
+                        {% endif %}
+                    </div>
+                    <div class="col s12 m6 l8 test6">
+                        <h1 class="gradient-45deg-indigo-blue gradient-shadow">{{ 'user.depositPage.title'|trans }}</h1>
+                        <p><b>{{ 'user.depositPage.content1'|trans }} : {{ 'user.depositPage.minimum'|trans }} 20€</b></p>
+
+                        <p>{{ 'user.depositPage.content2'|trans }}<br><p></p>
+                        <ul style="">
+                            <li class="vrt-coordonnee">{{ 'user.depositPage.bank_details.name'|trans }}REPARIZY</li>
+                            <li class="vrt-coordonnee">{{ 'user.depositPage.bank_details.adress'|trans }} 10 Rue de Penthièvre 75008 Paris</li>
+                            <li class="vrt-coordonnee">{{ 'user.depositPage.bank_details.iban'|trans }} FR76 1679 8000 0100 0002 5774 573</li>
+                            <li class="vrt-coordonnee">{{ 'user.depositPage.bank_details.bic'|trans }} TRZOFR21XXX</li>
+                            <li class="vrt-coordonnee"><b>{{ 'user.depositPage.bank_details.reference'|trans }} {{ app.user.reference }}</b></li>
+                        </ul>
+
+                        <div class="col s2">
+                        <span class="right">
+                            <img src="{{ asset('assets/user/office/img/warning.png') }}" style="width: 50px;">
+                        </span>
+
+                        </div>
+                        <div class="col s10">
+                            <p class="mt-0">{{ 'user.depositPage.bank_details.warning1'|trans }}<br>
+                                {{ 'user.depositPage.bank_details.warning2'|trans }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+    $(document).ready(function () {
+        $(document).on("keyup", "#virement_montant_depot", calcAll);
+    });
+
+    function calcAll() {
+        var virement_montant_depot = $('#virement_montant_depot').val();
+        var virement_frais   = $('#virement_frais');
+        var virement_montant = $('#virement_montant');
+
+        var total = parseFloat($('#virement_montant_depot').val())/(1-0.019)+0.25;
+        var frais = total - parseFloat($('#virement_montant_depot').val());
+
+        $("#virement_montant").val(total.toFixed(2));
+        $("#virement_frais").val(frais.toFixed(2));
+    }
+</script>
+{% endblock %}

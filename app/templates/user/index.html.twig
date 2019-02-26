@@ -1,0 +1,474 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+<section id="content">
+    <!--start container-->
+    <div class="container p-0 m-0 width-100">
+
+        <!--show crypto market-->
+        {% include 'ui-component/currentCryptos.html.twig' %}
+
+        <!--card stats start-->
+        <div id="card-stats p-0">
+            <div class="row">
+                {% if valid is defined and valid == 0 %}
+                    <div class="col s12 p-0">
+                        <div class="card gradient-45deg-red gradient-shadow white-text m-0">
+                            <p class="no-margin center" style="font-size: 18px;">{{ 'user.home.get_verified1'|trans }}<a href="{{ url('verif') }}" style="color: #bbdefb; text-decoration: underline;">{{ 'user.home.here'|trans }}</a>{{ 'user.home.get_verified2'|trans }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="col s12 p-0">
+                    <div class="card gradient-45deg-white gradient-shadow m-0">
+                        <div class="row">
+                            <div class="col s12 m3 p-0">
+                                <div class="" style="border-right: 1px solid rgba(0, 0, 0, 0.4); min-height: 138px; overflow: visible;">
+                                    <div class="padding-4">
+                                        <div class="row">
+                                            <div class="col s12 right-align">
+                                                <h5 class="mb-0 thin" id="tour-dispo"> {{ solde }} €</h5>
+                                                <p class="no-margin">{{ 'user.home.available'|trans }}</p>
+                                                <p>{{ 'user.home.totalDepot'|trans }} : <span id="soldeDeposit">{{ totalDepose }} €</span></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m3 p-0">
+                                <div class="" style="border-right: 1px solid rgba(0, 0, 0, 0.4); min-height: 138px;">
+                                    <div class="padding-4">
+                                        <div class="row">
+                                            <div class="col s12 right-align">
+                                                <h5 class="mb-0 thin" id="tour-total">0</h5>
+                                                <p class="no-margin">{{ 'user.home.totalEq'|trans }}</p>
+                                                <p id="delta">0</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m3 p-0">
+                                <a href="{{ url('reservation') }}">
+                                    <div class="gradient-45deg-green-teal white-text" style="min-height: 138px;">
+                                        <div class="padding-10">
+                                            <div class="row">
+                                                <div class="col s12 center-align">
+                                                    <h5 class="mb-0 thin">{{ 'user.buy'|trans }}</h5>
+                                                    <h5 class="no-margin"><i class="material-icons" style="vertical-align: middle;">arrow_drop_up</i></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col s12 m3 p-0">
+                                <a href="{{ url('sell') }}">
+                                    <div class="gradient-45deg-red white-text" style="min-height: 138px;">
+                                        <div class="padding-10">
+                                            <div class="row">
+                                                <div class="col s12 center-align">
+                                                    <h5 class="mb-0 thin">{{ 'user.sell'|trans }}</h5>
+                                                    <p class="no-margin"><i class="material-icons" style="vertical-align: middle;">arrow_drop_down</i></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {#<span class="" style="display: inline-block; width: 28px;">
+                            {% if app.user is defined %}
+                                {% if app.user.genre == 'H' %}
+                                    <img style="width: 28px" src="{{ asset('assets/user/office/img/boy.png') }}" alt="avatar">
+                                {% else %}
+                                    <img style="width: 28px" src="{{ asset('assets/user/office/img/girl.png') }}" alt="avatar">
+                                {% endif %}
+                            {% endif %}
+                        </span>
+                        <p class="no-margin center" style="font-size: 18px; display: inline-block">
+                        {{ 'user.home.welcome'|trans }} {{ app.user.prenom }} {{ app.user.nom }},
+                        </p>
+                        <p class="thin" style="display: inline-block">
+                        {{ 'user.home.toDoToday'|trans }}
+                        <a href="{{ url('reservation') }}" style="text-decoration: underline; color: #fff">
+                        {{ 'user.buy'|trans }}
+                        </a>,
+                        <a href="{{ url('sell') }}" style="text-decoration: underline; color: #fff">
+                        {{ 'user.sell'|trans }}
+                        </a>,
+                        <a href="{{ url('transfert-crypto') }}" style="text-decoration: underline; color: #fff">
+                        {{ 'user.transfer'|trans }}
+                        </a>
+                        </p>#}
+                    </div>
+                </div>
+                <div class="col s12 m6 p-0">
+                    <div class="card frame-admin shadow-grey" style="min-height: 120px;" id="tour-referal">
+                        <div class="padding-2">
+                            <div class="col s2 right-align">
+                                <img src="{{ asset('assets/user/office/img/handshake.png') }}" alt="affiliate logo" class="responsive-img valign">
+                            </div>
+                            <div class="col s10 left-align">
+                                <h5 class="mb-0 mt-0" style="font-size: 16px">Lien de parrainage : <a target="_blank" href="https://cryptizy.com/register/{{ app.user.reference }}/fr/" style="font-size: 11px; color: #2884fb; text-decoration: underline;">https://cryptizy.com/register/{{ app.user.reference }}/fr/</a> </h5>
+                                <p class="no-margin thin">Gagnez de l'argent lorsque vos amis s'inscrivent avec votre lien</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--card stats end-->
+        <div id="sales-chart">
+            <div class="row" id="xl-screen">
+                <!-- TradingView Widget BEGIN -->
+                <div id="tv-medium-widget-b2fe9-xl"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget({
+                        "container_id": "tv-medium-widget-b2fe9-xl",
+                        "symbols": [
+                            [
+                                "Bitcoin",
+                                "KRAKEN:XBTEUR|1m"
+                            ],
+                            [
+                                "Bitcoin Cash",
+                                "KRAKEN:BCHEUR|1m"
+                            ],
+                            [
+                                "Ethereum",
+                                "KRAKEN:ETHEUR|1m"
+                            ],
+                            [
+                                "Ethereum Classic",
+                                "KRAKEN:ETCEUR|1m"
+                            ],
+                            [
+                                "Litecoin",
+                                "KRAKEN:LTCEUR|1m"
+                            ],
+                            [
+                                "Zcash",
+                                "KRAKEN:ZECEUR|1m"
+                            ],
+                            [
+                                "Ripple",
+                                "KRAKEN:XRPEUR|1m"
+                            ]
+                        ],
+                        "greyText": "Cotations de prix par",
+                        "gridLineColor": "#e9e9ea",
+                        "fontColor": "#83888D",
+                        "underLineColor": "#dbeffb",
+                        "trendLineColor": "#4bafe9",
+                        "width": "1000",
+                        "height": "400",
+                        "locale": "fr"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
+
+                <!--<div id="chartdiv"></div>-->
+            </div>
+
+            <div class="row" id="l-screen">
+                <!-- TradingView Widget BEGIN -->
+                <div id="tv-medium-widget-b2fe9-l"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget({
+                        "container_id": "tv-medium-widget-b2fe9-l",
+                        "symbols": [
+                            [
+                                "Bitcoin",
+                                "KRAKEN:XBTEUR|1m"
+                            ],
+                            [
+                                "Bitcoin Cash",
+                                "KRAKEN:BCHEUR|1m"
+                            ],
+                            [
+                                "Ethereum",
+                                "KRAKEN:ETHEUR|1m"
+                            ],
+                            [
+                                "Ethereum Classic",
+                                "KRAKEN:ETCEUR|1m"
+                            ],
+                            [
+                                "Litecoin",
+                                "KRAKEN:LTCEUR|1m"
+                            ],
+                            [
+                                "Zcash",
+                                "KRAKEN:ZECEUR|1m"
+                            ],
+                            [
+                                "Ripple",
+                                "KRAKEN:XRPEUR|1m"
+                            ]
+                        ],
+                        "greyText": "Cotations de prix par",
+                        "gridLineColor": "#e9e9ea",
+                        "fontColor": "#83888D",
+                        "underLineColor": "#dbeffb",
+                        "trendLineColor": "#4bafe9",
+                        "width": "740",
+                        "height": "400",
+                        "locale": "fr"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
+
+                <!--<div id="chartdiv"></div>-->
+            </div>
+
+            <div class="row" id="m-screen">
+                <!-- TradingView Widget BEGIN -->
+                <div id="tv-medium-widget-b2fe9-m"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget({
+                        "container_id": "tv-medium-widget-b2fe9-m",
+                        "symbols": [
+                            [
+                                "Bitcoin",
+                                "KRAKEN:XBTEUR|1m"
+                            ],
+                            [
+                                "Bitcoin Cash",
+                                "KRAKEN:BCHEUR|1m"
+                            ],
+                            [
+                                "Ethereum",
+                                "KRAKEN:ETHEUR|1m"
+                            ],
+                            [
+                                "Ethereum Classic",
+                                "KRAKEN:ETCEUR|1m"
+                            ],
+                            [
+                                "Litecoin",
+                                "KRAKEN:LTCEUR|1m"
+                            ],
+                            [
+                                "Zcash",
+                                "KRAKEN:ZECEUR|1m"
+                            ],
+                            [
+                                "Ripple",
+                                "KRAKEN:XRPEUR|1m"
+                            ]
+                        ],
+                        "greyText": "Cotations de prix par",
+                        "gridLineColor": "#e9e9ea",
+                        "fontColor": "#83888D",
+                        "underLineColor": "#dbeffb",
+                        "trendLineColor": "#4bafe9",
+                        "width": "600",
+                        "height": "400",
+                        "locale": "fr"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
+
+                <!--<div id="chartdiv"></div>-->
+            </div>
+
+            <div class="row" id="s-screen">
+                <!-- TradingView Widget BEGIN -->
+                <div id="tv-medium-widget-b2fe9-s"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget({
+                        "container_id": "tv-medium-widget-b2fe9-s",
+                        "symbols": [
+                            [
+                                "Bitcoin",
+                                "KRAKEN:XBTEUR|1m"
+                            ],
+                            [
+                                "Bitcoin Cash",
+                                "KRAKEN:BCHEUR|1m"
+                            ],
+                            [
+                                "Ethereum",
+                                "KRAKEN:ETHEUR|1m"
+                            ],
+                            [
+                                "Ethereum Classic",
+                                "KRAKEN:ETCEUR|1m"
+                            ],
+                            [
+                                "Litecoin",
+                                "KRAKEN:LTCEUR|1m"
+                            ],
+                            [
+                                "Zcash",
+                                "KRAKEN:ZECEUR|1m"
+                            ],
+                            [
+                                "Ripple",
+                                "KRAKEN:XRPEUR|1m"
+                            ]
+                        ],
+                        "greyText": "Cotations de prix par",
+                        "gridLineColor": "#e9e9ea",
+                        "fontColor": "#83888D",
+                        "underLineColor": "#dbeffb",
+                        "trendLineColor": "#4bafe9",
+                        "width": "500",
+                        "height": "400",
+                        "locale": "fr"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
+
+                <!--<div id="chartdiv"></div>-->
+            </div>
+
+            <div class="row" id="xs-screen">
+                <!-- TradingView Widget BEGIN -->
+                <div id="tv-medium-widget-b2fe9-xs"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.MediumWidget({
+                        "container_id": "tv-medium-widget-b2fe9-xs",
+                        "symbols": [
+                            [
+                                "Bitcoin",
+                                "KRAKEN:XBTEUR|1m"
+                            ],
+                            [
+                                "Bitcoin Cash",
+                                "KRAKEN:BCHEUR|1m"
+                            ],
+                            [
+                                "Ethereum",
+                                "KRAKEN:ETHEUR|1m"
+                            ],
+                            [
+                                "Ethereum Classic",
+                                "KRAKEN:ETCEUR|1m"
+                            ],
+                            [
+                                "Litecoin",
+                                "KRAKEN:LTCEUR|1m"
+                            ],
+                            [
+                                "Zcash",
+                                "KRAKEN:ZECEUR|1m"
+                            ],
+                            [
+                                "Ripple",
+                                "KRAKEN:XRPEUR|1m"
+                            ],
+                            [
+                                "Eos",
+                                "KRAKEN:EOSEUR|1m"
+                            ]
+                        ],
+                        "greyText": "Cotations de prix par",
+                        "gridLineColor": "#e9e9ea",
+                        "fontColor": "#83888D",
+                        "underLineColor": "#dbeffb",
+                        "trendLineColor": "#4bafe9",
+                        "width": "320",
+                        "height": "400",
+                        "locale": "fr"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
+
+                <!--<div id="chartdiv"></div>-->
+            </div>
+
+            <div class="row">
+                <div class="col s12" >
+                    <!--show crypto market-->
+                    {% include 'ui-component/cryptoUser.html.twig' %}
+                </div>
+                <div class="col s12">
+                    <div id="historique" class="card gradient-45deg-white gradient-shadow" style="max-height: 466px">
+                        <div class="card-content">
+                            <h4 class="header mt-0" id="tour-historique">{{ 'user.home.buyHistory.title'|trans }}</h4>
+                            <table class="highlight table-crypto nom-crypto img-crypto">
+                                <thead>
+                                <tr>
+                                    <th>{{ 'user.id'|trans }}</th>
+                                    <th>{{ 'user.home.buyHistory.invested'|trans }}</th>
+                                    <th>{{ 'user.crypto'|trans }}</th>
+                                    <th>{{ 'user.qt'|trans }}</th>
+                                    <th>{{ 'user.fees'|trans }}</th>
+                                    <th>{{ 'user.price'|trans }}</th>
+                                    <th>{{ 'user.state'|trans }}</th>
+                                    <th>{{ 'user.date'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if transactions is defined %}
+                                    {% for t in transactions %}
+                                        <tr>
+                                            <td>{{ t.id }}</td>
+                                            <td>{{ t.cost }}€</td>
+                                            <td>
+                                                <img src="{{ asset('assets/user/office/img/'~t.crypto.image) }}">
+                                                <p>{{ t.crypto.name }}</p>
+                                            </td>
+                                            <td>{{ t.quantite }}</td>
+                                            <td>{{ t.frais~' ' ~ t.crypto.indice}}</td>
+                                            <td>
+                                                {% if t.buyPrice == 0 %}
+                                                    ..
+                                                {% else %}
+                                                    {{ t.buyPrice }}€
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if t.state == 0 %}
+                                                    <span class="badge white-text gradient-45deg-amber-amber gradient-shadow mt-2 mr-2 left" style="font-size: 9px">{{ 'user.pending'|trans }}</span>
+                                                {% else %}
+                                                    <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left" style="font-size: 9px">{{ 'user.executed'|trans }}</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ t.created | date('d/m/Y') }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<style>
+    #chartdiv {
+        width	: 100%;
+        height	: 300px;
+    }
+</style>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<!-- Chart code -->
+{% set domain = '/'~ 'api/admin_xgt45e8/dashboard/user/' ~ app.user.id   %}
+<script>
+    var id = "{{ app.user.id }}";
+    var domain = "{{ domain }}";
+</script>
+<script src="{{ asset('assets/user/office/js/krakenTargetMarket.js') }}"></script>
+<script src="{{ asset('assets/user/office/js/custom-script.js') }}"></script>
+{% endblock %}

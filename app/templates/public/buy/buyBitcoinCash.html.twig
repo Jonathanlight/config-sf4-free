@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    <meta name="description" content="Buy Bitcoin Cash. How to buy Bitcoin cash easily, quickly & securely. You can buy Bitcoin cash with Cryptizy platform.">
+    <meta name="keywords" content="buy bitcoin cash, how to buy bitcoin cash, bitcoin cash, bch, cryptocurrency, cryptizy, buy crypto, sell bitcoin cash, buy bitcoin cash with credit card">
+{% endblock %}
+
+{% block title %}How to buy Bitcoin Cash | Simple & Fast - Cryptizy{% endblock %}
+
+{% block body %}
+    <div class="container" id="body-container">
+        <div class="row anim-section-quote">
+            <div class="col s12 m6" style="margin-top: 100px;">
+                <h1 id="" style="text-align: left; font-size: 2.4em; font-family: 'roboto', sans-serif; font-weight: 300;">How to buy <b>Bitcoin Cash</b> (BCH)</h1>
+                <h2 style="text-align: left; font-size: 2.0em;">
+                    Cryptizy makes it easy to buy <b>Bitcoin Cash</b> (BCH)
+                </h2>
+
+                <div class="row mt-2" style="z-index: 99;">
+                    <div class="col s12 center">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=m-aAa2yRe98" id="signin" style="display: block;"><i class="material-icons" style="vertical-align: sub">live_tv</i>{{ 'home.header.watch'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <section id="section-quote">
+
+                <div class="container-pe-quote">
+                    <div class="pp-quote li-quote-1" data-textquote="quote-text-1">
+                        <picture>
+                             <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bitcoin cash">
+                        </picture>
+                    </div>
+
+                    <div class="pp-quote li-quote-4" data-textquote="quote-text-4">
+                        <picture>
+                             <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                        </picture>
+                    </div>
+
+                    <div class="pp-quote li-quote-7" data-textquote="quote-text-7">
+                        <picture>
+                             <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="buy bitcoin cash">
+                        </picture>
+                    </div>
+
+                </div>
+
+                </section>
+            </div>
+        </div>
+        {% include 'ui-component/cryptoHome.html.twig' %}
+    </div>
+    <div class="row" id="section-explication" style="margin-top: 150px; margin-bottom: 150px;">
+        <img class="wave-test-1" src="{{ asset('assets/user/img/wave-1.png') }}" alt="">
+        <img class="wave-test-2" src="{{ asset('assets/user/img/wave-2.png') }}" alt="">
+        <div class="container">
+            <div class="col s12 center">
+                <h3 class="roboto-light">{{ 'home.how-to.title'|trans }}</h3>
+            </div>
+
+            <section id="cd-timeline" class="col s12 m12 cd-container">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="{{ asset('assets/user/img/menu.png') }}" alt="Picture">
+                    </div> <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content hoverable">
+                        <h2>1.{{ 'home.how-to.step0.title'|trans }}</h2>
+                        <p>{{ 'home.how-to.step0.content'|trans }}</p>
+                        <a class="waves-effect waves-light btn gradient-45deg-indigo-blue gradient-shadow" href="{{ url('register') }}" id="signin" style="z-index: 99; color: #fff; display: block; font-family: 'Open Sans', sans-serif; font-weight: 600">{{ 'home.form.submit'|trans }}</a>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        <img src="{{ asset('assets/user/img/point-of-service.png') }}" alt="Movie">
+                    </div> <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content hoverable">
+                        <h2>2.{{ 'home.how-to.step1.title'|trans }}<b>{{ 'home.how-to.step1.titleBold'|trans }}</b></h2>
+                        <p>{{ 'home.how-to.step1.content'|trans }}</p>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="{{ asset('assets/user/img/reservation.png') }}" alt="Picture">
+                    </div> <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content hoverable">
+                        <h2>3. <b>Buy & sell bitcoin cash</b></h2>
+                        <p>Connect to your Cryptizy account, select "Buy" then click on "Bitcoin Cash". Input the amount you want to invest or the quantity of Bitcoin Cash you want to sell.</p>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        <img src="{{ asset('assets/user/img/premium.png') }}" alt="Location">
+                    </div> <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content hoverable">
+                        <h2>4. a.{{ 'home.how-to.step3.title1-1'|trans }} <b>Bitcoin Cash</b> {{ 'home.how-to.step3.title1-2'|trans }}<br><br> b.{{ 'home.how-to.step3.title2'|trans }}</h2>
+                        <p>
+                            a.{{ 'home.how-to.step3.content1-1'|trans }}<br>
+                            {{ 'home.how-to.step3.content1-2'|trans }}<a target="_blank" href="https://jaxx.io/">{{ 'home.how-to.step3.here'|trans }}</a><br><br>
+                            {{ 'home.how-to.step3.content1-3'|trans }}<br><br>
+
+                            b. {{ 'home.how-to.step3.content2'|trans }}
+                        </p>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+            </section> <!-- cd-timeline -->
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col s12 m4">
+            <img src="{{ asset('assets/user/img/museum.png') }}" style="display: block; margin: auto; max-width: 100px;">
+            <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.regulation.title'|trans }}</h4>
+            <p style="text-align: center;">
+            {{ 'home.avantages.regulation.content'|trans }}
+        </p>
+        </div>
+        <div class="col s12 m4">
+            <img src="{{ asset('assets/user/img/safebox.png') }}" style="display: block; margin: auto; max-width: 100px;">
+            <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.security.title'|trans }}</h4>
+            <p style="text-align: center; ">
+            {{ 'home.avantages.security.content'|trans }}
+        </p>
+        </div><div class="col s12 m4">
+            <img src="{{ asset('assets/user/img/padlock.png') }}" style="display: block; margin: auto; max-width: 100px;">
+            <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.encryption.title'|trans }}</h4>
+            <p style="text-align: center; ">
+            {{ 'home.avantages.encryption.content'|trans }}
+        </p>
+        </div>
+    </div>
+</div>
+
+<div class="signup">
+    <div class="container">
+        <div class="row">
+            <h2>Sign up now for free</h2>
+            <p>
+                <a class="btn btn-default" href="{{ url('register') }}">Open an account !</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="help">
+    {% include 'ui-component/question.html.twig' %}
+</div>
+{% endblock %}

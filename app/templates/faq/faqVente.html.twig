@@ -1,0 +1,19 @@
+{% extends 'base_faq.html.twig' %}
+
+
+{% block body %}
+    <h3>Comment vendre des cryptomonnaies sur Cryptizy ?</h3>
+    <p style="text-align: justify">
+        Pour vendre des cryptomonnaies, vous devez au préalable avoir acheté des cryptomonnaies via Cryptizy. À la suite de cela, dans la page <a href="{{ url('office_home') }}" target="_blank">« Tableau de bord »</a> de votre compte Utilisateur (lien)<br><br>
+        1. cliquez sur le bouton « Vendre » vous serez redirigé vers <a href="{{ url('sell') }}" target="_blank">la page de vente</a>.<br>
+        2. Sélectionner la cryptomonnaie que vous souhaitez vendre,<br>
+        3. Insérer la quantité de cette cryptomonnaie que vous souhaitez vendre,<br>
+        4. Indiquez si vous souhaitez recevoir la somme euro de la vente vers votre compte en banque ou si vous souhaitez conserver la somme sur
+        Cryptizy.com dans le but d’acheter des cryptomonnaies.<br><br>
+        Nous exécuterons l’ordre de vente dès sa réception, vous recevez un email avec les détails de la transaction. Votre somme sera soit<br><br>
+        a. transférée vers votre compte en banque directement à votre IBAN que vous aurez renseigné dans la page <a href="{{ url('compte') }}" target="_blank">« Mon Compte »</a>, dans ce cas 5€ de
+        frais de retrait s’applique.<br>
+        b. ajoutée à votre solde € disponible sur votre compte Cryptizy.
+
+    </p>
+{% endblock %}

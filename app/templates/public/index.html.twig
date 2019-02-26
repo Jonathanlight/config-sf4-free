@@ -1,0 +1,254 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row anim-section-quote">
+            <div class="col s12 m6">
+                <h1 id="" style="text-align: left; font-size: 2.4em; font-family: 'roboto', sans-serif; font-weight: 300; margin-top: 150px;">{{ 'home.header.title-1'|trans }}<br>{{ 'home.header.title-2'|trans }}</h1>
+                <h2 style="text-align: left; font-size: 2.2em;">
+                    {{ 'home.header.sub-title'|trans }}
+                </h2>
+            </div>
+
+            <div class="col s12 m6">
+                <section id="section-quote">
+                    <div class="row mt-2">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn gradient-45deg-indigo-blue gradient-shadow" href="{{ url('register') }}" title="inscription" id="signin" style="z-index: 99; color: #fff; display: block; font-family: 'Open Sans', sans-serif; font-weight: 600" itemprop="url">{{ 'home.form.submit'|trans }}</a>
+                        </div>
+                    </div>
+                    <div class="row mt-2" style="z-index: 99;">
+                        <div class="col s12">
+                            <a target="_blank" href="https://www.youtube.com/watch?v=m-aAa2yRe98" title="video cryptizy" id="signin" style="display: block;" itemprop="url"><i class="material-icons" style="vertical-align: sub">live_tv</i>{{ 'home.header.watch'|trans }}</a>
+                        </div>
+                    </div>
+                    <div class="container-pe-quote">
+                        <div class="pp-quote li-quote-1" data-textquote="quote-text-1">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="Bitcoin">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-2" data-textquote="quote-text-2">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="Bitcoin cash">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-3" data-textquote="quote-text-3">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="Ethereum">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-4" data-textquote="quote-text-4">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="Ethereum Classic">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-5" data-textquote="quote-text-5">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="Litecoin">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-6" data-textquote="quote-text-6">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="Zcash">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-7" data-textquote="quote-text-7">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="Ripple">
+                            </picture>
+                        </div>
+
+                        <div class="pp-quote li-quote-8" data-textquote="quote-text-8">
+                            <picture>
+                                <img src="{{ asset('assets/user/office/img/eos.png') }}" alt="EOS">
+                            </picture>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row mt-10 mb-10" id="coinMarket" style="margin-top: 50px;">
+            <div class="col s12 center">
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AXBTEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix bitcoin euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="bitcoin">
+                        <span id="XXBTZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3ABCHEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix bitcoin cash euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bitcoin cash">
+                        <span id="BCHEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AETHEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix ethereum euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                        <span id="XETHZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AETCEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix ethereum classic euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="ethereum classic">
+                        <span id="XETCZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3ALTCEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix litecoin euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="litecoin">
+                        <span id="XLTCZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AZECEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix zcash euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zcash">
+                        <span id="XZECZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AXRPEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix ripple euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                        <span id="XXRPZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AEOSEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" title="prix eos euro" target="_blank" itemprop="url">
+                    <div class="chip" style="background-color: transparent">
+                        <img src="{{ asset('assets/user/office/img/eos.png') }}" alt="eos">
+                        <span id="XEOSZEUR">10.54 €</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% if (app.request.getLocale()) == 'fr' %}
+        <div class="ux-bg" id="section-explication" style="margin-top: 150px; margin-bottom: 150px;">
+            <img class="wave-test-1" src="{{ asset('assets/user/img/wave-1.png') }}" alt="">
+            <img class="wave-test-2" src="{{ asset('assets/user/img/wave-2.png') }}" alt="">
+            <div class="container row">
+                <div class="col s12 m6">
+                    <embed class="mb-2" src="{{ asset('assets/user/img/svg-homepage/teacher.svg') }}" style="width: 100%;">
+                </div>
+                <div class="col s12 m6">
+                    <h2 style="text-align: left; font-size: 2.4em; font-family: 'roboto', sans-serif; font-weight: 300;">
+                        Vous découvrez l'univers des cryptomonnaies ?
+                    </h2>
+                    <p style="font-size: 2.2em; font-family: 'roboto', sans-serif; font-weight: 300;">
+                        <b>Bénéficiez de 25 minutes de formation gratuite* avec l'un de nos experts</b>
+                    </p>
+                    <p class="mb-5" style="text-align: left; font-size: 2.0em; font-family: 'roboto', sans-serif; font-weight: 300;">
+                        Réservez votre entretien téléphonique pour comprendre les bases du Bitcoin, des cryptomonnaies, de la Blockchain et nous poser toutes vos questions.
+                    </p>
+                    <a href="https://cryptizy.reservio.com/booking/" title="reservio cryptizy" target="_blank" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url">Réservez maintenant !</a>
+                    <p class="mt-5" style="text-align: left; font-family: 'roboto', sans-serif; font-weight: 300;">
+                        *Offre réservée aux utilisateurs de Cryptizy
+                    </p>
+                    <p class="mb-5" style="text-align: left; font-size: 2.0em; font-family: 'roboto', sans-serif; font-weight: 300;">
+                        Formation Blockchain pour les entreprises, <a class="btn gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('formation-blockchain') }}" title="formation blockchain pour les entreprises" id="nav-text" itemprop="url" style="color: darkblue;">cliquez ici</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    <div class="container">
+
+        <div class="row mt-10 mb-10">
+            <div class="col s12 center mb-5">
+                <h3 style="font-size: 2.0em;" class="roboto-light">{{ 'home.avantages.title'|trans }}</h3>
+            </div>
+            <div class="col s12 m4">
+                <img src="{{ asset('assets/user/img/bank.png') }}" style="display: block; margin: auto; max-width: 100px;">
+                <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.regulation.title'|trans }}</h4>
+                <p style="text-align: center; font-size: 1.6em;" class="roboto-light">
+                    {{ 'home.avantages.regulation.content'|trans }}
+                </p>
+            </div>
+            <div class="col s12 m4">
+                <img src="{{ asset('assets/user/img/safebox.png') }}" style="display: block; margin: auto; max-width: 100px;">
+                <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.security.title'|trans }}</h4>
+                <p style="text-align: center; font-size: 1.6em;" class="roboto-light">
+                    {{ 'home.avantages.security.content'|trans }}
+                </p>
+            </div><div class="col s12 m4">
+                <img src="{{ asset('assets/user/img/padlock.png') }}" style="display: block; margin: auto; max-width: 100px;">
+                <h4 class="roboto-light" style="text-align: center;">{{ 'home.avantages.encryption.title'|trans }}</h4>
+                <p style="text-align: center; font-size: 1.6em;" class="roboto-light">
+                    {{ 'home.avantages.encryption.content'|trans }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="pt-10 pb-10" id="section-explication" style="margin-top: 150px;">
+        <img class="wave-test-1" src="{{ asset('assets/user/img/wave-1.png') }}" alt="">
+        <div class="col s12 center mb-5">
+            <h3 style="text-align: center; font-size: 2.2em; display: inline" class="roboto-light">Vous pouvez acheter plus de 8 cryptomonnaies sur Cryptizy</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-bitcoin') }}" title="acheter bitcoin" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="bitcoin">
+                        Comment acheter des Bitcoin ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-bitcoin-cash') }}" title="acheter bitcoin cash" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bitcoin cash">
+                        Comment acheter des Bitcoin Cash ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-ethereum') }}" title="acheter ethereum" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                        Comment acheter des Ethereum ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-ethereum-classic') }}" title="acheter ethereum classic" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="ethereum classic">
+                        Comment acheter des Ethereum Classic ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-litecoin') }}" title="acheter litecoin" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="litecoin">
+                        Comment acheter des Litecoin ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-ripple') }}" title="acheter ripple" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                        Comment acheter des Ripple ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-zcash') }}" title="acheter zcash" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zcash">
+                        Comment acheter des Zcash ?
+                    </a>
+                </div>
+                <div class="col s12 m4 l3">
+                    <a class=" buy waves-effect waves-light btn frame-admin min-height-100 center pt-5 gradient-45deg-cryptizy-white gradient-shadow" href="{{ url('acheter-eos') }}" title="acheter eos" itemprop="url" >
+                        <img src="{{ asset('assets/user/office/img/eos.png') }}" alt="eos">
+                        Comment acheter des EOS ?
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 center">
+            {{ 'home.release'|trans }} :
+            <a href="https://cryptoblog.fr/2018/03/11/cryptizy-nouvel-exchange-francais/" target="_blank" title="cryptoblog" itemprop="url">
+                <img style="display: inline" src="{{ asset('assets/user/office/img/cryptoblog.png') }}" alt="cryptoblog logo" class="responsive-img valign">
+                <p style="display: inline; color: #fff;">Cryptoblog.fr</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

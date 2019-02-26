@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta property="og:locale" content="fr_FR"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.cryptizy.com/"/>
+        <meta property="og:site_name" content="Cryptizy"/>
+        <meta property="og:image" content="https://cryptizy.com/assets/user/img/og-image.jpg"/>
+        <meta property="og:image:width" content="200">
+        <meta property="og:image:height" content="200">
+        <meta property="og:title" content="Cryptizy - Plateforme simple, rapide et sécurisée d'achat et de vente de cryptomonnaies."/>
+        <meta property="og:description" content="Acheter, vendre et transférer du Bitcoin ou d’autres cryptomonnaies. Facile, Rapide et Sécurisée"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta property="twitter:image" content="https://cryptizy.com/assets/user/img/og-image.jpg"/>
+        <meta property="twitter:image:width" content="200">
+        <meta property="twitter:image:height" content="200">
+        <meta property="twitter:title" content="Cryptizy - Plateforme simple, rapide et sécurisée d'achat et de vente de cryptomonnaies."/>
+        <meta property="twitter:description" content="Acheter, vendre et transférer du Bitcoin ou d’autres cryptomonnaies. Facile, Rapide et Sécurisée."/>
+        <link rel="alternate" hreflang="fr" href="https://cryptizy.com" />
+        <meta name="google-site-verification" content="2bJXzzto8OpdU2p7DuvKxviOalj9yRqKDbBmGNbIafc" />
+        <meta name="msapplication-TileColor" content="#00bcd4">
+        <meta name="msapplication-TileImage" content="{{ asset('assets/user/img/favicon.png') }}">
+        <meta name="description" content="Acheter Bitcoin, Ethereum, Litecoin, Ripple et d’autres cryptomonnaies sur Cryptizy : Plateforme facile, Rapide et Sécurisée">
+        <meta name="keywords" content="acheter bitcoin, buy bitcoin, buy ripple, buy ethereum, buy litecoin, buy eos, acheter des bitcoins, acheter ethers, acheter des ethers">
+    {% endblock %}
+    <title>{% block title %}Rapide et sécurisée pour acheter et vendre des Bitcoins et des cryptomonnaies | Cryptizy{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="" />
+        <link rel="icon" href="{{ asset('assets/user/img/favicon.png') }}" sizes="32x32">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/user/img/favicon.png') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/colors.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    {% endblock %}
+</head>
+<body>
+    {% include 'ui-component/header/header.html.twig' %}
+    {% block body %}{% endblock %}
+    {% include 'ui-component/footer/footer.html.twig' %}
+    {% include 'ui-component/footer/scripts.html.twig' %}
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

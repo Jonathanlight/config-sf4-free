@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+{% block header %}{% endblock %}
+{% block nav %}{% endblock %}
+
+{% block body %}
+    <div class="row anim-section-quote" style="margin-bottom: 0px;">
+        <div class="col s12 m4" style="padding: 0px;">
+            <div id="login-page" class="row">
+                {% set domain = app.request.getSchemeAndHttpHost() %}
+                {% set route = path('login') %}
+                {% set local = app.request.locale %}
+                {% set url_login = domain ~ route |split(local, 2)|first  ~ 'login' %}
+                <div class="col s12 card" style="box-shadow: none; background-color: transparent">
+                    <div class="card-content">
+                        {% if error is not null %}
+                            <div class="alert alert-danger" style="background: red !important;color: #fff !important;">
+                                Votre mot de passe ou email est incorrect.
+                            </div>
+                        {% endif %}
+
+                        {{ form_start(form, { attr: { class: 'login-form' } }) }}
+                        <div class="row">
+                            <div class="input-field col s12 center">
+                                <h1 class="login-form-text" style="font-size: 2.4em;">{{ 'login.login'|trans }}</h1>
+                                <h2 class="login-form-text">{{ 'login.subTitle'|trans }}</h2>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix pt-5 yellowcrypt">person_outline</i>
+                                {{ form_widget(form._username) }}
+                                <label for="email">{{ 'login.email'|trans }}</label>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix pt-5 yellowcrypt">lock_outline</i>
+                                {{ form_widget(form._password) }}
+                                <label for="password">{{ 'login.password'|trans }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m12 l12 ml-2 mt-3">
+                                <input class="filled-in cryptochoose" type="checkbox" id="remember-me" />
+                                <label for="remember-me">{{ 'login.remember'|trans }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form_widget(form.submit) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6 m6 l6">
+                                <p class="margin medium-small"><a href="{{ path('register') }}">{{ 'login.signup'|trans }}</a></p>
+                            </div>
+                            <div class="input-field col s6 m6 l6">
+                                <p class="margin right-align medium-small"><a href="#!" class="activator">{{ 'login.passwordForget.url'|trans }}</a></p>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <form class="login-form"action="{{ path('passforget') }}" method="post">
+                            <div class="row">
+                                <div class="input-field col s12 center">
+                                    <a href="https://www.cryptizy.com">
+                                        <img src="{{ asset('assets/user/office/img/logo.png') }}" alt="cryptizy logo" class="responsive-img valign profile-image-login">
+                                    </a>
+                                    <p class="center login-form-text">{{ 'login.passwordForget.content'|trans }}</p>
+                                </div>
+                            </div>
+                            <div class="row margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix pt-5 yellowcrypt">person_outline</i>
+                                    <input class="yellowcrypt" name="emails" id="email" type="email" required>
+                                    <label for="email" class="center-align">{{ 'login.passwordForget.email'|trans }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button type="submit" class="btn waves-effect waves-light col s12 gradient-45deg-cryptizy gradient-shadow">{{ 'login.passwordForget.confirm'|trans }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m8" style="margin: 0px; padding: 0px;">
+           <div class="login-bg"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,169 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row">
+
+                {% if app.session.flashBag.has('success') %}
+                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <p>
+                    <b>
+                        {{ 'user.verified.content1'|trans }}<br>
+                        {{ 'user.verified.content2'|trans }}
+                    </b><br>
+                    {{ 'user.verified.content3'|trans }}
+                </p>
+
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <h4 class="header">{{ 'user.verified.adress.title'|trans }}</h4>
+                        <div class="card">
+                            <form action="{{ path('verif') }}" method="post">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">location_on</i>
+                                    <input id="adresse" name="adresse" required maxlength="200" value="{{ app.user.adresse }}" type="text">
+                                    <label for="adresse">{{ 'user.verified.adress.adress'|trans }}</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">location_on</i>
+                                    <input id="code_postal" name="codepostale" required type="text" value="{{ app.user.codepostale }}" maxlength="6">
+                                    <label for="code_postal">{{ 'user.verified.adress.postal_code'|trans }}</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">location_city</i>
+                                    <input id="ville" name="ville" required maxlength="150" value="{{ app.user.ville }}" type="text">
+                                    <label for="ville">{{ 'user.verified.adress.city'|trans }}</label>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn btn-success waves-effect waves-light mb-3 gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action" style="margin: auto; display: block;">{{ 'user.valid'|trans }}
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="card-widgets" class="seaction col s12 m6 l6">
+                        <h4 class="header">{{ 'user.verified.residence.title'|trans }}</h4>
+                        <div class="card" style="min-height: 257px;">
+                            <div class="card-content">
+                                {% if app.user.loadJustificatifDomicile is not null or  app.user.loadJustificatifDomicile is not empty %}
+                                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                        {{ 'user.verified.sent'|trans }}
+                                    </div>
+                                {% endif %}
+                                <form action="{{ path('upload_document') }}" method="post" enctype="multipart/form-data">
+                                    <div class="col s12 m12">
+                                        <p>{{ 'user.verified.residence.title'|trans }}</p>
+                                    </div>
+                                    <div class="col s12 m12">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>{{ 'user.verified.residence.file'|trans }}</span>
+                                                <input type="file" name="justificatif_domicile" required>
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" placeholder="{{ 'user.verified.residence.file_name'|trans }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <button class="btn btn-success waves-effect waves-light mb-3 gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action" style="margin: auto; display: block;">{{ 'user.verified.send'|trans }}
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="card-widgets" class="seaction col s12 m6 l6">
+                    <h4 class="header">{{ 'user.verified.identite.title'|trans }}</h4>
+                    <div class="card" style="min-height: 257px;">
+                        <div class="card-content">
+                            {% if app.user.loadIdentite is not null or app.user.loadIdentite is not empty %}
+                                <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                    {{ 'user.verified.sent'|trans }}
+                                </div>
+                            {% endif %}
+                            <form action="{{ path('upload_document') }}" method="post" enctype="multipart/form-data">
+                                <div class="col s12 m12">
+                                    <p>{{ 'user.verified.identite.title'|trans }}</p>
+                                </div>
+                                <div class="col s12 m12">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>{{ 'user.verified.identite.file'|trans }}</span>
+                                            <input type="file" name="piece_didentite" required>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="{{ 'user.verified.identite.file_name'|trans }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn btn-success waves-effect waves-light mb-3 gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action" style="margin: auto; display: block;">{{ 'user.verified.send'|trans }}
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l6">
+                    <div id="card-widgets" class="seaction col s12 m12 l12">
+                        <h4 class="header">{{ 'user.verified.selfie.title'|trans }}</h4>
+                        <div class="card" style="min-height: 257px;">
+                            <div class="card-content">
+                                {% if app.user.loadIdentite is not null or app.user.loadIdentite is not empty %}
+                                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                        {{ 'user.verified.sent'|trans }}
+                                    </div>
+                                {% endif %}
+                                <form action="{{ path('upload_document') }}" method="post" enctype="multipart/form-data">
+                                    <div class="col s12 m12">
+                                        <p><b>{{ 'user.verified.selfie.description'|trans }}</b></p>
+                                    </div>
+                                    <div class="col s12 m12">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>{{ 'user.verified.selfie.file'|trans }}</span>
+                                                <input type="file" name="selfie_justify" required>
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" placeholder="{{ 'user.verified.selfie.file_name'|trans }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <button class="btn btn-success waves-effect waves-light mb-3 gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action" style="margin: auto; display: block;">{{ 'user.verified.send'|trans }}
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+<section id="content">
+    <!--start container-->
+    <div class="container">
+        <div class="card gradient-45deg-cryptizy-white gradient-shadow">
+            <div class="row">
+                {% set sommeBtc = 0 %}
+                {% set sommeBch = 0 %}
+                {% set sommeEth = 0 %}
+                {% set sommeEtc = 0 %}
+                {% set sommeLtc = 0 %}
+                {% set sommeZec = 0 %}
+                {% set sommeXrp = 0 %}
+                {% set sommeEos = 0 %}
+                {% if transactions is defined %}
+                    {% for tx in transactions %}
+                        {% if tx.crypto.id == 1 %}
+                            {% set sommeBtc = sommeBtc+ tx.frais %}
+                        {% elseif tx.crypto.id == 2 %}
+                            {% set sommeBch = sommeBch+ tx.frais %}
+                        {% elseif tx.crypto.id == 3 %}
+                            {% set sommeEth = sommeEth+ tx.frais %}
+                        {% elseif tx.crypto.id == 4 %}
+                            {% set sommeEtc = sommeEtc+ tx.frais %}
+                        {% elseif tx.crypto.id == 5 %}
+                            {% set sommeLtc = sommeLtc+ tx.frais %}
+                        {% elseif tx.crypto.id == 6 %}
+                            {% set sommeZec = sommeZec+ tx.frais %}
+                        {% elseif tx.crypto.id == 7 %}
+                            {% set sommeXrp = sommeXrp+ tx.frais %}
+                        {% elseif tx.crypto.id == 8 %}
+                            {% set sommeEos = sommeEos+ tx.frais %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <table class="highlight table-crypto img-crypto nom-crypto">
+                    <thead>
+                    <tr>
+                        <th><img src="{{ asset('assets/user/office/img/btc.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/bch.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/ethereum.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/etc.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/ltc.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/zec.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/ripple.png' ) }}"><p></p></th>
+                        <th><img src="{{ asset('assets/user/office/img/eos.png' ) }}"><p></p></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="font-weight: bold;">
+                        <td>{{ sommeBtc }}</td>
+                        <td>{{ sommeBch }}</td>
+                        <td>{{ sommeEth }}</td>
+                        <td>{{ sommeEtc }}</td>
+                        <td>{{ sommeLtc }}</td>
+                        <td>{{ sommeZec }}</td>
+                        <td>{{ sommeXrp }}</td>
+                        <td>{{ sommeEos }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card gradient-45deg-white gradient-shadow">
+            <div class="row">
+                <table class="highlight table-crypto img-crypto nom-crypto">
+                    <thead>
+                    <tr>
+                        <th>id_transaction</th>
+                        {#<th>Type</th>#}
+                        <th>Exchange</th>
+                        <th>Coin</th>
+                        <th>Cost</th>
+                        <th>Amount</th>
+                        <th>Buy Price</th>
+                        <th>Fees</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if transactions is defined %}
+                        {% for t in transactions %}
+                            <tr>
+                                <td>
+                                    <center>
+                                        <p style="font-size: 13px; text-align: center">
+                                            {{ t.utilisateur.reference }}<br>
+                                            {{ t.reference }}<br>
+                                            {{ t.utilisateur.nom }}
+                                        </p>
+                                    </center>
+                                </td>
+                                {#<td><span class="badge white-text gradient-45deg-yellow-teal gradient-shadow mt-2 mr-2 left">Achat</span></td>#}
+                                <td>{{ t.exchange }}</td>
+                                <td><img src="{{ asset('assets/user/office/img/' ~ t.crypto.image ) }}"><p>{{ t.crypto.name }}</p></td>
+                                <td>{{ t.cost }} €</td>
+                                <td>{{ t.amount }}</td>
+                                <td>{{ t.buyPrice }} €</td>
+                                <td>{{ t.frais }} {{ t.crypto.indice }}</td>
+                                <td>{{ t.created | date('d/m/Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

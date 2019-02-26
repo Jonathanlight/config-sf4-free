@@ -1,0 +1,95 @@
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5 class="white-text">CRYPTIZY</h5>
+                <ul>
+                    <li><a class="white-text" title="à propos" href="{{ url('aPropos') }}" itemprop="url">{{ 'base.footer.aboutUs'|trans }}</a></li>
+                    <li><a class="white-text" title="faq" href="{{ url('faq') }}" itemprop="url">{{ 'base.footer.faq'|trans }}</a></li>
+                    <li><a class="white-text" title="cryptizy blog" href="{{ url('blog') }}" itemprop="url">{{ 'base.footer.blog'|trans }}</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h5 class="white-text">{{ 'base.footer.legal'|trans }}</h5>
+                <ul>
+                    <li><a class="white-text" title="terms" href="{{ url('cgu') }}" itemprop="url">{{ 'base.footer.cgu'|trans }}</a></li>
+                    <li><a class="white-text" title="confidentialité" href="{{ url('privacy') }}" itemprop="url">{{ 'base.footer.privacy'|trans }}</a></li>
+                    <li><a class="white-text" title="aml" href="{{ url('aml') }}" itemprop="url">{{ 'base.footer.aml'|trans }}</a></li>
+                    <li><p></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <p class="white-text"><b>{{ 'base.footer.social'|trans }}</b></p>
+                <ul class="social">
+                    <li>
+                        <a href="https://facebook.com/cryptizy" title="facebook cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/facebook.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/cryptizy" title="twitter cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/twitter.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/cryptizy/" title="instagram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/instagram.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://t.me/cryptizy" title="telegram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/telegram.png') }}" style="display: inline-block; width: 40px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCoiCtRcGzr3Q7br_5aZ7yEA/videos" title="youtube cryptizy" itemprop="url" target="_blank">
+                            <img src="{{ asset('assets/user/img/youtube.png') }}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <p style="text-align: justify">
+                {{ 'base.footer.warning'|trans }}<br><br>
+
+                {{ 'base.footer.warning2'|trans }}<br><br>
+            </p>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                    <p style="text-align: left;">© 2018 Copyright Cryptizy</p>
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right;">
+                        {{ 'home.header.chaintech'|trans }}
+                        <a href="https://www.chaintech.fr" title="chaintech" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/logo-chaintech-ecriture.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right; display: block">
+                        Partenaire :
+                        <a href="https://reparizy.com" title="reparizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/reparizy.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

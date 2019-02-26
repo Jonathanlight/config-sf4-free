@@ -1,0 +1,94 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                    <span id="XXBTZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                    <span id="BCHEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                    <span id="XETHZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                    <span id="XETCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                    <span id="XLTCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                    <span id="XZECZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                    <span id="XXRPZEUR">0.000 €</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <h4 class="header mt-2 ml-2">Nouvel Article</h4>
+                    <form method="post" action="{{ path('adminArticleBlog') }}" enctype="multipart/form-data">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Image</span>
+                                <input type="file" name="image" required>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Image pour l'article">
+                            </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <input id="title" type="text" name="titre" required class="validate">
+                            <label class="active" for="title">Titre de l'article</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <input id="description" type="text" name="description" required class="validate">
+                            <label class="active" for="description">Description de l'article</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select name="categorie">
+                                <option value="" disabled selected>Categorie</option>
+                                {% if allCategories is defined %}
+                                    {% for c in allCategories %}
+                                        <option value="{{ c.id }}">
+                                            {{ c.nom}}
+                                        </option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <textarea id="editor1" name="contenu" class="materialize-textarea" style="min-height: 500px;"></textarea>
+                        </div>
+                        <div class="input-field col m1 s12 mb-4" id="index" style="color: #fff;">
+                            <button class="waves-effect waves-light btn gradient-45deg-indigo-light-blue gradient-shadow"  type="submit" style="color: #fff;">
+                                Soumettre
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content" style="overflow-x: auto;">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AXBTEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                        <span id="XXBTZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3ABCHEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                        <span id="BCHEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AETHEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                        <span id="XETHZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AETCEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                        <span id="XETCZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3ALTCEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                        <span id="XLTCZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AZECEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                        <span id="XZECZEUR">0.000 €</span>
+                    </div>
+                </a>
+                <a href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=KRAKEN%3AXRPEUR&interval=60&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&locale=fr&timezone=exchange" target="_blank">
+                    <div class="chip">
+                        <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                        <span id="XXRPZEUR">0.000 €</span>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="row">
+
+                {% if app.session.flashBag.has('success') %}
+                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if app.session.flashBag.has('error') %}
+                    <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="col m12">
+                    <div class="row">
+                        <h4 class="header mt-2 ml-2" style="display: inline;">{{ 'user.friend.title'|trans }}</h4>
+                    </div>
+                    <div class="row">
+                        <form method="post" action="{{ path('addFriend') }}">
+                            <div class="input-field col s12 m8">
+                                <i class="material-icons prefix" style="color: #2d1dfb">person_add</i>
+                                <input id="emailFriend" name="emailFriend" type="email" class="validate" required>
+                                <label class="active" for="buyPriceBtc">{{ 'user.friend.email'|trans }}</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <button class="waves-effect waves-light btn gradient-45deg-deep-purple-blue gradient-shadow"  type="submit" style="color: #fff; display: block;">{{ 'user.friend.add'|trans }}</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="row">
+                                    <h4 class="header mt-2 ml-2" style="display: inline;">{{ 'user.friend.friends'|trans }}</h4>
+                                </div>
+                                <table class="highlight img-friend">
+                                    <thead>
+                                    <th></th>
+                                    <th>{{ 'user.friend.informations'|trans }}</th>
+                                    <th></th>
+                                    </thead>
+                                    <tbody>
+                                    {% if allFriends is defined %}
+                                    {% for f in allFriends %}
+                                        <tr>
+                                            <td>
+                                                {% if f.utilisateurFriend.avatar is null %}
+                                                    {% if f.utilisateurFriend.genre == 'H' %}
+                                                        <img src="{{ asset('assets/user/office/img/boy.png') }}" alt="avatar" class="circle">
+                                                    {% else %}
+                                                        <img src="{{ asset('assets/user/office/img/girl.png') }}" alt="avatar" class="circle">
+                                                    {% endif %}
+                                                {% else %}
+                                                    <img src="{{ asset('assets/user/office/img/' ~ f.utilisateurFriend.avatar ) }}" alt="" class="circle">
+                                                {% endif %}
+                                            </td>
+                                            <td style="font-size: 13px;">
+                                                {{ f.utilisateurFriend.prenom }} {{ f.utilisateurFriend.nom }}<br>
+                                                {{ f.utilisateurFriend.email }}<br>
+                                            </td>
+                                            <td>
+                                                    <soan type="submit"  class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Accepté</soan>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col s12 m8">
+                            <div class="card">
+                                <div class="row">
+                                    <h4 class="header mt-2 ml-2" style="display: inline;">{{ 'user.friend.demandes'|trans }}</h4>
+                                </div>
+                                <table class="highlight img-friend">
+                                    <thead>
+                                    <th></th>
+                                    <th>Informations</th>
+                                    <th></th>
+                                    </thead>
+                                    <tbody>
+                                    {% if allAskFriends is defined %}
+                                        {% for f in allAskFriends %}
+                                            <tr>
+                                                <td>
+                                                    {% if f.utilisateur.avatar is null %}
+                                                        {% if f.utilisateur.genre == 'H' %}
+                                                            <img src="{{ asset('assets/user/office/img/boy.png') }}" alt="avatar" class="circle">
+                                                        {% else %}
+                                                            <img src="{{ asset('assets/user/office/img/girl.png') }}" alt="avatar" class="circle">
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <img src="{{ asset('assets/user/office/img/' ~ f.utilisateur.avatar ) }}" alt="" class="circle">
+                                                    {% endif %}
+                                                </td>
+                                                <td style="font-size: 13px;">
+                                                    {{ f.utilisateur.prenom }} {{ f.utilisateur.nom }}<br>
+                                                    {{ f.utilisateur.email }}<br>
+                                                </td>
+                                                <td>
+                                                    <form action="{{ path('activeFriend') }}" method="post">
+                                                        <input type="hidden" name="id" value="{{ f.id }}">
+                                                        <button type="submit"  class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Accepté</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--yearly & weekly revenue chart end-->
+    </section>
+{% endblock %}

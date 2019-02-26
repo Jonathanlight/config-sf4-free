@@ -1,0 +1,217 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <!--show crypto market-->
+            {% include 'ui-component/currentCryptos.html.twig' %}
+            <!--card stats start-->
+            <div id="card-stats">
+                <div class="row">
+                    <div class="col s12 m3">
+                        <div class="card frame-admin shadow-grey" style="min-height: 120px; overflow: visible;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin" id="tour-dispo"> {{ solde }} €</h5>
+                                        <p class="no-margin">{{ 'user.home.available'|trans }}</p>
+                                        <p>{{ 'user.home.totalDepot'|trans }} : <span id="soldeDeposit">{{ totalDepose }} €</span></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card frame-admin shadow-grey" style="min-height: 120px;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin" id="tour-total">0</h5>
+                                        <p class="no-margin">{{ 'user.home.totalEq'|trans }}</p>
+                                        <p id="delta">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if app.session.flashBag.has('success') %}
+                    <div class="col s12 l6" >
+                        <div class="card frame-admin shadow-grey min-height-100" style="background: #13C681 !important;color: #fff !important;">
+                            <div class="padding-4" >
+                        {% for msg in app.session.flashBag.get('success') %}
+                            <p class="no-margin"> {{ msg }} </p>
+                        {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if app.session.flashBag.has('error') %}
+                    <div class="col s12 l6" >
+                        <div class="card frame-admin shadow-grey min-height-100" style="background: red !important;color: #fff !important;">
+                            <div class="padding-4" >
+                        {% for msg in app.session.flashBag.get('error') %}
+                            <p class="no-margin"> {{ msg }} </p>
+                        {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+            <!--card stats end-->
+            <div class="row">
+                {% if app.session.flashBag.has('success') %}
+                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if app.session.flashBag.has('error') %}
+                    <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="contenu">
+                    <div class="col s12 m12 l4">
+                        <!--show crypto market-->
+                        {% include 'ui-component/cryptoUser.html.twig' %}
+                    </div>
+                    <div class="col s12 m12 l8">
+                        {% if app.session.flashBag.has('success') %}
+                            <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('success') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if app.session.flashBag.has('error') %}
+                            <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('error') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="card menu" id="choix" style="overflow: visible!important; box-shadow: none;">
+                            <div class="card-tabs categorie-presta">
+                                <ul class="tabs tabs-fixed-width">
+                                    {% if cryptos is defined %}
+                                        {% for crypto in cryptos %}
+                                            <li class="tab col s12 hoverable" id="listecrypto">
+                                                <a id="automobiliste-content" {% if crypto.id == 1 %} class="active" {% endif %} href="#{{ crypto.indice }}">
+                                                    <span id="m-screen">{{ crypto.name }}</span>
+                                                    <span id="s-screen">{{ crypto.name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="card-content" style="background-color: #fff;">
+                                {% if cryptos is defined %}
+                                    {% for crypto in cryptos %}
+                                        <div id="{{ crypto.indice }}">
+                                            <div class=" col-sm-12 titre-crypto">
+                                                <div class="row">
+                                                    <img src="{{ asset('assets/user/office/img/' ~ crypto.image) }}" style="width: 50px; display: block;margin: auto; padding-top: 10px;">
+                                                </div>
+                                                <div class="row">
+                                                    <h1 class="col l4 s12 offset-l4 gradient-shadow"> {{ crypto.name }}</h1>
+                                                </div>
+
+                                                <div class="row">
+                                                    <form method="POST" action="{{ path('sellcrypto-user') }}">
+                                                        <div class="input-field col s12">
+                                                            <input type="hidden" name="target" value="{{ crypto.id }}">
+                                                            <input id="costBtc" name="crypto" type="text" class="validate" required>
+                                                            <label class="active" for="costBtc">{{ 'user.sellPage.qt'|trans }}</label>
+                                                        </div>
+                                                        <p class="col s12">
+                                                            <input id="{{'iban_' ~ crypto.indice }}" name="stateVente" type="radio" value="2" required/>
+                                                            <label for="{{'iban_' ~ crypto.indice }}" style="color: #333">{{ 'user.sellPage.option1_1'|trans }}<a href="{{ url('compte') }}">{{ 'user.sellPage.option1_2'|trans }}</a></label>
+                                                        </p>
+                                                        <p class="col s12">
+                                                            <input id="{{'noiban_' ~ crypto.indice }}" name="stateVente" type="radio" value="1" required/>
+                                                            <label for="{{'noiban_' ~ crypto.indice }}" style="color: #333">{{ 'user.sellPage.option2'|trans }}</label>
+                                                        </p>
+                                                        <div class="input-field col s12 mb-2" id="index" style="color: #fff;">
+                                                            <button class="waves-effect waves-light btn gradient-45deg-cryptizy gradient-shadow"  type="submit" value="Prendre RDV" id="search" style="color: #fff; display: block; margin: auto; border-radius: 0px;"><th>{{ 'user.valid'|trans }}</th></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="contenu" style="background-color: #fff">
+                        <h4 class="header mt-0">{{ 'user.sellPage.history.title'|trans }}</h4>
+                        <table class="highlight table-crypto nom-crypto img-crypto">
+                            <thead>
+                                <tr>
+                                    <th>{{ 'user.id'|trans }}</th>
+                                    <th>{{ 'user.crypto'|trans }}</th>
+                                    <th>{{ 'user.qt'|trans }}</th>
+                                    <th>{{ 'user.sellPage.history.price'|trans }}</th>
+                                    <th>{{ 'user.sellPage.history.solde'|trans }}</th>
+                                    <th>{{ 'user.fees'|trans }}</th>
+                                    <th>{{ 'user.state'|trans }}</th>
+                                    <th>{{ 'user.date'|trans }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if historiqueVentes is defined %}
+                                {% for h in historiqueVentes %}
+                                    <tr>
+                                        <td>{{ h.utilisateur.reference }}</td>
+                                        <td>
+                                            <img src="{{ asset('assets/user/office/img/' ~ h.crypto.image ) }}">
+                                            <p>{{ h.crypto.indice }}</p>
+                                        </td>
+                                        <td> {{ h.sellAmount }}  </td>
+                                        <td> {{ h.sellPrice }} €</td>
+                                        <td>
+                                            {% if h.stateVente == 2 %}
+                                                {{ h.sendVirement }}€<br>
+                                                <span class="gradient-45deg-deep-purple-purple gradient-shadow mt-2" style="display: block;">{{ 'user.sellPage.tobank'|trans }}</span>
+                                            {% else %}
+                                                {{ h.addSolde }} €<br>
+                                                <span class="gradient-45deg-light-blue-indigo gradient-shadow mt-2" style="display: block;">{{ 'user.sellPage.tocryptizy'|trans }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ h.sellPriceMarge }} €</td>
+                                        <td>
+                                            {% if h.state == 0 %}
+                                                <span class="badge white-text gradient-45deg-amber-amber gradient-shadow mt-2 mr-2 left">{{ 'user.pending'|trans }}</span>
+                                            {% else %}
+                                                <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">{{ 'user.executed'|trans }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ h.created | date('d/m/Y') }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

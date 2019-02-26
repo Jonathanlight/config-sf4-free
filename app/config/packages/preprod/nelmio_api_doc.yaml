@@ -1,0 +1,11 @@
+nelmio_api_doc:
+    documentation:
+        host: scrum.com
+        schemes: [https]
+        info:
+            title: Scrum - API
+            description: Source data Api Api scrum.com
+            version: 4.1.2
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/test_bs78wazerty1235436ujYH(?!/doc$) # Accepts routes under /api except /api/doc

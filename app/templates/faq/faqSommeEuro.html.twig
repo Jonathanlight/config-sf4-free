@@ -1,0 +1,13 @@
+{% extends 'base_faq.html.twig' %}
+
+
+{% block body %}
+    <h3>Quelle somme en euros vais-je recevoir lorsque je vends des cryptomonnaies ?</h3>
+    <p style="text-align: justify">
+        La somme en euros que vous allez recevoir est calculé en fonction du prix du marché au moment où nous exécutons votre ordre de vente, à cela nous
+        appliquons nos frais de vente (3%). De ce fait la somme en euros que vous constaterez sur votre compte Cryptizy ou sur votre compte bancaire
+        (voir <a href="{{ url('faqVente') }}" target="_blank">Comment vendre des cryptomonnaies sur Cryptizy ?</a>) sera légèrement différente de celle
+        que vous aurez calculé avec la quantité à vendre multiplié par le prix affiché au moment de soumettre votre ordre de vente.
+
+    </p>
+{% endblock %}

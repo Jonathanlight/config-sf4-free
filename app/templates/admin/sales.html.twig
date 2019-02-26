@@ -1,0 +1,107 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                    <span id="XXBTZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                    <span id="BCHEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                    <span id="XETHZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                    <span id="XETCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                    <span id="XLTCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                    <span id="XZECZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                    <span id="XXRPZEUR">0.000 €</span>
+                </div>
+            </div>
+            <div class="row" id="sales">
+
+                {% if vendres is defined %}
+                    {% for t in vendres %}
+                        <div class="col s12 m6 l4">
+                            <form method="post" action="{{ path('sales') }}">
+                                <div class="card img-crypto nom-crypto all-crypto">
+                                    <div class="col s12">
+                                        {% if t.stateVente == 1 %}
+                                            <span class="white-text gradient-45deg-red gradient-shadow mt-2" style="display: block">Cryptizy</span>
+                                        {% else %}
+                                            <span class="white-text gradient-45deg-green-teal gradient-shadow mt-2" style="display: block">VIREMENT</span>
+                                        {% endif %}
+                                        <center>
+                                            <p style="font-size: 10px; text-align: left;">
+                                                {{ t.utilisateur.reference }}<br>
+                                                {{ t.utilisateur.nom }}
+                                            </p>
+                                        </center>
+                                    </div>
+                                    <div class="input-field col s12 sell">
+                                        <img src="{{ asset('assets/user/office/img/' ~ t.crypto.image ) }}" alt="logo crypto"> <br>
+                                        <p style="text-align: center; font-size: 1.0em;" data-sellAmount="{{ t.sellAmount }}"> {{ t.sellAmount }} {{ t.crypto.indice }} </p>
+                                        <input id="{{ loop.index }}sellAmount" type="text" value="{{ t.sellAmount }}" name="sellAmount" required class="validate sellInput" readonly>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #FF1744">local_offer</i>
+                                        <input id="{{ loop.index }}buyPrice" type="text" name="buyPrice" required class="validate sellPrice">
+                                        <label class="active" for="{{ loop.index }}buyPrice">Sell Price</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #FF1744">euro_symbol</i>
+                                        <input id="{{ loop.index }}amount" type="text" value="" name="sellCost" required class="validate sellSolde">
+                                        <label class="active" for="{{ loop.index }}amount">Earning</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #FF1744">local_grocery_store</i>
+                                        <input id="{{ loop.index }}exchange"  type="text" value="Kraken" name="exchange" required class="validate">
+                                        <label class="active" for="{{ loop.index }}exchange">Exchange</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #FF1744">local_grocery_store</i>
+                                        <input id="{{ loop.index }}pourcentage" type="text" name="pourcentage" required class="validate sellFrais">
+                                        <label class="active" for="{{ loop.index }}pourcentage">%</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #FF1744">date_range</i>
+                                        <input id="{{ loop.index }}created" type="date" name="sellDate" required class="validate">
+                                        <label class="active" for="{{ loop.index }}created">Date</label>
+                                    </div>
+                                    <div class="input-field col s12 mb-4" id="index" style="color: #fff;">
+                                        <input type="hidden" name="id" value="{{ t.id }}">
+                                        <input type="hidden" name="iduser" value="{{ t.utilisateur.id }}">
+                                        <input type="hidden" name="idcrypto" value="{{ t.crypto.id }}">
+                                        <button class="waves-effect waves-light btn-floating gradient-45deg-red gradient-shadow"  type="submit" style="color: #fff; display: block; margin: auto;">
+                                            <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">done</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/user/office/js/calcul-vente.js') }}"></script>
+{% endblock %}

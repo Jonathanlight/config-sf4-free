@@ -1,0 +1,9 @@
+fos_rest:
+    view:
+        view_response_listener:  true
+    format_listener:
+        rules:
+            - { path: ^/test_bs78wazerty1235436ujYH, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+            - { path: '^/', priorities: [ 'html', '*/*'], fallback_format: ~, prefer_extension: true }
+    body_converter:
+        enabled: true

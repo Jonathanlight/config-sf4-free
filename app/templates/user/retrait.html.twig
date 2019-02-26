@@ -1,0 +1,173 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <!--show crypto market-->
+            {% include 'ui-component/currentCryptos.html.twig' %}
+            <!--card stats start-->
+            <div id="card-stats">
+                <div class="row">
+                    <div class="col s12 m3">
+                        <div class="card frame-admin shadow-grey" style="min-height: 120px; overflow: visible;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin" id="tour-dispo"> {{ solde }} €</h5>
+                                        <p class="no-margin">{{ 'user.home.available'|trans }}</p>
+                                        <p>{{ 'user.home.totalDepot'|trans }} : <span id="soldeDeposit">{{ totalDepose }} €</span></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card frame-admin shadow-grey" style="min-height: 120px;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin" id="tour-total">0</h5>
+                                        <p class="no-margin">{{ 'user.home.totalEq'|trans }}</p>
+                                        <p id="delta">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <a title="Virement" class="waves-effect waves-light btn gradient-45deg-white gradient-shadow" href="{{ url('virement') }}" style="display: block; color: #333; border-radius: 0px;"><i class="material-icons" style="vertical-align: bottom;">add</i>{{ 'user.deposit'|trans }} €</a>
+                    </div>
+                </div>
+            </div>
+            <!--card stats end-->
+            <div class="row">
+                <div class="contenu">
+                    <div class="col s12 m6">
+                        {% if app.session.flashBag.has('success') %}
+                            <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('success') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if app.session.flashBag.has('error') %}
+                            <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('error') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="card menu" id="choix">
+                            <div class="card-content" style="">
+                                <div class=" col-sm-12 titre-crypto">
+                                    <div class="row">
+                                        <h1 class="col l4 s12 offset-l4 gradient-shadow">{{ 'user.withdraw'|trans }} €</h1>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <form method="POST" action="{{ path('retrait-user') }}">
+                                            <div class="row">
+                                                <div class="input-field col m6 s12 offset-m2">
+                                                    <i class="material-icons prefix" style="color: #fbc02d">euro_symbol</i>
+                                                    <input id="costBtc" name="solde" maxlength="12" type="text" class="validate" required>
+                                                    <label class="active" for="costBtc">{{ 'user.withdrawPage.amount'|trans }}</label>
+                                                </div>
+                                            </div>
+                                            {#<div class="row">
+                                                {% if user.iban is null %}
+                                                    <div class="input-field col s12">
+                                                        <i class="material-icons prefix" style="color: #fbc02d">euro_symbol</i>
+                                                        <input id="costBtc" name="crypto" type="text" class="validate" required>
+                                                        <label class="active" for="costBtc">{{ 'user.account.iban.iban'|trans }}</label>
+                                                    </div>
+                                                    <div class="input-field col s12">
+                                                        <i class="material-icons prefix" style="color: #fbc02d">euro_symbol</i>
+                                                        <input id="costBtc" name="crypto" type="text" class="validate" required>
+                                                        <label class="active" for="costBtc">{{ 'user.account.iban.bic'|trans }}</label>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="col s12 l4 offset-l4 gradient-45deg-brown-brown gradient-shadow white-text padding-2">
+                                                        {{ 'user.account.iban.monRib'|trans }}<br><br>
+                                                        <b> {{ 'user.account.iban.iban'|trans }}{{ user.iban }}<br>
+                                                            {{ 'user.account.iban.bic'|trans }}{{ user.bic }}
+                                                        </b>
+                                                    </div>
+                                                {% endif %}
+                                            </div>#}
+                                            <div class="row">
+                                                <div class="input-field col s12" id="index" style="color: #fff;">
+                                                    <button class="waves-effect waves-light btn gradient-45deg-amber-amber gradient-shadow"  type="submit"  id="search" style="color: #fff; display: block; margin: auto;">{{ 'user.valid'|trans }}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <!--show crypto market-->
+                        {% include 'ui-component/cryptoUser.html.twig' %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="card-widgets" class="seaction">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <table class="highlight table-crypto img-crypto nom-crypto">
+                                <thead>
+                                <tr>
+                                    <th>{{ 'user.reference'|trans }}</th>
+                                    <th>{{ 'user.withdrawPage.amount'|trans }}</th>
+                                    <th>{{ 'user.withdrawPage.fees'|trans }}</th>
+                                    <th>{{ 'user.withdrawPage.amount_received'|trans }}</th>
+                                    <th>{{ 'user.date'|trans }}</th>
+                                    <th>{{ 'user.state'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if transferts is defined %}
+                                    {% for t in transferts %}
+                                        <tr>
+                                            <td>
+                                                <center>
+                                                    <p style="font-size: 13px; text-align: center">
+                                                        {{ t.utilisateur.reference }}<br>
+                                                        {{ t.utilisateur.email }}<br>
+                                                        {{ t.utilisateur.prenom }} {{ t.utilisateur.nom }}
+                                                    </p>
+                                                </center>
+                                            </td>
+                                            <td>{{ t.solde }} €</td>
+                                            <td>{{ t.marge }} €</td>
+                                            <td>{{ t.montant }} €</td>
+                                            <td>{{ t.created | date('d/m/Y') }}</td>
+                                            <td>
+                                                {% if t.state != 1 %}
+                                                    <span class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2 left">{{ 'user.pending'|trans }}</span>
+                                                {% else %}
+                                                    <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">{{ 'user.executed'|trans }}</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

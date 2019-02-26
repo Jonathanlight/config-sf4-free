@@ -1,0 +1,63 @@
+{% extends 'base_faq.html.twig' %}
+
+
+{% block body %}
+    <h3>Quels sont les frais qui s’appliquent lors de l’achat/vente/transfert de cryptomonnaies ou retraits euros ?</h3>
+    <table>
+        <thead>
+            <th>Frais de dépôt par virement € SEPA</th>
+            <th>Frais d'achat</th>
+            <th>Frais de vente</th>
+            <th>Frais retrait € SEPA</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gratuit</td>
+                <td>1.5% (minimum 1€)</td>
+                <td>0.5% (minimum 1€)</td>
+                <td>5€</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <br>
+        Frais de transfert par cryptomonnaie<br>
+    </p>
+    <table class="">
+        <tr>
+            <th>Bitcoin</th>
+            <td>0.001 BTC</td>
+        </tr>
+        <tr>
+            <th>Bitcoin Cash</th>
+            <td>0.0002 BCH</td>
+        </tr>
+        <tr>
+            <th>Ethereum</th>
+            <td>0.01 ETH</td>
+        </tr>
+        <tr>
+            <th>Ethereum Classic</th>
+            <td>0.01 ETC</td>
+        </tr>
+        <tr>
+            <th>Litecoin</th>
+            <td>0.002 LTC</td>
+        </tr>
+        <tr>
+            <th>Zcash</th>
+            <td>0.002 ZEC</td>
+        </tr>
+        <tr>
+            <th>Ripple</th>
+            <td>0.04 XRP</td>
+        </tr>
+    </table>
+
+    <p>
+        <br>
+        Vos prix d'achat et de vente sont calculés sur la base des prix de Kraken Exchange plus 200 points de base. Cela est dû à la volatilité du marché des cryptomonnaies
+        <br>
+        Il se peut, parfois, que les prix de Kraken Exchange soient indisponibles, dans ce cas nous baserons les calculs sur d'autres données du marché.
+    </p>
+{% endblock %}

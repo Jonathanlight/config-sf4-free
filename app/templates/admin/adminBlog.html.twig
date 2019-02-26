@@ -1,0 +1,140 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            {% if app.session.flashBag.has('success') %}
+                <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if app.session.flashBag.has('error') %}
+                <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="row" id="coinMarket">
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                    <span id="XXBTZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                    <span id="BCHEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                    <span id="XETHZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                    <span id="XETCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                    <span id="XLTCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                    <span id="XZECZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                    <span id="XXRPZEUR">0.000 €</span>
+                </div>
+            </div>
+            <div class="row">
+                <a class="gradient-45deg-deep-purple-blue btn gradient-shadow mt-2 mr-2 mb-2" href="{{ url('adminArticleBlog') }}" title="Rédiger un nouvel article">Rédiger un nouvel article</a>
+            </div>
+            <div class="row">
+                {% if app.session.flashBag.has('success') %}
+                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if app.session.flashBag.has('error') %}
+                    <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="col s12 m8">
+                    <div class="card">
+                        <table class="highlight">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Title</th>
+                                <th>Catégorie</th>
+                                <th>Date</th>
+                                <th>Edit</th>
+                                <th>Url</th>
+                                <th>Show/Hide</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if allArticles is defined %}
+                                {% for a in allArticles %}
+                                    <tr>
+                                        <td>{{ a.id }}</td>
+                                        <td>{{ a.titre }}</td>
+                                        <td>
+                                            {% if a.categorie.nom is defined %} {{ a.categorie.nom }} {% endif %}
+                                        </td>
+                                        <td>{{ a.created|date('d/m/Y H:i') }}</td>
+                                        <td><a class="btn-floating btn waves-effect waves-light gradient-45deg-light-blue-indigo gradient-shadow" href="{{ url('adminEditArticle', {'id': a.id }) }}" title="Editer"><i class="material-icons">edit</i></a></td>
+                                        <td><a class="btn-floating btn waves-effect waves-light gradient-45deg-green-teal gradient-shadow" target="_blank" href="{{ url('articleBlog', {'id': a.id, 'slug': a.titre|replace({' ': '_'}) }) }}" title="Voir"><i class="material-icons">language</i></a></td>
+                                        <td>
+                                            {% if a.etat == 1 %}
+                                                <a class="btn-floating btn waves-effect waves-light gradient-45deg-green-teal gradient-shadow" href="{{ url('adminDeleteArticle', {'id': a.id }) }}" title="Delete">
+                                                    <i class="material-icons" >visibility</i>
+                                                </a>
+                                            {% else %}
+                                                <a class="btn-floating btn waves-effect waves-light gradient-45deg-red gradient-shadow" href="{{ url('adminActiveArticle', {'id': a.id }) }}" title="Active">
+                                                    <i class="material-icons">visibility</i>
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <form class="col s12" method="post" action="{{ path('adminBlog') }}">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">edit</i>
+                                <input id="categorie" name="categorie" maxlength="150" required  type="text">
+                                <label for="categorie">Nouvelle categorie</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button class="btn btn-success waves-effect waves-light right gradient-45deg-indigo-light-blue gradient-shadow" type="submit" name="action">
+                                        {{ 'user.valid'|trans }}
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

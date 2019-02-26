@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Cryptizy - Plateforme simple, rapide et sécurisée d'achat et de vente de cryptomonnaies.">
+    <meta name="keywords" content="cryptomonnaie, crypto, bitcoin, ethereum, ripple, lumen, litecoin, bitcoin cash, zcash, zec, eth, etc, btc, bch, ltc, zec, xrp, xlm, cryptocurrency">
+    <title>{% block title %}Cryptizy - FAQ{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <!-- Favicons-->
+    <link rel="icon" href="{{ asset('assets/user/img/favicon.png') }}" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/user/img/favicon.png') }}">
+    <!-- For iPhone -->
+    <!-- SEO OG-->
+    <link rel="canonical" href="https://www.cryptizy.com/"/>
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.cryptizy.com/"/>
+    <meta property="og:site_name" content="Cryptizy"/>
+    <meta property="og:image" content="https://cryptizy.com/assets/user/img/og-image.jpg"/>
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+    <meta property="og:title" content="{% if article is defined and article is not null %}{{ article.titre }}{% else %}Bienvenue sur le blog de Cryptizy !{% endif %}"/>
+    <meta property="og:description" content="{% if article is defined and article is not null %}{{ article.description }}{% else %}Acheter, vendre et transférer du Bitcoin ou d’autres cryptomonnaies. Facile, Rapide et Sécurisée{% endif %}"/>
+    <!-- SEO -->
+    <!-- SEO TWITTER-->
+    <meta name="twitter:card" content="summary"/>
+    <meta property="twitter:image" content="https://cryptizy.com/assets/user/img/og-image.jpg"/>
+    <meta property="twitter:image:width" content="200">
+    <meta property="twitter:image:height" content="200">
+    <meta property="twitter:title" content="{% if article is defined and article is not null %}{{ article.titre }}{% else %}Bienvenue sur le blog de Cryptizy !{% endif %}"/>
+    <meta property="twitter:description" content="{% if article is defined and article is not null %}{{ article.description }}{% else %}Acheter, vendre et transférer du Bitcoin ou d’autres cryptomonnaies. Facile, Rapide et Sécurisée{% endif %}"/>
+    <!-- SEO -->
+    <meta name="google-site-verification" content="2bJXzzto8OpdU2p7DuvKxviOalj9yRqKDbBmGNbIafc" />
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/user/img/favicon.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="http://materializecss.com/css/ghpages-materialize.css"> -->
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/colors.css') }}">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Hotjar Tracking Code for cryptizy.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:807248,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav id="index-nav">
+        <div class="nav-wrapper">
+            <a href="{{ url('home') }}" id="logo" class="brand-logo">
+                <img src="{{ asset('assets/user/img/logo.png') }}">
+            </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse" id="nav-text"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down" id="listeBoutons" style="margin-right: 40px;">
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('blog') }}" id="nav-text"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                <li><a href="{{ url('faq') }}" id="nav-text"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('office_home') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+                <li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('faq') }}" id="nav-text"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                <li><a href="{{ url('blog') }}" id="nav-text"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('office_home') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container" id="body-container">
+
+    <div class="row">
+        <div class="col m12 l4">
+            <ul class="collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header indigo darken-4 white-text"><i class="material-icons">note</i>Questions générales</div>
+                    <div class="collapsible-body">
+                        <ul class="howto-menu">
+                            <li>
+                                <a href="{{ url('faq') }}">Qu’est-ce que Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqCrypto') }}">Qu’est-ce qu’une Cryptomonnaie ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqDifferenteCrypto') }}">Pourquoi il existe différentes cryptomonnaies ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqWallet') }}">Qu’est-ce qu’un Wallet ?</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header blue darken-4 white-text"><i class="material-icons">swap_horiz</i>Questions sur les opérations</div>
+                    <div class="collapsible-body">
+                        <ul class="howto-menu">
+                            <li>
+                                <a href="{{ url('faqDepot') }}">Comment effectuer un dépôt Euro sur mon compte Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqDepotAutreCompte') }}">Puis-je effectuer un dépôt en euros depuis le compte bancaire d’un ami ou d’un proche ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqTempsDepot') }}">Combien de temps faut-il à mon dépôt pour être crédité sur mon compte Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqAchat') }}">Comment acheter des cryptomonnaies sur Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqVente') }}">Comment vendre des Cryptomonnaies sur Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqFrais') }}">Quels sont les frais qui s’appliquent lors de l’achat/vente/transfert de cryptomonnaies ou retraits euros ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqQuantiteCrypto') }}">Quelle quantité de cryptomonnaies vais-je recevoir lorsque je soumets un ordre d’achat ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqSommeEuro') }}">Quelle somme en euros vais-je recevoir lorsque je vends des cryptomonnaies ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqAnnuleOrdre') }}">Est-ce que je peux annuler ou modifier un ordre d’achat ou de vente ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqRetraitEuro') }}">Est-ce que je peux retirer mon argent de Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqFaireRetrait') }}">Comment faire un retrait en Euro depuis mon compte Cryptizy vers mon compte bancaire ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqRetraitAutreCompte') }}">Puis-je effectuer un retrait vers le compte bancaire d’un ami ou d’un proche ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqTransfertCrypto') }}">Comment transférer mes cryptomonnaies vers mon Wallet ?</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header light-blue darken-4 white-text"><i class="material-icons">perm_identity</i>Questions sur mon compte Cryptizy</div>
+                    <div class="collapsible-body">
+                        <ul class="howto-menu">
+                            <li>
+                                <a href="{{ url('faqCompte') }}">Pourquoi dois-je créer un compte Cryptizy et me connecter à mon compte Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqVerification') }}">Pourquoi mon compte doit-il être vérifié avant de pouvoir effectuer des opérations sur Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqVerificationHow') }}">Comment mon compte Cryptizy est-il vérifié ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqWallet') }}">Pourrais-je ajouter plusieurs adresses de Wallet à mon compte Cryptizy ?</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('faqEmail') }}">Pourrais-je modifier l'adresse email de mon compte Cryptizy ?</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col m12 l8 faq-text">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+    <div class="help">
+        <div class="question">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 help-contenu">
+                        <h2 class="help-header" style="font-size: 30px;">{{ 'home.help.title'|trans }}</h2>
+                        <p id="help-text">{{ 'home.help.content'|trans }}</p>
+                        <p id="help-contact"><a href="tel:+336121212">{{ 'home.help.contact.phone'|trans }}</a> . <a href="mailto:contact@cryptizy.com">{{ 'home.help.contact.email'|trans }}</a></p>
+                    </div>
+                </div>
+                <div class="row help-action">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <ul id="menu-presta">
+                            <li><a href="{{ url('register') }}" class="waves-effect waves-light btn" id="estimations">{{ 'home.help.start'|trans }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5 class="white-text">CRYPTIZY</h5>
+                <ul>
+                    <li><a class="white-text" title="à propos" href="{{ url('aPropos') }}" itemprop="url">{{ 'base.footer.aboutUs'|trans }}</a></li>
+                    <li><a class="white-text" title="faq" href="{{ url('faq') }}" itemprop="url">{{ 'base.footer.faq'|trans }}</a></li>
+                    <li><a class="white-text" title="cryptizy blog" href="{{ url('blog') }}" itemprop="url">{{ 'base.footer.blog'|trans }}</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h5 class="white-text">{{ 'base.footer.legal'|trans }}</h5>
+                <ul>
+                    <li><a class="white-text" title="terms" href="{{ url('cgu') }}" itemprop="url">{{ 'base.footer.cgu'|trans }}</a></li>
+                    <li><a class="white-text" title="confidentialité" href="{{ url('privacy') }}" itemprop="url">{{ 'base.footer.privacy'|trans }}</a></li>
+                    <li><a class="white-text" title="aml" href="{{ url('aml') }}" itemprop="url">{{ 'base.footer.aml'|trans }}</a></li>
+                    <li><p></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <p class="white-text"><b>{{ 'base.footer.social'|trans }}</b></p>
+                <ul class="social">
+                    <li>
+                        <a href="https://facebook.com/cryptizy" title="facebook cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/facebook.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/cryptizy" title="twitter cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/twitter.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/cryptizy/" title="instagram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/instagram.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://t.me/cryptizy" title="telegram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/telegram.png') }}" style="display: inline-block; width: 40px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCoiCtRcGzr3Q7br_5aZ7yEA/videos" title="youtube cryptizy" itemprop="url" target="_blank">
+                            <img src="{{ asset('assets/user/img/youtube.png') }}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <p style="text-align: justify">
+                {{ 'base.footer.warning'|trans }}<br><br>
+
+                {{ 'base.footer.warning2'|trans }}<br><br>
+            </p>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                    <p style="text-align: left;">© 2018 Copyright Cryptizy</p>
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right;">
+                        {{ 'home.header.chaintech'|trans }}
+                        <a href="https://www.chaintech.fr" title="chaintech" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/logo-chaintech-ecriture.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right; display: block">
+                        Partenaire :
+                        <a href="https://reparizy.com" title="reparizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/reparizy.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block javascripts %}{% endblock %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112839619-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112839619-1');
+</script>
+<script type="text/javascript" src="{{ asset('assets/user/js/jquery-3.1.1.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script type="text/javascript">
+    jQuery(function() {
+        var opts = jQuery('#list option').map(function() {
+            return [[jQuery(this).text()]];
+        });
+
+        jQuery('#findItem').keyup(function() {
+
+            var rxp = new RegExp(jQuery('#findItem').val(), 'i');
+            var optlist = jQuery('#list').empty();
+
+            opts.each(function() {
+                if(rxp.test(this[0])) {
+                    optlist.append(jQuery('<option/>').text(this[0]));
+                }
+            });
+
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('.parallax').parallax();
+        $(".button-collapse").sideNav();
+        $('.collapsible').collapsible();
+        $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrainWidth: true, // Does not change width of dropdown to that of the activator
+                hover: false, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: false, // Displays dropdown below the button
+                alignment: 'left', // Displays dropdown with edge aligned to the left of button
+                stopPropagation: false // Stops event propagation
+            }
+        );
+    });
+</script>
+</body>
+</html>

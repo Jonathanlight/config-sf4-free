@@ -1,0 +1,100 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+<section id="content">
+    <!--start container-->
+    <div class="container">
+        <div id="card-widgets" class="seaction">
+
+            {% if app.session.flashBag.has('success') %}
+                <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if app.session.flashBag.has('error') %}
+                <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col s12">
+                    <div id="profile-card-admin" class="card" style="overflow: hidden;">
+                        <div class="card-image waves-effect waves-block waves-light" id="card-compte">
+                            <h5 class="padding-2" style="color: #fff; text-align: center;">Depot par Carte Bancaire</h5>
+                        </div>
+
+                        <div class="row">
+                            <table class="highlight table-crypto img-crypto nom-crypto">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">Utilisateur</th>
+                                    <th>solde</th>
+                                    <th>marge</th>
+                                    <th>montant</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if allDepos is defined %}
+                                    {% for d in allDepos %}
+                                        <tr>
+                                            <td>
+                                                <center>
+                                                    <span style="font-size: 13px; text-align: left;">
+                                                        {{ d.utilisateur.reference|trim }}<br>
+                                                        {{ d.utilisateur.prenom|trim }} {{ d.utilisateur.nom|trim }}<br>
+                                                        {{ d.utilisateur.email|trim }}<br>
+                                                    </span>
+                                                </center>
+                                            </td>
+                                            <td>{{ d.solde }}</td>
+                                            <td>{{ d.marge }}</td>
+                                            <td>{{ d.montant }}</td>
+                                            <td>{{ d.state }}</td>
+                                            <td>{{ d.created | date('d/m/Y H:i') }}</td>
+                                            <td>
+                                                {% if d.state == 0 %}
+                                                <form method="POST" action="{{ path('list_depot_online') }}">
+                                                    <div class="input-field col s12" id="index" style="color: #fff;">
+                                                        <input type="hidden" name="depot_id" value="{{ d.id }}">
+                                                        <input type="hidden" name="user_id" value="{{ d.utilisateur.id }}">
+                                                        <button class="waves-effect waves-light btn gradient-45deg-amber-amber gradient-shadow" type="submit" style="color: #fff; display: block; margin: auto;">{{ 'user.valid'|trans }}</button>
+                                                    </div>
+                                                </form>
+                                                {% else %}
+                                                    <button class="waves-effect waves-light btn gradient-45deg-green-teal gradient-shadow" style="color: #fff; display: block; margin: auto;">Terminer</button>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <form method="POST" action="{{ path('list_depot_disable') }}">
+                                                    <div class="input-field col s12" id="index" style="color: #fff;">
+                                                        <input type="hidden" name="depot_id" value="{{ d.id }}">
+                                                        <input type="hidden" name="user_id" value="{{ d.utilisateur.id }}">
+                                                        <button class="waves-effect waves-light btn gradient-45deg-red-pink gradient-shadow" type="submit" style="color: #fff; display: block; margin: auto;">{{ 'user.disable'|trans }}</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--yearly & weekly revenue chart end-->
+</section>
+{% endblock %}

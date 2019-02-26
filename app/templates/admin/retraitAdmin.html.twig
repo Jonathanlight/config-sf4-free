@@ -1,0 +1,83 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        {% if app.session.flashBag.has('success') %}
+                            <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('success') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <table class="highlight table-crypto img-crypto nom-crypto">
+                            <thead>
+                            <tr>
+                                <th>Réference</th>
+                                <th>Etat</th>
+                                <th>Frais de retrait</th>
+                                <th>Montant à recevoir</th>
+                                <th>IBAN/BIC</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% if retraits is defined %}
+                                    {% for r in retraits %}
+                                        <form method="post" action="{{ path('retraitAdmin') }}">
+                                            <tr>
+                                                <td>
+                                                    <center>
+                                                        <p style="font-size: 13px; text-align: center">
+                                                            {{ r.utilisateur.reference }}<br>
+                                                            {{ r.utilisateur.email }}
+                                                        </p>
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    {% if r.state != 0 %}
+                                                        <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Validé</span>
+                                                    {% else %}
+                                                        <span class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2 left">En cours</span>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ r.marge }} €</td>
+                                                <td>{{ r.montant }} €</td>
+                                                <td>
+                                                    <center>
+                                                        <p style="font-size: 13px; text-align: center">
+                                                            {{ r.utilisateur.prenom }} {{ r.utilisateur.nom }}<br>
+                                                            {{ r.utilisateur.iban }}<br>
+                                                            {{ r.utilisateur.bic }}
+                                                        </p>
+                                                    </center>
+                                                </td>
+                                                <td>{{ r.created | date('d/m/Y') }}</td>
+                                                <td>
+                                                    {% if r.state != 0 %}
+                                                    {% else %}
+                                                        <input type="hidden" name="id" value="{{ r.id }}">
+                                                        <input type="hidden" name="email" value="{{ r.utilisateur.email }}">
+                                                        <input type="hidden" name="prenom" value="{{ r.utilisateur.prenom }}">
+                                                        <button class="waves-effect waves-light btn-floating gradient-45deg-purple-deep-purple gradient-shadow"  type="submit" style="color: #fff; display: block; margin: auto;">
+                                                            <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">done</i>
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        </form>
+                                    {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

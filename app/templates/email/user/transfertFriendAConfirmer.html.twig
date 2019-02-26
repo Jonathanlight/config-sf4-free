@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: #eee;
+        }
+
+        .corps {
+            background-color: #fff;
+            margin: auto;
+            padding: 0 0 20px 0px;
+            width: 80%
+        }
+
+        .img-icon{ width: 306px; padding-top: 7px; }
+
+        p {
+            padding: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        p#email {
+            color: #404040;
+        }
+
+        .title {
+            background-color: #272d4e;
+            color: #fff;
+            background-image: url('http://cryptizy.com/assets/user/img/a.png');
+            padding: 10px;
+        }
+
+        .reponse {
+            margin: 20px auto;
+            width: 200px;
+        }
+
+        .btn-confirme {
+            border: 1px solid #aaa;
+            background: #eee;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .btn-confirme a, .btn-annule a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-confirme h1 {
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        img#coeur {
+            width: 12px;
+        }
+
+        p#merci {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <div style="text-align: center;" >
+        <img src="http://cryptizy.com/assets/user/img/logo.png" class="img-icon" >
+    </div>
+</nav>
+<div class="corps">
+    <div class="title">
+        <h3 style="text-align: center; font-family: 'Roboto', sans-serif; color: #fff;">Transfert à confirmé</h3>
+    </div>
+    <p>
+        {{ prenom }},<br><br>
+
+        Vous avez initier un transfert de {nom crypto} vers votre ami {prenom de l'ami} {nom de l'ami}.<br><br>
+        Pour confirmerce transfert cliquez sur le bouton ci-dessous.
+    </p>
+    <div class="reponse">
+        <div class="btn-confirme">
+            <a href="{{ url('login') }}" target="_blank" style="font-family: 'Robot', sans-serif;">
+                Confirmer
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="details">
+        <div class="corps">
+            <p id="merci">Merci, <br>
+                L'équipe Cryptizy. <br>
+                Avec <a><img id="coeur" src="http://cryptizy.com/assets/user/img/coeur.png"></a>
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Nelmio CORS Configuration
+nelmio_cors:
+  defaults:
+    allow_credentials: false
+    allow_origin: ['https://domaine.com', 'http://localhost:8100']
+    allow_headers: ['DNT', 'X-Mx-ReqToken', 'Keep-Alive', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Authorization', 'X-Custom-Auth']
+    allow_methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    max_age: 0
+    hosts: []
+    origin_regex: false
+    expose_headers: ["Location"]
+    forced_allow_origin_value: ~
+  paths:
+    '^/api/':
+      origin_regex: false
+      allow_origin: ['http://localhost:8100', 'https://domaine.com']
+      allow_headers: ['DNT', 'X-Mx-ReqToken', 'Keep-Alive', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Authorization', 'X-Custom-Auth']
+      allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
+      max_age: 3600
+    '^/':
+      origin_regex: true
+      allow_origin: ['^http://localhost:[0-9^]+']
+      allow_headers: ['DNT', 'X-Mx-ReqToken', 'Keep-Alive', 'User-Agent', 'X-Requested-With', 'If-Modified-Since', 'Cache-Control', 'Content-Type', 'Authorization', 'X-Custom-Auth']
+      allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
+      max_age: 3600
+      hosts: ['^api\.']

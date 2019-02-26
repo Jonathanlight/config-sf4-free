@@ -1,0 +1,23 @@
+{% extends 'base_faq.html.twig' %}
+
+
+{% block body %}
+    <h3>Comment acheter des cryptomonnaies sur Cryptizy ?</h3>
+    <p style="text-align: justify">
+        Pour acheter des cryptomonnaies, vous devez au préalable :<br><br>
+        1. Créer un compte Utilisateur,<br>
+        2. Envoyer les documents nécessaires pour vérifier votre compte utilisateur,<br>
+        3. Effectuer un dépôt Euro pour pouvoir soumettre un ordre d’achat.<br><br>
+        À la suite de cela, dans la page <a title="compte utilisateur" href="{{ url('office_home') }}" target="_blank">« Tableau de bord »</a> de votre compte Utilisateur<br><br>
+        1. cliquez sur le bouton « Acheter » vous serez redirigé vers <a title="achat de cryptomonnaies" href="{{ url('reservation') }}" target="_blank">la page d'achat</a>.<br>
+        2. Sélectionner la cryptomonnaie que vous souhaitez acheter,<br>
+        3. Insérer le montant en Euro que vous souhaitez investir,<br>
+        4. Indiquez si vous souhaitez recevoir la quantité de cryptomonnaie achetée vers un <a title="Définitions d'un Wallet" href="{{ url('faqWallet') }}" target="_blank">Wallet</a> ou si vous souhaitez les conserver sur Cryptizy.com dans
+        le but de les revendre contre Euro.<br><br>
+        Nous exécuterons l’ordre dès sa réception, vous recevez un email avec les détails de la transaction. Vos cryptomonnaies seront<br><br>
+        a.	transférées à l’adresse publique renseignée dans la page <a title="Transfert Cryptomonnaies" href="{{ url('mes_cryptos') }}" target="_blank">« Mes Cryptos »</a>, dans ce cas des frais de transferts s’appliquent (réseau blockchain
+        + service).<br>
+        b.	créditées automatiquement sur votre compte Cryptizy.
+
+    </p>
+{% endblock %}

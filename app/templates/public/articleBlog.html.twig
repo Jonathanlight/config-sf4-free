@@ -1,0 +1,78 @@
+{% extends 'base_blog.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col m12 l8 offset-l2">
+            <div class="row" style="margin-bottom: 0px; margin-top: 50px;">
+                <div class="left">
+                    <img src="{{ asset('/assets/user/office/img/salah.jpg') }}" style="border-radius: 100%; width: 32px; display: inline-block">
+                    <div style="display: inline-block">Par <i>{{ article.utilisateur.prenom }} {{ article.utilisateur.nom }}</i></div>
+                </div>
+                <div class="right">
+                    {{ article.updated|date('d/m/Y') }}
+                </div>
+            </div>
+            <div class="row">
+                <h3 style="font-size: 35px"><b>{{ article.titre }}</b></h3>
+            </div>
+            <div class="row">
+                <img src="{{ asset('document/blog/' ~ article.image) }}" style="width: 100%">
+            </div>
+            <div class="row article-content">
+                {{ article.contenu|raw }}
+                <br><br>
+                <p>
+                    Vous pouvez rejoindre ce <a target="_blank" href="https://www.facebook.com/groups/communaute.cryptizy/">groupe facebook</a>, d'entraide, de discussion et de partage d'informations (actualités, analyses techniques, bons plans, etc.). Vous pourrez discuter et échanger autour de la crypto à volonter avec d'autres personnes intéressées et des membres de la communauté crypto francophone.
+                </p>
+            </div>
+            <div class="row">
+                {% if article.commentaire is defined %}
+                    {% for comment in article.commentaire %}
+                        <div class="card-panel article-commentaire">
+                            {% if comment.utilisateur.genre == 'H' %}
+                                <img src="{{ asset('assets/user/office/img/boy.png') }}" alt="avatar" class="circle responsive-img card-profile-image left gradient-45deg-light-blue-teal gradient-shadow">
+                            {% else %}
+                                <img src="{{ asset('assets/user/office/img/girl.png') }}" alt="avatar" class="circle responsive-img card-profile-image left gradient-45deg-light-blue-teal gradient-shadow">
+                            {% endif %}
+                            <h4><b>{{ comment.utilisateur.nom }}</b></h4>
+                            <p class="article-content">
+                                {{ comment.contenu }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% if app.user %}
+            <div class="row">
+                <div class="card-panel article-commentaire">
+                    <h4>Réagissez à cet article</h4>
+                    <form name="commentaire article" action="{{ path('articleBlog', {'id': article.id}) }}" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" name="contenu" class="materialize-textarea" maxlength="500" required></textarea>
+                                <label for="textarea1">Votre réaction</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="hidden" name="article" value="{{ article.id }}">
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Envoyer
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            {% else %}
+                <div class="row">
+                    <div class="card-panel article-commentaire">
+                        <a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text">{{ 'base.nav.login'|trans }}</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

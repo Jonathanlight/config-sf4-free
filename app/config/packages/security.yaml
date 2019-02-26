@@ -1,0 +1,70 @@
+# http://symfony.com/doc/current/book/security.html
+security:
+    providers:
+        user:
+            entity: { class: App\Entity\Utilisateur, property: email }
+        admin:
+            entity: { class: App\Entity\Admin, property: username }
+    encoders:
+        App\Entity\Utilisateur:
+            algorithm: bcrypt
+        App\Entity\Admin:
+            algorithm: bcrypt
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|img|js)/
+            security: false
+        login:
+            pattern:  ^/api/v1/login
+            stateless: true
+            anonymous: true
+            provider: user
+            form_login:
+                check_path:               /api/v1/login_check
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        api:
+            pattern: ^/api/v1
+            stateless: true
+            anonymous: false
+            provider: user
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+        utilisateur:
+            pattern: ^/user
+            switch_user: true
+            anonymous: true
+            provider: user
+            logout:
+                path: /user/logout
+                target: /
+                invalidate_session: true
+            guard:
+                authenticators:
+                    - App\Security\Guard\UserAuthenticator
+        admin:
+            pattern: ^/admin_xgt45e8
+            switch_user: true
+            anonymous: true
+            provider: admin
+            logout:
+                path:   /admin_xgt45e8/logout
+                target: /
+                invalidate_session: true
+            guard:
+                authenticators:
+                    - App\Security\Guard\AdminAuthenticator
+    access_control:
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/, role: ROLE_USER }
+        - { path: ^/admin_xgt45e8/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin_xgt45e8/, role: ROLE_SUPER_ADMIN }
+        - { path: ^/api/login_check/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/bs78wt4/documentation$, role: IS_AUTHENTICATED_ANONYMOUSLY }

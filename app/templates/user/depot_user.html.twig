@@ -1,0 +1,70 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+<section id="content" style="overflow-x: auto;">
+    <!--start container-->
+    <div class="container">
+
+        <div class="row">
+            <div class="col m12 l8">
+                <div class="row">
+                    <h4 class="header mt-2" style="display: inline;">{{ 'user.deposit_history.title'|trans }}</h4>
+                </div>
+                <div class="row">
+                    <div class="card-content">
+
+                        <div class="row">
+                            <table class="highlight table-crypto img-crypto nom-crypto">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th style="text-align: center">{{ 'user.details'|trans }}</th>
+                                    <th>{{ 'user.amount'|trans }}</th>
+                                    <th>{{ 'user.solde'|trans }}</th>
+                                    <th>{{ 'user.marge'|trans }}</th>
+                                    <th>{{ 'user.type'|trans }}</th>
+                                    <th>{{ 'user.state'|trans }}</th>
+                                    <th>{{ 'user.date'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if depotUser is defined %}
+                                    {% for depot in depotUser %}
+                                        <tr>
+                                            <td><i class="material-icons right">done</i></td>
+                                            <td style="font-size: 13px; text-align: center">
+                                                {{ depot.utilisateur.reference }}<br>
+                                                {{ depot.utilisateur.nom ~ ' '~ depot.utilisateur.prenom }}<br>
+                                                {{ depot.utilisateur.email }}
+                                            </td>
+                                            <td>{{ depot.montant }} €</td>
+                                            <td>{{ depot.solde }} €</td>
+                                            <td>{{ depot.marge }} €</td>
+                                            <td>
+                                                {% if depot.source == 'virement' %}
+                                                    <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Virement</span>
+                                                {% else %}
+                                                    <span class="badge white-text gradient-45deg-blue-grey-blue gradient-shadow mt-2 mr-2 left">Carte Bancaire</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if depot.state == 1 %}
+                                                    <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Valider</span>
+                                                {% else %}
+                                                    <span class="badge white-text gradient-45deg-red-pink gradient-shadow mt-2 mr-2 left">En cours</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ depot.created | date('d/m/Y') }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

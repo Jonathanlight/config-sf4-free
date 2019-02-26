@@ -1,0 +1,89 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                    <span id="XXBTZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                    <span id="BCHEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                    <span id="XETHZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                    <span id="XETCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                    <span id="XLTCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                    <span id="XZECZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                    <span id="XXRPZEUR">0.000 €</span>
+                </div>
+            </div>
+            <div class="row">
+                {% if app.session.flashBag.has('success') %}
+                    <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if app.session.flashBag.has('error') %}
+                    <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                        {% for msg in app.session.flashBag.get('error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="card">
+                    <h4 class="header mt-2 ml-2">Editer l'Article</h4>
+                    <form method="post" action="{{ path('adminEditArticle', { 'id': article.id }) }}" enctype="multipart/form-data">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <input id="title" type="text" name="titre" value="{{ article.titre }}" required class="validate">
+                            <label class="active" for="title">Titre de l'article</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <input id="description" type="text" name="description" value="{{ article.description }}" required class="validate">
+                            <label class="active" for="description">Description de l'article</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                            <textarea id="editor1" name="contenu" class="materialize-textarea" style="min-height: 500px;">{{ article.contenu }}</textarea>
+                        </div>
+                        <div class="input-field col m1 s12 mb-4" id="index" style="color: #fff;">
+                            <input type="hidden" name="id" value="{{ article.id }}" >
+                            <button class="waves-effect waves-light btn gradient-45deg-indigo-light-blue gradient-shadow"  type="submit" style="color: #fff;">
+                                Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+{% endblock %}

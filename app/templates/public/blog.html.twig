@@ -1,0 +1,86 @@
+{% extends 'base_blog.html.twig' %}
+
+{% block body %}
+    <p class="center mt-5">Bienvenue sur le blog de Cryptizy !</p>
+    <div class="row">
+    {% if lastArticle is defined and lastArticle is not null %}
+        <div class="col s12 m8">
+            <a title="Main Blog Post" class="main-blog-post" href="{{ url('articleBlog', {'id': lastArticle.id, 'slug': lastArticle.titre|replace({' ': '_'}) }) }}" style="padding: 0px!important;">
+                <div class="blog-post">
+                    <img src="{{ asset('document/blog/' ~ lastArticle.image) }}" id="main">
+                    <div class="col s12 blog-details">
+                        <div class="blog-box-date">{{ lastArticle.updated|date('d/m/Y') }}</div>
+                        <h1 class="blog-box-header">{{ lastArticle.titre }}</h1>
+                        <p class="blog-box-paragraph">
+                            {% autoescape %}
+                                {{ lastArticle.description[:120]|raw }} ...
+                            {% endautoescape %}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endif %}
+        <div class="col s12 m4 blog-shadow" id="xl-screen" style=" margin-top: 40px; position: relative; padding: 0px;">
+            <p class="gradient-45deg-indigo-light-blue gradient-shadow" style="text-align: center; vertical-align: middle; top: 150px; font-family: Muli, sans-serif; font-size: 25px; color: #fff; display: block">Rejoignez-nous :</p>
+            <div class="mb-5 mt-5" style="margin: auto; width: 216px;">
+                <a target="_blank" href="https://facebook.com/cryptizy">
+                    <img src="{{ asset('assets/user/img/facebook.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://twitter.com/cryptizy" target="_blank">
+                    <img src="{{ asset('assets/user/img/twitter.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://www.instagram.com/cryptizy/" target="_blank">
+                    <img src="{{ asset('assets/user/img/instagram.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://www.youtube.com/channel/UCoiCtRcGzr3Q7br_5aZ7yEA/videos" target="_blank">
+                    <img src="{{ asset('assets/user/img/youtube.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="http://t.me/cryptizy" target="_blank">
+                    <img src="{{ asset('assets/user/img/telegram.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+            </div>
+
+        </div>
+        <div class="col s12 blog-shadow s-screen"  style=" margin-top: 40px; position: relative; padding: 0px;">
+            <p class="gradient-45deg-indigo-light-blue gradient-shadow" style="text-align: center; vertical-align: middle; top: 150px; font-family: Muli, sans-serif; font-size: 25px; color: #fff; display: block">Rejoignez-nous :</p>
+            <div class="mb-5 mt-5" style="margin: auto; width: 216px;">
+                <a target="_blank" href="https://facebook.com/cryptizy">
+                    <img src="{{ asset('assets/user/img/facebook.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://twitter.com/cryptizy" target="_blank">
+                    <img src="{{ asset('assets/user/img/twitter.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://www.instagram.com/cryptizy/" target="_blank">
+                    <img src="{{ asset('assets/user/img/instagram.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="https://www.youtube.com/channel/UCoiCtRcGzr3Q7br_5aZ7yEA/videos" target="_blank">
+                    <img src="{{ asset('assets/user/img/youtube.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+                <a href="http://t.me/cryptizy" target="_blank">
+                    <img src="{{ asset('assets/user/img/telegram.png') }}" style="display: inline-block; width: 40px;">
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        {% if articles is defined and articles is not null %}
+            {% for article in articles|slice(1, 999) %}
+                <div class="col s12 m6 l4">
+                    <a href="{{ url('articleBlog', {'id': article.id, 'slug': article.titre|replace({' ': '_'}) }) }}">
+                        <div class="blog-shadow mb-5" style="min-height: 400px;">
+                            <img src="{{ asset('document/blog/' ~ article.image) }}" style="width: 100%">
+                            <h1 class="blog-box-header" style="color: rgba(0,0,0,0.84);">{{ article.titre }}</h1>
+                            <p style="margin: 10px; color: rgba(0,0,0,0.54);">
+                                {% autoescape %}
+                                    {{ article.description[:120]|raw }} ...
+                                {% endautoescape %}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

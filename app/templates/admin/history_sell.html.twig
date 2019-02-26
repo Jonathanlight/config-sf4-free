@@ -1,0 +1,74 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+<section id="content">
+    <!--start container-->
+    <div class="container">
+        <div id="card-widgets" class="seaction">
+            <div class="card-content">
+                {% set sommeFrais = 0 %}
+                {% if historiqueVentes is defined %}
+                    {% for h in historiqueVentes %}
+                        {% set sommeFrais = sommeFrais + h.sellPriceMarge %}
+                    {% endfor %}
+                {% endif %}
+                <h4 class="header mt-0">Mon historique des ventes</h4>
+                <h4 class="header mt-0" id="totalCA"><b>Total CA : {{ sommeFrais|round(4, 'floor') }} €</b></h4>
+                <table class="highlight table-crypto nom-crypto img-crypto">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Crypto</th>
+                        <th>Quantité</th>
+                        <th>Prix de vente</th>
+                        <th>Solde reçu</th>
+                        <th>Frais</th>
+                        <th>état de l'opération</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if historiqueVentes is defined %}
+                            {% for h in historiqueVentes %}
+                                <tr>
+                                    <td>
+                                        <p style="font-size: 13px; text-align: left">
+                                            {{ h.utilisateur.reference }}<br>
+                                            {{ h.utilisateur.email }}<br>
+                                            {{ h.utilisateur.nom }} {{ h.utilisateur.prenom }}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset('assets/user/office/img/' ~ h.crypto.image ) }}">
+                                        <p>{{ h.crypto.indice }}</p>
+                                    </td>
+                                    <td> {{ h.sellAmount }}  </td>
+                                    <td> {{ h.sellPrice }} €</td>
+                                    <td>
+                                        {% if h.stateVente == 2 %}
+                                            {{ h.sendVirement }}€<br>
+                                            <span class="gradient-45deg-deep-purple-purple gradient-shadow mt-2" style="display: block;">Vers ma banque</span>
+                                        {% else %}
+                                            {{ h.addSolde }} €<br>
+                                            <span class="gradient-45deg-light-blue-indigo gradient-shadow mt-2" style="display: block;">Vers mon solde dispo</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ h.sellPriceMarge }} €</td>
+                                    <td>
+                                        {% if h.state == 0 %}
+                                            <span class="badge white-text gradient-45deg-amber-amber gradient-shadow mt-2 mr-2 left">En cours</span>
+                                        {% else %}
+                                            <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Vendu</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ h.created | date('d/m/Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

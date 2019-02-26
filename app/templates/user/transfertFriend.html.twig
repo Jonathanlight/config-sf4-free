@@ -1,0 +1,166 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <!--show crypto market-->
+                {% include 'ui-component/currentCryptos.html.twig' %}
+            </div>
+            <div class="row">
+                <h4 class="header">{{ 'user.transfert.title_friend'|trans }}</h4>
+            </div>
+            <div class="row">
+                <div class="contenu">
+                    <div class="col s12 m12 l3">
+                        <table class="highlight table-crypto nom-crypto img-crypto">
+                            <thead>
+                            <tr>
+                                <th>{{ 'user.crypto'|trans }}</th>
+                                <th>{{ 'user.amount'|trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/btc.png') }}">
+                                    <p>BTC</p>
+                                </td>
+                                <td>{{ soldecryptos.btcSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/bch.png') }}">
+                                    <p>BCH</p>
+                                </td>
+                                <td>{{ soldecryptos.bchSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}">
+                                    <p>ETH</p>
+                                </td>
+                                <td>{{ soldecryptos.ethSolde }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/etc.png') }}">
+                                    <p>ETC</p>
+                                </td>
+                                <td>{{ soldecryptos.etcSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/ltc.png') }}">
+                                    <p>LTC</p>
+                                </td>
+                                <td>{{ soldecryptos.ltcSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/zec.png') }}">
+                                    <p>ZEC</p>
+                                </td>
+                                <td>{{ soldecryptos.zecSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/ripple.png') }}">
+                                    <p>XRP</p>
+                                </td>
+                                <td>{{ soldecryptos.xrpSolde }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('assets/user/office/img/eos.png') }}">
+                                    <p>EOS</p>
+                                </td>
+                                <td>{{ soldecryptos.eosSolde }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col s12 l9">
+                        {% if app.session.flashBag.has('success') %}
+                            <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('success') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if app.session.flashBag.has('error') %}
+                            <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('error') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="card menu" id="choix">
+                            <div class="card-tabs categorie-presta">
+                                <ul class="tabs tabs-fixed-width">
+                                    {% if cryptos is defined %}
+                                        {% for c in cryptos %}
+                                            <li class="tab col s12 hoverable" id="listecrypto">
+                                                <a title="Sélection de la cryptomonnaie" id="automobiliste-content" {% if c.id == 1 %} class="active" {% endif %} href="#{{ c.indice }}">
+                                                    <span id="m-screen">{{ c.name }}</span>
+                                                    <span id="s-screen">{{ c.name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="card-content" style="">
+                                {% if cryptos is defined %}
+                                    {% for c in cryptos %}
+                                        <div id="{{ c.indice }}">
+                                            <div class=" col-sm-12 titre-crypto">
+                                                <div class="row">
+                                                    <img src="{{ asset('assets/user/office/img/' ~ c.image) }}" style="width: 50px; display: block;margin: auto; padding-top: 10px;">
+                                                </div>
+                                                <div class="row">
+                                                    <h1 class="col l4 s12 offset-l4 gradient-shadow"> {{ c.name }}</h1>
+                                                </div>
+                                                <div class="row">
+                                                    <form method="POST" action="{{ path('transfert-ami') }}">
+                                                        <div class="input-field col m6 s12 l4 offset-l4">
+                                                            <input type="hidden" name="crypto_id" value="{{ c.id }}">
+                                                            <input id="costBtc" name="montant" type="text" class="validate" required>
+                                                            <label class="active" for="costBtc">{{ 'user.transfert.qt'|trans }}</label>
+                                                        </div>
+                                                        <div class="input-field col m6 s12 l4 offset-l4">
+                                                            <i class="material-icons prefix" style="color: #fbc02d">person</i>
+                                                            <select name="friend">
+                                                                <option value="" disabled selected>{{ 'user.transfert.choose_beneficiary'|trans }}</option>
+                                                                {% if allFriends is defined %}
+                                                                    {% for f in allFriends %}
+                                                                        <option value="{{ f.utilisateurFriend.id }}">
+                                                                            {{ f.utilisateurFriend.prenom }} {{ f.utilisateurFriend.nom }}<br>
+                                                                            {{ f.utilisateurFriend.email }}<br>
+                                                                        </option>
+                                                                    {% endfor %}
+                                                                {% endif %}
+                                                            </select>
+                                                            <label>{{ 'user.transfert.beneficiary'|trans }}:</label>
+                                                        </div>
+                                                        <div class="input-field col s12" id="index" style="color: #fff;">
+                                                            <button class="waves-effect waves-light btn gradient-45deg-amber-amber gradient-shadow"  type="submit" id="search" style="color: #fff; display: block; margin: auto;">{{ 'user.valid'|trans }}</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div id="card-widgets" class="seaction">
+                <div class="row">
+                    {% if app.session.flashBag.has('success') %}
+                        <div class="card-panel teal lighten-2">
+                            {% for msg in app.session.flashBag.get('success') %}
+                                {{ msg }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="col s12">
+                        <div id="profile-card-admin" class="card" style="overflow: hidden;">
+                            <div class="card-image waves-effect waves-block waves-light" id="card-compte">
+                                <h5 class="padding-2" style="color: #fff; text-align: center;">Transfert</h5>
+                            </div>
+                            <div class="row">
+                                <table class="highlight table-crypto img-crypto nom-crypto">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Ref</th>
+                                        {#<th>Type</th>#}
+                                        <th>Exchange</th>
+                                        <th>Coin</th>
+                                        <th>Amount</th>
+                                        <th>Adresse wallet</th>
+                                        <th>Date</th>
+                                        <th>-</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if transactions is defined %}
+                                        {% for t in transactions %}
+                                            <form method="post" action="{{ path('user_transfer', {'id': t.utilisateur.id}) }}" >
+                                            <tr>
+                                                <td>
+                                                    <center>
+                                                        <p style="font-size: 13px; text-align: center">
+                                                            {{ t.utilisateur.reference }}<br>
+                                                            {{ t.reference }}<br>
+                                                            {{ t.utilisateur.nom }}
+                                                        </p>
+                                                    </center>
+                                                </td>
+                                                {#<td><span class="badge white-text gradient-45deg-yellow-teal gradient-shadow mt-2 mr-2 left">Achat</span></td>#}
+                                                <td>{{ t.exchange }}</td>
+                                                <td><img src="{{ asset('assets/user/office/img/' ~ t.crypto.image ) }}"><p>{{ t.crypto.name }}</p></td>
+                                                <td>{{ t.amount }}</td>
+                                                <td>{{ t.adresseWallet }}</td>
+                                                <td>
+                                                    {% if t.stateTransfert != 1 %}
+                                                    <div class="input-field">
+                                                        <i class="material-icons prefix" style="color: #3c58b5">date_range</i>
+                                                        <input id="created" type="date" name="created" required class="validate" style="color: #333">
+                                                        <label class="active" for="created">Date</label>
+                                                    </div>
+                                                    {% else %}
+                                                        {{ t.dateTransfert|date('d/m/Y') }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if t.stateTransfert != 1 %}
+                                                    <div class="input-field" id="index" style="">
+                                                        <input type="hidden" name="id" value="{{ t.id }}">
+                                                        {% if t.adresseWallet is null %}
+                                                        <button class="disabled waves-effect waves-light btn gradient-45deg-purple-amber gradient-shadow"  type="submit" style="color: #fff; display: block; margin: auto;">
+                                                            <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">swap_horiz</i>&nbsp;&nbsp;
+                                                            <span style="color: #fff">Valide</span>
+                                                        </button>
+                                                        {% else %}
+                                                            <button class="waves-effect waves-light btn gradient-45deg-purple-amber gradient-shadow"  type="submit" style="color: #fff; display: block; margin: auto;">
+                                                                <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">swap_horiz</i>&nbsp;&nbsp;
+                                                                <span style="color: #fff">Valide</span>
+                                                            </button>
+                                                        {% endif %}
+                                                    </div>
+                                                    {% else %}
+                                                        <button class="disabled waves-effect waves-light btn gradient-45deg-purple-amber gradient-shadow" style="color: #fff; display: block; margin: auto;">
+                                                            <i class="material-icons prefix" style="color:#fff; right: 0px; bottom: 0px; left: 0px">done</i>
+                                                            <span style="color: #fff">Transfert</span>
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            </form>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

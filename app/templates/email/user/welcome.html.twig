@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: #eee;
+        }
+
+        .corps {
+            background-color: #fff;
+            margin: auto;
+            padding: 0 0 20px 0px;
+            width: 80%
+        }
+
+        .img-icon{ width: 306px; padding-top: 7px; }
+
+        p {
+            padding: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        p#email {
+            color: #404040;
+        }
+
+        .title {
+            background-color: #272d4e;
+            color: #fff;
+            background-image: url('http://cryptizy.com/assets/user/img/a.png');
+            padding: 10px;
+        }
+
+        .reponse {
+            margin: 20px auto;
+            width: 200px;
+        }
+
+        .btn-confirme {
+            border: 1px solid #aaa;
+            background: #eee;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .btn-confirme a, .btn-annule a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-confirme h1 {
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        img#coeur {
+            width: 12px;
+        }
+
+        p#merci {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <div style="text-align: center;" >
+        <img src="http://cryptizy.com/assets/user/img/logo.png" class="img-icon" >
+    </div>
+</nav>
+<div class="corps">
+    <div class="title">
+        <h3 style="text-align: center; font-family: 'Roboto', sans-serif; color: #fff;">Bienvenue</h3>
+    </div>
+    <p>
+        {{ prenom }},<br><br>
+        Bienvenue et merci d'avoir créé votre compte sur Cryptizy. Vous aurez très bientôt la possibilité d'acheter et de vendre des cryptomonnaies sur une plateforme intuitive et rapide.</br><br>
+        Pour respecter le cadre légal en place, le régulateur nous impose des règles en matière de lutte contre le blanchiment d'argent et le financement du terrorisme.<br><br>
+        Pour respecter ces règles, chaque utilisateur doit vérifier son compte. Vous pouvez le faire en cliquant sur le bouton ci-dessous :
+    </p>
+    <div class="reponse">
+        <div class="btn-confirme">
+            <a href="{{ url('login') }}">Vérifier mon compte</a>
+        </div>
+    </div>
+    <br>
+    <p>
+        Après vérification de votre compte, vous pourrez déposer la somme que vous souhaitée pour commencer à acheter les cryptomonnaies que vous voulez.<br><br>
+        Si vous avez des questions n'hésitez pas à consulter notre page <a href="#" target="_blank">FAQ</a>. Si vous ne trouvez pas les réponses à vos interrogations, n'hésitez pas à nous contacter à support@cryptizy.com ou au 06 21 77 43 54.<br><br>
+
+        Vous pouvez également nous suivre sur les réseaux sociaux <a href="https://www.facebook.com/cryptizy/" target="_blank">Facebook</a>,<a href="https://twitter.com/cryptizy" target="_blank">Twitter</a> ou encore <a href="https://www.instagram.com/cryptizy/" target="_blank">Instagram</a>. Nous partagerons les nouvelles mises à jour et les nouveautés de Cryptizy.<br><br>
+        Merci encore pour votre inscription !
+    </p>
+    <div class="details">
+        <div class="corps">
+            <p id="merci">Merci, <br>
+                L'équipe Cryptizy. <br>
+                Avec <a><img id="coeur" src="http://cryptizy.com/assets/user/img/coeur.png"></a>
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block nav %}{% endblock %}
+{% block body %}
+    <div class="row anim-section-quote" style="margin-bottom: 0px;">
+
+        <div class="col s12 m5" style="padding: 0px; background: #fff;">
+            <div id="login-page" class="row">
+
+                {% set domain = app.request.getSchemeAndHttpHost() %}
+                {% set route = path('register') %}
+                {% set local = app.request.locale %}
+                {% set url_register = domain ~ route |split(local, 2)|first  ~ local ~'/register' %}
+                <script>
+                    fbq('track', 'CompleteRegistration');
+                </script>
+                <div class="col s12 card" style="box-shadow: none;">
+
+                    {{ form_start(form, { attr: { class: 'login-form' } }) }}
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            {% if app.session.flashBag.has('success') %}
+                                <div class="alert alert-success" style="background: #13C681 !important;color: #fff !important;">
+                                    {% for msg in app.session.flashBag.get('success') %}
+                                        {{ msg }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            {% if app.session.flashBag.has('error') %}
+                                <div class="alert alert-danger" style="background: red !important;color: #fff !important;">
+                                    {% for msg in app.session.flashBag.get('error') %}
+                                        {{ msg }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <h1 class="login-form-text" style="font-size: 2.4em;">{{ 'register.register'|trans }}</h1>
+                            <p class="center login-form-text">{{ 'register.title'|trans }}</p>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <p class="col s12">
+                            {{ form_widget(form.genre) }}
+                            {{ form_errors(form.genre) }}
+                        </p>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix pt-5 yellowcrypt">person_outline</i>
+                            {{ form_widget(form.prenom) }}
+                            {{ form_errors(form.prenom) }}
+                            <label for="prenom">{{ 'register.prenom'|trans }}</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix pt-5 yellowcrypt">person_outline</i>
+                            {{ form_widget(form.nom) }}
+                            {{ form_errors(form.nom) }}
+                            <label for="nom">{{ 'register.nom'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5 yellowcrypt">cake</i>
+                            {{ form_widget(form.datenaissance) }}
+                            {{ form_label(form.datenaissance) }}
+                            {{ form_errors(form.datenaissance) }}
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5 yellowcrypt">mail_outline</i>
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                            <label for="email">{{ 'register.email'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5 yellowcrypt">call</i>
+                            {{ form_errors(form.telephone) }}
+                            {{ form_widget(form.telephone) }}
+                            <label for="tel">{{ 'register.phone'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <p style="text-align: justify; color: #555; font-size: 10px;margin-left: 53px;">
+                            {{ 'register.requirement.must'|trans }}<br>
+                            {{ 'register.requirement.maxLength'|trans }} <br>
+                            {{ 'register.requirement.lower'|trans }} <br>
+                            {{ 'register.requirement.upper'|trans }} <br>
+                            {{ 'register.requirement.digit'|trans }} <br>
+                            {{ 'register.requirement.special'|trans }} <br>
+                        </p>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5 yellowcrypt">lock_outline</i>
+                            <span class="red-text">{{ form_errors(form.password.first) }} </span>
+                            {{ form_widget(form.password.first) }}
+                            <label for="password">{{ 'register.password'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5 yellowcrypt">lock_outline</i>
+                            {{ form_widget(form.password.second) }}
+                            <label for="passwordConfirm">{{ 'register.passwordConfirm'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>
+                            <input type="checkbox" class="filled-in cryptochoose" id="cgu" required/>
+                            <label for="cgu">{{ 'register.acceptLegal1'|trans }}<a target="_blank" href="{{ url('cgu') }}">{{ 'register.acceptLegal2'|trans }}</a>, <a target="_blank" href="{{ url('privacy') }}">{{ 'register.acceptLegal3'|trans }}</a>{{ 'register.acceptLegal4'|trans }}<a href="{{ url('aml') }}" target="_blank">{{ 'register.acceptLegal5'|trans }}</a>{{ 'register.acceptLegal6'|trans }}</label>
+                        </p>
+                        <div class="input-field col s12 mb-5">
+                            {{ form_widget(form.submit) }}
+                        </div>
+                        <p class="center login-form-text"><b><i>{{ 'register.spamAlert'|trans }}</i></b></p>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m8 l8">
+                            <p class="margin medium-small"><a href="{{ url('login') }}">{{ 'register.login'|trans }}</a></p>
+                        </div>
+                    </div>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <div class="row">
+                            <p style="text-align: justify; color: #555; font-size: 10px;">
+                                {{ 'register.cnil1'|trans }}<br>
+                                <br>
+                                {{ 'register.cnil2'|trans }}<br>
+                                <br>
+                                {{ 'register.cnil3'|trans }}
+                            </p>
+                        </div>
+                    {% endif %}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m7" style="padding: 0px;">
+            <div class="register-bg"></div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}{% endblock %}
+
+
+

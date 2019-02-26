@@ -1,0 +1,8 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        stripe_key: '%env(STRIPE_KEY)%'
+        depot:
+            permission: '%env(AUTHORIZATION_DEPOT)%'

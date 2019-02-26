@@ -1,0 +1,110 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content" ng-app="myApp" ng-controller="myCtrl">
+        <!--start container-->
+        <div class="container">
+
+            {% if app.session.flashBag.has('success') %}
+                <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if app.session.flashBag.has('error') %}
+                <div class="card-panel teal red" style="background: red !important;color: #fff !important;">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="card menu" id="choix" style="overflow: visible">
+
+                <div id="inscrit">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input id="search" type="text" placeholder="Search" ng-model="search" class="validate">
+                        </div>
+                    </div>
+
+                    <table class="bordered">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Active</th>
+                            <th>Verification</th>
+                            <th>Référence</th>
+
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Tel</th>
+                            <th>Date</th>
+
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% verbatim %}
+                                  <tr ng-repeat="user in reponses | filter:search">
+                                    <td>{{ user.id }}</td>
+                                    <td>
+                                        <span ng-if="user.active == '0'" class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2 left">En cours</span>
+                                        <span ng-if="user.active == '1'" class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Valider</span>
+                                    </td>
+                                    <td>
+                                        <span ng-if="user.validated == '0'" class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2 left">En cours</span>
+                                        <span ng-if="user.validated == '1'" class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Verifier</span>
+                                    </td>
+                                    <td>{{ user.reference }}</td>
+
+                                    <td>{{ user.nom }}</td>
+                                    <td>{{ user.prenom }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.telephone }}</td>
+                                    <td>{{ user.created|date:'medium' }}</td>
+                                    <td><a class="btn-floating  waves-effect waves-light gradient-45deg-indigo-light-blue gradient-shadow" href="https://cryptizy.com/admin_xgt45e8/details_user/{{ user.id }}"><i class="material-icons right">visibility</i></a></td>
+                                    <td><a class="btn-floating  waves-effect waves-light red" href="https://cryptizy.com/admin_xgt45e8/reloadmail/{{ user.reference }}" title="Relancer un mail au compte"><i class="material-icons">contact_mail</i></a></td>
+                                    <td><a class="btn-floating  waves-effect waves-light red" href="https://cryptizy.com/admin_xgt45e8/reloadmailverification/{{ user.reference }}" title="Relancer un mail au compte"><i class="material-icons">beenhere</i></a></td>
+                                    <td><a class="btn-floating  waves-effect waves-light red" href="https://cryptizy.com/?_switch_user={{ user.email }}" title="Ce connecté"><i class="material-icons">fingerprint</i></a></td>
+                                  </tr>
+                        {% endverbatim %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+        <!--yearly & weekly revenue chart end-->
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="https://code.angularjs.org/1.1.5/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    {% if app.request.server.get('SERVER_NAME') == "localhost" %}
+        var host = "http://{{ app.request.server.get('HTTP_HOST') }}";
+    {% else %}
+        var host = "https://{{ app.request.server.get('HTTP_HOST') }}";
+    {% endif %}
+    var url = host + "/api/admin_xgt45e8/dashboard/users";
+
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get(url)
+            .then(function(response) {
+                $scope.reponses = response.data;
+            });
+    });
+</script>
+{% endblock %}

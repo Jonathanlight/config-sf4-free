@@ -1,0 +1,182 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row" id="coinMarket">
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/btc.png') }}" alt="btc">
+                    <span id="XXBTZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/bch.png') }}" alt="bch">
+                    <span id="BCHEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ethereum.png') }}" alt="ethereum">
+                    <span id="XETHZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/etc.png') }}" alt="etc">
+                    <span id="XETCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ltc.png') }}" alt="ltc">
+                    <span id="XLTCZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/zec.png') }}" alt="zec">
+                    <span id="XZECZEUR">0.000 €</span>
+                </div>
+                <div class="chip">
+                    <img src="{{ asset('assets/user/office/img/ripple.png') }}" alt="ripple">
+                    <span id="XXRPZEUR">0.000 €</span>
+                </div>
+            </div>
+            <!--card stats start-->
+            <div id="card-stats">
+                <div class="row">
+
+                    <div class="col s12 m3 l3">
+                        <div class="card gradient-45deg-indigo-blue gradient-shadow min-height-100 white-text">
+                            <div class="padding-4">
+                                <div class="col s3">
+                                    <i class="material-icons background-round mt-5">euro_symbol</i>
+                                    <p></p>
+                                </div>
+                                <div class="col s9 right-align">
+                                    <h5 class="mb-0"> {{ soldeGerer|number_format(2, '.', ',') }} €</h5>
+                                    <p class="no-margin">Volume géré</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3 l3">
+                        <div class="card gradient-45deg-indigo-blue gradient-shadow min-height-100 white-text">
+                            <div class="padding-4">
+                                <div class="col s3">
+                                    <i class="material-icons background-round mt-5">euro_symbol</i>
+                                    <p></p>
+                                </div>
+                                <div class="col s9 right-align">
+                                    <h5 class="mb-0"> {{ soldeDispo|number_format(2, '.', ',') }} €</h5>
+                                    <p class="no-margin">Total non utilisé</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3 l3">
+                        <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text">
+                            <div class="padding-4">
+                                <div class="col s3">
+                                    <i class="material-icons background-round mt-5">euro_symbol</i>
+                                    <p></p>
+                                </div>
+                                <div class="col s9 right-align">
+                                    <h5 class="mb-0"> {{ chiffreAffaire|number_format(2, '.', ',') }} €</h5>
+                                    <p class="no-margin">Chiffre d'affaires</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3 l3">
+                        <div class="card gradient-45deg-brown-brown gradient-shadow min-height-100 white-text">
+                            <div class="padding-4">
+                                <div class="col s3">
+                                    <i class="material-icons background-round mt-5">group</i>
+                                    <p></p>
+                                </div>
+                                <div class="col s9 right-align">
+                                    <h5 class="mb-0"> {{ totalUser }}</h5>
+                                    <p class="no-margin">Utilisateurs</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--card stats end-->
+            <div class="row" id="achat">
+                {% if transactions is defined %}
+                    {% for t in transactions %}
+                        <div class="col s12 m6 l4 blog-shadow" style="background-color: #fff;margin-bottom: 10px;">
+                            <div class="img-crypto nom-crypto">
+                                <form method="post" action="{{ path('dashboard') }}">
+                                    <div class="col s12">
+                                        <center>
+                                            <p style="font-size: 13px; text-align: center">
+                                                {{ t.utilisateur.reference }}<br>
+                                                {{ t.reference }}<br>
+                                                {{ t.utilisateur.nom }}
+                                            </p>
+                                        </center>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <img src="{{ asset('assets/user/office/img/' ~ t.crypto.image ) }}">
+                                        <p>{{ t.crypto.name }}</p>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <p style="text-align: center; font-size: 1.5em;">{{ t.cost }} €</p>
+                                        <input id="invested" type="text" value="{{ t.cost }}" name="invested" required class="validate achat-investi" readonly>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                                        <input id="frais" value="" type="text" name="pourcentagefrais" required class="validate achat-frais">
+                                        <label class="active" for="frais">% Frais</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                                        <input id="buyPrice" type="text" name="buyPrice" required class="validate achat-prix">
+                                        <label class="active" for="buyPrice">Buy Price</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #3c58b5">layers</i>
+                                        <input id="amount" type="text" name="amount" required class="validate achat-montant">
+                                        <label class="active" for="amount">Amount</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #3c58b5">local_grocery_store</i>
+                                        <input id="exchange" value="Kraken"  type="text" name="exchange" required class="validate">
+                                        <label class="active" for="exchange">Exchange</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix" style="color: #3c58b5">date_range</i>
+                                        <input id="created" type="date" name="created" required class="validate">
+                                        <label class="active" for="created">Date</label>
+                                    </div>
+                                    <div class="input-field col s12 mb-4" id="index" style="color: #fff;">
+                                        <input type="hidden" name="id" value="{{ t.id }}">
+                                        <input type="hidden" name="iduser" value="{{ t.utilisateur.id }}">
+                                        <input type="hidden" name="idcrypto" value="{{ t.crypto.id }}">
+                                        <button class="waves-effect waves-light btn-floating gradient-45deg-indigo-light-blue gradient-shadow"  type="submit" value="Prendre RDV" style="color: #fff; display: block; margin: auto;">
+                                            <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">done</i>
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <!--yearly & weekly revenue chart start-->
+            <div id="sales-chart">
+                <div class="row">
+                    <div class="col s12 m8 l8">
+
+                    </div>
+                    <div class="col s12 m4 l4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--yearly & weekly revenue chart end-->
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/user/office/js/calcul-achat.js') }}"></script>
+{% endblock %}

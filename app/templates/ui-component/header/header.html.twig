@@ -1,0 +1,57 @@
+<div class="navbar-fixed">
+    <nav id="index-nav">
+        <div class="nav-wrapper">
+            <a href="{{ url('home') }}" id="logo" class="brand-logo" title="logo cryptizy" itemprop="url">
+                <img src="{{ asset('assets/user/img/logo.png') }}">
+            </a>
+            <a href="#" data-activates="mobile-demo" title="menu" class="button-collapse" id="nav-text" itemprop="url"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down" id="listeBoutons" style="margin-right: 40px;">
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('blog') }}" title="blog cryptizy" id="nav-text" itemprop="url"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                <li><a href="{{ url('faq') }}" title="faq cryptizy" id="nav-text" itemprop="url"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                {% if (app.request.getLocale()) == 'fr' %}
+                    <li><a href="{{ url('formation-blockchain') }}" title="formation blockchain pour les entreprises" id="nav-text" itemprop="url"><p>Pour les entreprises</p></a></li>
+                {% endif %}
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('dashboard_user') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+                <li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 43px;">
+                        </a>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 43px;">
+                        </a>
+                    {% endif %}
+                </li>
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('blog') }}" id="nav-text" itemprop="url"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                <li><a href="{{ url('faq') }}" id="nav-text" itemprop="url"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('dashboard_user') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

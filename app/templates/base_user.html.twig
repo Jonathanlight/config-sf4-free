@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112839619-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112839619-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Cryptizy permet d'acheter et de détenir très facilement des cryptos. ">
+    <meta name="keywords" content="cryptomonnaie, crypto, bitcoin, ethereum, ripple, lumen, litecoin, bitcoin cash, zcash, zec, eth, etc, btc, bch, ltc, zec, xrp, xlm, cryptocurrency">
+    <title>Cryptizy</title>
+    <!-- Favicons-->
+    <link rel="icon" href="{{ asset('assets/user/img/favicon.png') }}" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/user/img/favicon.png') }}">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/user/img/favicon.png') }}">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="{{ asset('assets/user/office/css/materialize.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/user/office/css/style.css') }}" type="text/css" rel="stylesheet">
+    <!-- Custome CSS-->
+    <link href="{{ asset('assets/user/office/css/custom.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/user/office/css/sweetalert.css') }}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="{{ asset('assets/user/office/css/perfect-scrollbar.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/user/office/css/jquery-jvectormap.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/user/office/css/flag-icon.min.css') }}" type="text/css" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body class="layout-semi-dark">
+{% block header %}
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color">
+                <div class="nav-wrapper">
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
+                              <span class="avatar-status avatar-online">
+                                  {% if app.user is defined and app.user is not null %}
+                                    {% if app.user.genre == 'H' %}
+                                        <img src="{{ asset('assets/user/office/img/boy.png') }}" alt="avatar">
+                                    {% else %}
+                                        <img src="{{ asset('assets/user/office/img/girl.png') }}" alt="avatar">
+                                    {% endif %}
+                                  {% endif %}
+                                <i></i>
+                              </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- profile-dropdown -->
+                    <ul id="profile-dropdown" class="dropdown-content">
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ url('logout_user') }}" class="grey-text text-darken-1">
+                                <div class="chip">
+                                    <i class="close material-icons">close</i>Logout
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            {% if (app.request.getLocale()) == 'fr' %}
+                                <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                    <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 43px;">
+                                </a>
+                            {% endif %}
+                            {% if (app.request.getLocale()) == 'en' %}
+                                <a href="{{ path('home', app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                    <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 43px;">
+                                </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+{% endblock %}
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            <!-- START LEFT SIDEBAR NAV-->
+            {% block nav %}
+            <aside id="left-sidebar-nav" class="nav-expanded nav-lock nav-collapsible">
+                <div class="brand-sidebar">
+                    <h1 class="logo-wrapper">
+                        <a href="{{ url('dashboard_user') }}" class="brand-logo darken-1">
+                            <img src="{{ asset('assets/user/office/img/logo.png') }}" alt="cryptizy logo">
+                        </a>
+                        <a href="#" class="navbar-toggler">
+                            <i class="material-icons" style="color: #000;">radio_button_checked</i>
+                        </a>
+                    </h1>
+                </div>
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="no-padding">
+                        <ul class="collapsible" data-collapsible="accordion">
+
+                            <li class="bold">
+                                <a class="waves-effect waves-cyan active" href="{{ path('dashboard_user') }}">
+                                    <i class="material-icons">dashboard</i>
+                                    <span class="nav-text">{{ 'menu.user.tableau_bord'|trans }}</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a class="waves-effect waves-cyan" href="{{ path('compte') }}" >
+                                    <i class="material-icons">account_circle</i>
+                                    <span class="nav-text">{{ 'menu.user.mon_compte'|trans }}</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan">
+                                    <i class="material-icons">euro_symbol</i>
+                                    <span class="nav-text">{{ 'menu.user.depot_retrait.title'|trans }}</span>
+                                </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('virement') }}">
+                                                <i class="material-icons">keyboard_arrow_right</i>
+                                                <span>{{ 'menu.user.depot_retrait.depot'|trans }}</span>
+                                            </a>
+                                        </li>
+                                        <li class="bold">
+                                            <a href="{{ path('depot_user') }}" class="waves-effect waves-cyan">
+                                                <i class="material-icons">history</i>
+                                                <span class="nav-text">{{ 'menu.user.historique_depot'|trans }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('retrait-user') }}">
+                                                <i class="material-icons">keyboard_arrow_right</i>
+                                                <span>{{ 'menu.user.depot_retrait.retrait'|trans }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan">
+                                    <i class="material-icons">swap_horiz</i>
+                                    <span class="nav-text">{{ 'menu.user.achat_vente'|trans }}</span>
+                                </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('reservation') }}">
+                                                <i class="material-icons">keyboard_arrow_right</i>
+                                                <span>{{ 'user.buy'|trans }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('sell') }}">
+                                                <i class="material-icons">keyboard_arrow_right</i>
+                                                <span>{{ 'user.sell'|trans }}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('transfert-crypto') }}" class="waves-effect waves-cyan">
+                                                <i class="close material-icons">keyboard_arrow_right</i>
+                                                <span class="nav-text">{{ 'menu.user.transfert'|trans }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan">
+                                    <i class="material-icons">group</i>
+                                    <span class="nav-text">{{ 'menu.user.mes_amis'|trans }}</span>
+                                </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('transfert-ami') }}" class="waves-effect waves-cyan">
+                                                <i class="close material-icons">swap_horiz</i>
+                                                <span class="nav-text">{{ 'menu.user.transfert_ami'|trans }}</span>
+                                            </a>
+                                        </li>
+                                        <li class="bold">
+                                            <a href="{{ path('friends') }}" class="waves-effect waves-cyan">
+                                                <i class="material-icons">group_add</i>
+                                                <span class="nav-text">{{ 'menu.user.mes_amis'|trans }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a href="{{ path('affiliation-user') }}" class="waves-effect waves-cyan">
+                                    <i class="material-icons">record_voice_over</i>
+                                    <span class="nav-text">{{ 'user.affiliation'|trans }}</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="{{ path('verif') }}" class="waves-effect waves-cyan">
+                                    <i class="material-icons">verified_user</i>
+                                    <span class="nav-text">
+                                        {{ 'menu.user.mes_verifications'|trans }}
+                                        {% if valid is defined and valid == 0 %}
+                                            <span class="badge white-text red gradient-shadow right">!</span>
+                                        {% endif %}
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="{{ path('blog') }}" target="_blank" class="waves-effect waves-cyan">
+                                    <i class="material-icons">description</i>
+                                    <span class="nav-text">{{ 'base.footer.blog'|trans }}</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="{{ path('faq') }}" target="_blank" class="waves-effect waves-cyan">
+                                    <i class="material-icons">help</i>
+                                    <span class="nav-text">{{ 'base.nav.question'|trans }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('logout_user') }}" class="waves-effect waves-cyan">
+                                    <i class="close material-icons">close</i>
+                                    <span class="nav-text">{{ 'menu.user.deconnexion'|trans }}</span>
+                                </a>
+                            </li>
+                            {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                                <li>
+                                    <a class="waves-effect waves-cyan" href="{{ path('home', {'_switch_user': '_exit'}) }}" title="logout user">
+                                        <i class="material-icons">play_for_work</i>
+                                        <span class="nav-text">{{ 'menu.user.fermer_session'|trans }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <li>
+                                    <a class="waves-effect waves-cyan" href="{{ path('dashboard') }}" title="logout user">
+                                        <i class="material-icons">widgets</i>
+                                        <span class="nav-text">ADMIN</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
+                    <i class="material-icons">menu</i>
+                </a>
+            </aside>
+            {% endblock %}
+
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
+{% block footer %}
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container"></div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/user/office/js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/custom-script.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/hopscotch.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/materialize.min.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/krakenTargetMarket.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/custom-script.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+            $('.chips').material_chip();
+            $('ul.tabs').tabs();
+            $('.tooltipped').tooltip({delay: 50});
+        });
+    </script>
+    {% set domain = '/'~ 'api/admin_xgt45e8/dashboard/user/' ~ app.user.id   %}
+    <script>
+        var id = "{{ app.user.id }}";
+        var domain = "{{ domain }}";
+    </script>
+{% endblock %}
+</body>
+</html>

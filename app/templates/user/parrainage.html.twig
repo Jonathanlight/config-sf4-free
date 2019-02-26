@@ -1,0 +1,85 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+<section id="content" style="overflow-x: auto;">
+    <!--start container-->
+    <div class="container">
+
+        <div class="row">
+            <div class="col m12 l8">
+                <div class="row">
+                    <h4 class="header mt-2" style="display: inline;">{{ 'user.parrainage.title'|trans }}</h4>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card frame-admin shadow-grey" style="min-height: 100px; overflow: visible;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin" style="color: #666"> {{ totalSolde[0]['total'] }} €</h5>
+                                        <p class="no-margin">Total des gains</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card frame-admin shadow-grey" style="min-height: 100px;">
+                            <div class="padding-4">
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <h5 class="mb-0 thin">{{ totalFilleul[0]['filleuls'] }}</h5>
+                                        <p class="no-margin">Total des filleuls</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="contenu" style="background-color: #fff">
+                        <table class="highlight table-crypto img-crypto nom-crypto">
+                            <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th style="text-align: center">{{ 'user.parrain'|trans }}</th>
+                                <th style="text-align: center">{{ 'user.filleul'|trans }}</th>
+                                <th>{{ 'user.solde'|trans }}</th>
+                                <th>{{ 'user.state'|trans }}</th>
+                                <th>{{ 'user.date'|trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if parrainage is defined %}
+                                {% for p in parrainage %}
+                                    <tr>
+                                        <td><i class="material-icons right">done</i></td>
+                                        <td style="font-size: 13px; text-align: center">
+                                            {{ p.utilisateurParrain.nom ~ ' '~ p.utilisateurParrain.prenom }}
+                                        </td>
+                                        <td style="font-size: 13px; text-align: center">
+                                            {{ p.utilisateurFilleul.nom ~ ' '~ p.utilisateurFilleul.prenom }}<br>
+                                        </td>
+                                        <td>{{ p.solde }} €</td>
+                                        <td>
+                                            {% if p.etat == 1 %}
+                                                <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">{{ 'user.validated'|trans }}</span>
+                                            {% else %}
+                                                <span class="badge white-text gradient-45deg-amber-amber gradient-shadow mt-2 mr-2 left">{{ 'user.pending'|trans }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ p.created.date | date('d/m/Y') }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--yearly & weekly revenue chart end-->
+</section>
+{% endblock %}

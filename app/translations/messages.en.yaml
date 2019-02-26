@@ -1,0 +1,872 @@
+base:
+    nav:
+        phone: 'appelez au 01 88 32 14 75'
+        question: 'FAQ'
+        login: 'Login'
+    footer:
+        aboutUs: 'About us'
+        faq: 'FAQ'
+        blog: 'Blog'
+        legal: 'Legal'
+        cgu: 'Terms of Use'
+        privacy: 'Privacy Policy'
+        aml: 'AML Policy'
+        warning: 'Avertissement de risque élevé : L''achat et la vente des crypto-actifs tels que bitcoin comporte un risque élevé et peut ne pas convenir à
+                                tous les investisseurs. Le degré élevé de volatilité peut jouer aussi bien pour ou contre vous. Avant de décider de faire de l''achat et
+                                de la vente de crypto-actifs vous devriez soigneusement considérer vos objectifs de placement, niveau d''expérience et de tolérance du risque.
+                                Il est possible que vous subissiez une perte de tout ou partie de votre investissement initial. Par conséquent, vous ne devriez pas
+                                investir l''argent que vous ne pouvez pas vous permettre de perdre. Vous devez être conscient de tous les risques associés à l''achat et
+                                à la vente de crypto-actifs, demandez conseil à un conseiller financier indépendant si vous avez des doutes.'
+        warning2: 'L''activité de Cryptizy  est soumise aux requis en matière de lutte anti blanchiment au titre de l’article L561-2 du code monétaire et
+                                 financier (7bis), en tant qu’agissant comme intermédiaire dans l’achat/vente de crypto-actifs. Bitcoin et autres actifs de blockchain
+
+                                 ne sont pas de l''argent et n''entrent pas dans le périmètre de supervision directe de l''AMF (Autorité des Marchés Financiers).'
+        social: 'Follow us'
+genre:
+    woman: 'Mrs'
+    man: 'Mr'
+virement:
+    montant_depot: 'Montant à déposer'
+    frais: 'Frais CB (1.9%+0.15€)'
+    montant: 'Montant total'
+    submit: 'VALIDER'
+form:
+    action:
+        submit: 'Submit'
+        login: 'Login'
+    user:
+        username: 'Username'
+        login: 'Login'
+        password: 'Password'
+        repeatPassword: 'Confirm your password'
+        email: 'Your email'
+menu:
+    user:
+        tableau_bord: 'Dashboard'
+        mon_compte: 'My account'
+        depot_retrait:
+          title: 'Deposit/Whithdraw'
+          depot: 'Make a deposit'
+          retrait: 'Make a withdraw'
+        achat_vente: 'Buy/Sell/Transfer'
+        mes_verifications: 'My verifications'
+        transfert: 'Transfer'
+        transfert_ami: 'Transfer to friend'
+        mes_amis: 'My friends'
+        historique_depot: 'Deposit history'
+        deconnexion: 'Logout'
+        fermer_session: 'Close session'
+    admin:
+        tableau_bord: 'Dashboard'
+        utilisateur: 'Users'
+        sales: 'Sales'
+        depot: 'Deposit'
+        historique: 'History'
+        historique_vente: 'Sales history'
+        transfert: 'Transfers'
+        retraits: 'Withdrawals'
+        deconnexion: 'Logout'
+home:
+    header:
+        title-1: 'Buy Bitcoin, Ether & other cryptocurrencies'
+        title-2: 'by the easiest way'
+        sub-title: 'Simple, Fast et Secure.'
+        join1: 'Join'
+        number: '+100'
+        join2: 'users that already trust us'
+        watch: 'Watch the video'
+        chaintech: 'Cryptizy is a member of '
+    form:
+        email: 'Email'
+        phone: 'Mobile phone number'
+        submit: 'I open an account'
+    avantages:
+        title: 'Our commitments as a secure platform'
+        regulation:
+            title: 'Regulation'
+            content: 'We comply with Know-Your-Customer process & with the AML guidelines.'
+        security:
+            title: 'Security'
+            content: 'We use the Cold Wallet method, that means we store your cryptocurrencies in off-line wallets.'
+        encryption:
+            title: 'Encryption'
+            content: 'Lorsqu''elles sont transmises vos données financières et personnelles sont cryptées et envoyées en utilisant un certificat SSL.'
+    release: 'They talk about us'
+    25:
+        title: 'Cryptizy25'
+        description: 'Profitez d''un entretien de 25 minutes avec l''un de nos experts :'
+        1: 'GRATUIT pour tous les utilisateurs de Cryptizy'
+        2: 'Comprendre le Bitcoin, les cryptomonnaies et la Blockchain'
+        3: 'Répondre à vos questions'
+        book: 'Réservez maintenant !'
+    how-to:
+        title: 'How it works ?'
+        step0:
+            title: ' Signup on Cryptizy'
+            content: 'The first step is to create your Cryptizy Account.'
+        step1:
+            title: ' Make a '
+            titleBold: 'Deposit'
+            content: 'Deposit with credit or debit card (Visa or MasterCard) or by Wire Transfer to our bank details that you can find in the deposit page.'
+        step2:
+            title: ' Acheter des Bitcoins, des Ethers ou autres cryptomonnaies'
+            content: 'Dans votre espace Cryptizy choisissez la/les cryptomonnaie(s) et entrez le montant que vous souhaitez investir ou la quantité de cryptomonnaies que vous souhaitez vendre.'
+        step3:
+            title1-1: ' Receive your '
+            title1Bold: 'Cryptocurrencies'
+            title1-2: 'in your wallet or'
+            title2: 'withdraw your euro amount to your bank account'
+            content1-1: ' We transfer your cryptocurrencies directly to your wallet within 24 hours.'
+            content1-2: 'You can get your own secured online wallet '
+            here: 'here'
+            content1-3: '(*)Electronic secured wallet where to store your cryptocurrencies'
+            content2: ' Submit your IBAN to withdraw your available euro amount.'
+        step4:
+            title: ' Détendez-vous, Cryptizy s''occupe de tout'
+            content: 'Vous n''avez plus besoin de passer des heures à vous inscrire dans les Exchange dont l''interface est complexe.'
+    blogpost:
+        video:
+            title: 'Tutoriels vidéos'
+            video1: 'Comment vérifier mon profil ?'
+            video2: 'Comment effectuer un dépôt ?'
+            video3: 'Comment soumettre un ordre d''achat ?'
+            seeMore: 'Voir plus de vidéos'
+    fees:
+        title: 'Our fees'
+        deposit:
+            title: 'Deposit '
+            content: 'Fees: FREE'
+            details: 'Minium Amount: '
+        buy:
+            title: 'Buy orders'
+            content: 'Fees: '
+            details: '(service + network)'
+        sell:
+            title: 'Sell orders'
+            content: 'Fees: '
+            details: '(service + network)'
+        withdraw:
+            title: 'Withdraw euros '
+            content: 'Fees: '
+            details: '(service + bank)'
+        start: 'Start'
+    help:
+        title: 'You need help or you need more informations?'
+        content: 'Our team is available from Monday to Friday 8:00 to 20:00. Saturday & Sunday  8:00 to 17:00'
+        contact:
+            phone: '+33 1 88 32 14 75'
+            email: 'contact@cryptizy.com'
+        start: 'Start'
+login:
+  subTitle: 'Please login to access your account'
+  email: 'Email'
+  password: 'Password'
+  remember: 'Remember me'
+  login: 'Login'
+  signup: 'Signup!'
+  passwordForget:
+      url: 'Forget pawwsord?'
+      content: 'Input your email to reset your password'
+      email: 'Email'
+      confirm: 'Submit'
+register:
+    register: 'Register'
+    title: 'CREATE YOUR CRYPTIZY ACCOUNT!'
+    parrainTitle: ' invite you to Cryptizy.com'
+    parrainText1: ''
+    parrainText2: ' souhaite vous parrainer. inscrivez-vous et achetez
+    100€ ou plus, de bitcoins ou autres cryptomonnaies, pour recevoir tous les deux 10€ sur votre compte Cryptizy !'
+    spamAlert: 'APRÈS VOTRE INSCRIPTION VÉRIFIEZ VOS COURRIERS INDÉSIRABLES SI VOUS NE RECEVEZ AUCUN EMAIL'
+    madame: 'Mrs'
+    monsieur: 'Mr'
+    prenom: 'First Name'
+    nom: 'Last Name'
+    birthday: 'Date of birth'
+    email: 'Email'
+    phone: 'Mobile phone number'
+    password: 'Password'
+    passwordConfirm: 'Confirm your Password'
+    requirement:
+        must: '* Format du mot de passe obligatoire '
+        maxLength: '* minimum 6 charactères'
+        lower: '* minimum une miniscule'
+        upper: '* minimum une majuscule'
+        digit: '* minimum un chiffre'
+        special: '* minimum un symbole'
+    acceptLegal1: 'J''accepte les '
+    acceptLegal2: 'Conditions Générales d''Utilisation'
+    acceptLegal3: 'la Politique de Confidentialité'
+    acceptLegal4: ',et '
+    acceptLegal5: 'la Politique AML'
+    acceptLegal6: ' de Cryptizy.'
+    inscription: 'Inscription'
+    login: 'Déjà un compte ? Connexion'
+    cnil1: 'Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé par REPARIZY SAS pour Vérifier l''identité de chaque utilisateur pour respecter les lois de lutte contre le blanchiment de capitaux'
+    cnil2: 'Elles sont conservées pendant la durée de la relation contractuelle et sont destinées au service Compliance'
+    cnil3: 'Conformément à la loi « informatique et libertés », vous pouvez exercer votre droit d''accès aux données vous concernant et les faire rectifier en contactant : Service Compliance, compliance@cryptizy.com'
+user:
+    buy: 'Buy'
+    sell: 'Sell'
+    deposit: 'Deposit'
+    withdraw: 'Withdraw'
+    transfer: 'Transfer'
+    id: 'id'
+    amount: 'Euro Amount'
+    solde_amount: "Crypto Amount"
+    fees: 'Fees'
+    state: 'State'
+    solde: 'Amount'
+    marge: 'Marge'
+    type: 'Type'
+    qt: 'Quantity'
+    price: 'Price'
+    crypto: 'Cryptocurrency'
+    qt_total: 'Total'
+    date: 'Date'
+    balance_dispo: 'Available Amount'
+    balance_total: 'Total Amount'
+    valid: 'valid'
+    disable: 'Disable'
+    confirm: 'Confirm'
+    details: 'Details'
+    reference: 'Reference'
+    pending: 'Pending'
+    executed: 'Exexecuted'
+    affiliation: 'Affiliation'
+    parrain: 'Referrer'
+    filleul: 'Referree'
+    validated: 'Validated'
+    gain: 'Gains'
+    home:
+        get_verified1: 'Your account must be verified to get full access. '
+        here: 'Click here'
+        get_verified2: ' to upload your documents.'
+        welcome: 'Welcome '
+        toDoToday: ' what do you want to do today? '
+        available: 'Available'
+        total: 'Total'
+        totalEq: 'Total equivalent Euro'
+        totalDepot: 'Total deposit'
+        buyHistory:
+            title: 'Buy orders history'
+            invested: 'Amount invested'
+        hodl:
+            title: 'My Cryptocurrencies'
+    account:
+        account:
+            title: 'MY ACCOUNT'
+            modif:
+                content: 'You can modify your informations below.'
+                phone: 'Mobile phone number'
+        password:
+            title: 'CHANGE MY PASSWORD'
+            content: 'You can modify your informations below.'
+            password1: 'Your current password'
+            password2: 'New password'
+            password2_confirm: 'Confirm the new password'
+        iban:
+            title: 'IBAN'
+            content: 'You can find your IBAN below. Your IBAN must be the one of your bank account, i.e. a bank account with the same first name & last name that you input in your Cryptizy account.'
+            iban: 'IBAN : '
+            bic: 'BIC : '
+            monRib: 'My bank account details :'
+    verified:
+        content1: 'We need to check your identity & your adress'
+        content2: 'Cryptizy can execute your orders (deposit, buy, sell, transfer & withdrawal) only if your account is verified.'
+        content3: 'Your proof of residence must be dated within the past three months. Opt for good quality documents with the following formats : PDF, JPG, JPEG or PNG.'
+        send: 'Send'
+        sent: 'Sent'
+        adress:
+            title: 'Adress'
+            adress: 'Your complete adress'
+            postal_code: 'Postal Code'
+            city: 'City'
+            confirm: 'Submit'
+        identite:
+            title: 'Your ID'
+            file: 'File'
+            file_name: 'Upload your ID'
+        residence:
+            title: 'Proof of residence dated within the past three months. '
+            file: 'File'
+            file_name: 'Upload your proof of residence'
+        selfie:
+            title: 'Your Selfie with your ID'
+            description: 'Upload a selfie with your valid ID card & a paper with the date of the selfie & the following text "I wante to create a Cryptizy Account"'
+            file: 'File'
+            file_name: 'Upload your selfie with your ID'
+    depositPage:
+        title: 'Euro deposit SEPA'
+        content1: 'Login in online to your bank account ou au guichet de votre banque pour communiquer ces coorodonnées et effectuer un virement'
+        content2 : 'Here is our bank account details to make a Euro deposit :'
+        bank_details:
+            name: 'Name : '
+            adress: 'Adress : '
+            iban: 'IBAN : '
+            bic: 'BIC : '
+            reference: 'Reference : '
+            warning1: 'Il est impératif de renseigner votre référence dans le libellé du virement.'
+            warning2: 'Sans votre référence le traitement de votre virement sera compliqué.'
+        minimum: 'Minimum : '
+        content_buy: 'Après avoir réalisé votre virement cliquez ici pour nous dire quelles cryptos vous souhaitez :'
+        button_buy: 'Buy'
+    withdrawPage:
+        amount: 'Amount to withdraw'
+        fees: 'Withdrawal fees'
+        amount_received: 'Received amount'
+    buyPage:
+        invest: 'Amount to invest'
+        option1_1: 'I want to withdraw the amount of '
+        option1_2: ' bought in order to store it in my personnal wallet. Click here '
+        option1_3: 'après avoir cliqué sur "Valider"'
+        option2_1: 'Keep th amount of '
+        option2_2: 'bought in my Cryptizy wallet'
+    sellPage:
+        qt: 'Amount to sell'
+        option1_1: 'Retirer le solde de la vente vers mon compte en banque directement.'
+        option1_2: 'Ajouter mon IBAN/RIB'
+        option2: 'Je souhaite garder sur Cryptizy mon solde de vente pour soumettre un nouvel ordre d''achat'
+        tobank: 'Vers ma banque'
+        tocryptizy: 'Vers mon solde dispo'
+        history:
+            title: 'Sell order history'
+            price: 'Sell price'
+            solde: 'Amount received'
+    transfert:
+        qt: 'Amount to transfer'
+        title_friend: 'Transfer to a friend'
+        beneficiary: 'Beneficiary '
+        choose_beneficiary: 'Select the beneficiary'
+        choose_adress: 'Select wallet adress'
+        add:
+            button: 'Add wallet adress'
+            title: 'Add new wallet adress'
+            description: 'Description'
+            adress: 'Wallet adress'
+            choose_crypto: 'Select your crypto'
+    friend:
+        title: 'Add friend'
+        email: 'Email adress of your friend'
+        add: 'Add'
+        friends: 'My friends'
+        informations: 'Informations'
+        demandes: 'My requests'
+    deposit_history:
+        title: 'Deposit history'
+    parrainage:
+        title: 'Your affiliates'
+legal:
+    cgu:
+        title: 'Conditions Générales d''Utilisations'
+        art1:
+            title: 'Article 1. Préambule'
+            content:
+                1: 'Les présentes conditions d’utilisation constituent un accord légal entre l’utilisateur (« Utilisateur ») et REPARIZY SAS (ci-après "CRYPTIZY").
+                    Le présent Accord énonce les conditions d''utilisation (« Conditions ») qui régissent l''accès ou l''utilisation par l’Utilisateur,
+                    une personne, des applications, des sites Web, le contenu, les produits et l’accès aux services (les « Services ») proposés par CRYPTIZY.
+                    LES PRESENTES CONDITIONS DOIVENT ÊTRE LUES ATTENTIVEMENT PAR L’UTILISATEUR AVANT D''ACCÉDER OU D''UTILISER LES SERVICES.'
+                2: 'Cocher « J''accepte les Conditions Générales d''Utilisation. En cliquant sur le bouton "Inscription" vous certifiez être majeur » et
+                    cliquer sur le bouton « Inscription » constitue le consentement de l’Utilisateur à être lié par ces conditions, qui établit une relation
+                    contractuelle entre l’Utilisateur et CRYPTIZY. Si l’Utilisateur n’accepte pas ces conditions, il ne peut pas accéder ou utiliser les Services.
+                    CRYPTIZY peut mettre fin immédiatement à ces Conditions ou tout service par rapport à l’Utilisateur, ou généralement cesser d''offrir ou
+                    refuser l''accès aux Services ou toute partie de celle-ci, à tout moment pour une raison quelconque ou sans raison.'
+                3: 'Les conditions supplémentaires peuvent être appliquées à l’Utilisateur, et seront divulguées à l’Utilisateur.
+                    Les conditions supplémentaires comprennent des politiques pour un événement, activité ou promotion particulière.
+                    Les conditions supplémentaires sont en sus des conditions d’utilisation et sont considérées comme une partie des conditions.
+                    Les conditions supplémentaires prévalent sur les présentes Conditions en cas d''un conflit en ce qui concerne les services applicables.'
+                4: 'CRYPTIZY peut modifier les Conditions relatives aux services occasionnellement. Les modifications entreront en vigueur dès la publication
+                    de ces Conditions d’Utilisation. L’accès ou l''utilisation continue des Services après cet affichage constitue le consentement de l’Utilisateur
+                    à être lié par les Conditions, telles que modifiées.'
+                5: 'En accédant et en utilisant les Services, l’Utilisateur déclare et garantit que : (i) il est âgé d''au moins 18 ans ; et
+                    (ii) a le droit, l''autorité et la capacité de conclure le présent accord et de se conformer aux conditions d’utilisation du présent accord.
+                    Lorsque l’Utilisateur entre dans le présent Accord en tant que personne comme prévu dans le présent Accord au nom d''une société ou
+                    une autre organisation, il déclare et garantit qu’il a le pouvoir d''agir au nom de cette entité et de lier cette entité au présent Accord.
+                    Les services ne sont pas disponibles aux personnes de moins de 18 ans, ou à toute personne dont le compte a été résilié.'
+        art2:
+            title: 'Article 2. Définitions'
+            content:
+                1: '• « Plateforme » : structure mise en place par CRYPTIZY et accessible en ligne à l’adresse https://www.cryptizy.com ;'
+                2: '• « Utilisateur » : de manière générale toute personne utilisant la Plateforme qu’elle soit simple visiteur ou inscrit(e) ;'
+                3: '• « Wallet » : est un programme qui se charge de stocker des clés publiques et privées. Il permet d''interagir avec la blockchain
+                    pour envoyer/recevoir des monnaies cryptées ou encore effectuer des suivis de transactions ;'
+                4: '• « Conditions » : Les présentes conditions générales d’utilisation ;'
+                5: '• « Services » : Ensemble des outils proposés par la Plateforme permettant notamment de déposer des fonds et d’acheter des
+                    monnaies cryptées listées sur la Plateforme ;'
+                6: '• « Ordre » : Envoi d’instruction via un formulaire pour l’achat (échanger des euros contre des monnaies cryptées) ou
+                    pour la vente (échanger des monnaies cryptées contre euros) ;'
+                7: '• « Site » : https://www.cryptizy.com ;'
+        art3:
+            title: 'Article 3. Les services'
+            content:
+                subcontent: 'Les services constituent une plateforme technologique qui permet aux utilisateurs des sites Web de CRYPTIZY et/ou des applications
+                             mobiles fournis dans le cadre des Services, de déposer des fonds et de passer des ordres d’achat et de vente de monnaies cryptées.
+                             CRYPTIZY N’EST PAS RESPONSABLE DES PRIX DU MARCHÉ ET DES PERTES OU DES GAINS REALISES PAR LES UTILISATEURS DE CRYPTIZY.'
+                subtitle1: '3.1. Licence.'
+                subcontent1: 'Sous réserve du respect des présentes conditions, CRYPTIZY accorde à l’Utilisateur une licence limitée, révocable, non transférable,
+                              non-exclusive et non cessible afin de : (i) accéder et utiliser les applications ou le Site dans le cadre de l’utilisation des Services ;
+                              et (ii) accéder et utiliser tous les contenus, informations et documents connexes qui peuvent être mis à disposition par CRYPTIZY,
+                              sous réserve des conditions du présent Accord.'
+                subtitle2: '3.2. Restrictions.'
+                subcontent2: 'L’Utilisateur ne peut pas: (i) supprimer toute mention relative au droit d''auteur, des marques ou autres mentions de propriété de
+                             tout ou partie des Services; (ii) reproduire, modifier, accorder une licence, louer, vendre, revendre, transférer, afficher publiquement,
+                             exécuter publiquement, transmettre ou exploiter les services, sauf autorisation de CRYPTIZY; (iii) décompiler les Services sauf dans
+                             la mesure permise par la loi applicable; (iv) causer ou lancer des programmes ou des scripts dans le but l''extraction de données d''une partie
+                             des services ou indûment surcharger ou entraver le fonctionnement et / ou la fonctionnalité de tout aspect des Services; ou (v) tenter
+                             d''obtenir un accès non autorisé ou altérer tout aspect des Services ou de ses systèmes ou réseaux connexes.'
+                subtitle3: '3.3. La possession.'
+                subcontent3: 'Les services et tous les droits de propriété intellectuelle y afférents sont la propriété de CRYPTIZY. Ni ces Conditions ni
+                              l’utilisation des Services ne transmettent ou accordent à l’Utilisateur un droit : (i) lié aux services, à l''exception de la licence
+                              limitée accordée ci-dessus ; ou (ii) d''utiliser ou de faire référence d''une manière quelconque au nom de la société, logos, noms de
+                              produits et noms des services de CRYPTIZY, sauf accord exprès de CRYPTIZY.'
+        art4:
+            title: 'Article 4. Utilisation des Services'
+            content:
+                subtitle1: '4.1. Comptes utilisateur et vérifications.'
+                subcontent1: 'Afin d''utiliser la plupart des aspects des services, l’Utilisateur doit s’inscrire et maintenir son compte utilisateur actif (« Compte »).
+                              L’Utilisateur doit avoir au moins 18 ans pour obtenir un compte. L''enregistrement du compte oblige l’Utilisateur à renseigner certaines
+                              informations personnelles, telles que son genre, son nom, son prénom, son adresse e-mail, son adresse postale, et son numéro de téléphone mobile.
+                              L’Utilisateur est également obligé de fournir un justificatif d’identité parmi la liste suivante : passeport international ou carte nationale d’identité.
+                              L’Utilisateur doit également fournir un justificatif de domicile valide datant de moins de trois mois. L’Utilisateur accepte de
+                              maintenir des renseignements exacts, complets et à jour dans son compte. L’incapacité de l’Utilisateur à maintenir des renseignements exacts,
+                              complets et à jour peut entraîner son incapacité à accéder et à utiliser les services de CRYPTIZY. L’Utilisateur est responsable de toute
+                              activité qui se produit dans son compte, et accepte de maintenir la sécurité et la confidentialité de son nom d''utilisateur et de son mot de
+                              passe en tout temps. CRYPTIZY n’est pas responsable de toute perte que l’Utilisateur pourrait subir par l''utilisation de son mot de passe
+                              par d''autres. L’Utilisateur doit informer CRYPTIZY immédiatement de toute utilisation non autorisée de son compte ou de toute autre violation
+                              de sécurité que l’Utilisateur subit vis-à-vis de CRYPTIZY.'
+                subtitle2: '4.2. Les communications entre l’Utilisateur et CRYPTIZY.'
+                subcontent2: 'L’Utilisateur consent expressément et accepte de recevoir des communications liées à l’utilisation des services de la part de CRYPTIZY,
+                              y compris par e-mail, SMS, appels et notifications push pour le numéro de téléphone mobile que l’Utilisateur nous fournit. En consentant à
+                              être contacté par CRYPTIZY, l’Utilisateur comprend et accepte qu’il peut recevoir des communications générées par les systèmes automatiques
+                              de numérotation téléphonique et / ou qui délivrent des messages préenregistrés envoyés par ou au nom de CRYPTIZY, y compris, mais sans s''y
+                              limiter: les communications opérationnelles concernant son compte d''utilisateur ou de l''utilisation des services de CRYPTIZY, les mises à
+                              jour concernant fonctionnalités existantes et nouvelles sur la Plateforme de CRYPTIZY, les communications concernant les promotions gérées
+                              par nous et les nouvelles concernant CRYPTIZY. L’Utilisateur peut refuser de recevoir des SMS de CRYPTIZY à tout moment en renvoyant le
+                              mot STOP de son appareil mobile. L’Utilisateur reconnait que le choix de ne pas recevoir un SMS peut influer sur son utilisation des Services.
+                              Au cours de ce processus, nous allons recevoir en temps réel et stocker des données d''appel, y compris la date et l''heure de l''appel ou d''un SMS,
+                              les numéros de téléphone, et le contenu des SMS. L’Utilisateur accepte le processus de masquage décrit ci-dessus et la divulgation de ces données
+                              d''appel pour des fins commerciales légitimes. CRYPTIZY peut envoyer à l’Utilisateur une confirmation et d''autres e-mails transactionnels
+                              concernant l’utilisation des Services. Nous pouvons également envoyer à l’Utilisateur des courriels au sujet des services que nous pensons
+                              susceptibles d’intéresser l’Utilisateur (« e-mails promotionnels »). L’Utilisateur peut se désabonner des e-mails promotionnels à tout moment
+                              en cliquant sur « se désabonner » dans nos communications par courriel ou en nous contactant.'
+                subtitle3: '4.3. Codes promotionnels.'
+                subcontent3: 'CRYPTIZY peut, à sa seule discrétion, créer des codes promotionnels, ou d''autres caractéristiques ou avantages liés aux services,
+                              sous réserve des conditions d’utilisation supplémentaires que CRYPTIZY établit. L’Utilisateur accepte que ces codes promotionnels:
+                              (i) ne peuvent être dupliqués, vendus, transférés, ou mis à la disposition du grand public (qu''ils soient ou non affichés au public ),
+                              sauf autorisation de CRYPTIZY; (ii) peuvent être désactivés par CRYPTIZY à tout moment pour une raison quelconque sans aucune
+                              responsabilité envers CRYPTIZY; (iii) ne peuvent être utilisés conformément aux conditions d’utilisation spécifiques que CRYPTIZY
+                              établit pour un tel Code promotionnel; (iv) ne sont pas valides pour de l''argent; et (v) peuvent expirer avant leur utilisation. CRYPTIZY
+                              se réserve le droit d''interpréter la façon dont les codes seront utilisés, ou de retenir ou de déduire les crédits ou d''autres caractéristiques
+                              ou avantages obtenus par l''utilisation de codes promotionnels par l’Utilisateur ou tout autre utilisateur dans le cas où CRYPTIZY détermine
+                              ou croit que l’utilisation du code promotionnel était erronée, frauduleuse, illégale ou en violation des conditions d’utilisation des
+                              codes promotionnels applicables.'
+                subtitle4: '4.4. Contenu d’utilisateur.'
+                subcontent4: 'CRYPTIZY peut, à sa seule discrétion, permettre à l’Utilisateur de soumettre, télécharger, ou publier sur CRYPTIZY via des Services textuels,
+                              audio, ou informations visuelles. Tout Contenu d’Utilisateur fourni par l’Utilisateur reste sa propriété. Cependant, en fournissant un
+                              Contenu d’utilisateur sur CRYPTIZY, l’Utilisateur accorde à CRYPTIZY une licence qui est libre de droit, perpétuelle, irrévocable,
+                              transférable et sans restriction, afin d''utiliser, copier, modifier, transmettre, reproduire, exposer, divulguer, afficher, transformer,
+                              créer des travaux dérivés, distribuer, afficher publiquement, exécuter publiquement et exploiter de quelconque manière ce contenu d’utilisateur
+                              dans tous les formats et canaux de distribution maintenant connus ou à venir, sans avis ou consentement de la part de l’Utilisateur, et sans
+                              l''obligation de paiement envers l’Utilisateur ou toute autre personne ou entité. En outre, CRYPTIZY est libre d''utiliser les idées, concepts,
+                              savoir-faire ou techniques contenues dans ce Contenu d’Utilisateur pour une fin quelconque, y compris mais sans s''y limiter, le développement,
+                              la fabrication et la commercialisation de produits et / ou services incorporant tout Contenu d’Utilisateur. L’’Utilisateur déclare et garantit
+                              que: (i) l’Utilisateur est le propriétaire unique et exclusif de tout le Contenu de l''Utilisateur, ou bien, l’Utilisateur a tous les droits,
+                              licences, consentements et décharges nécessaires pour accorder à CRYPTIZY la licence du Contenu d’Utilisateur tel que défini ci-dessus; et
+                              (ii) ni le contenu de l''utilisateur ni la soumission, téléchargement, publication ou mise à disposition d''un tel Contenu d''Utilisateur, ni
+                              l''utilisation de CRYPTIZY du Contenu d’Utilisateur comme autorisé ici portera atteinte, détournera ou violera la propriété intellectuelle ou
+                              la propriété des droits, ou les droits de publicité ou de la vie privée d’un tiers, ou enfreindra toute loi ou réglementation applicable.
+                              L’Utilisateur accepte de ne pas fournir du contenu d''utilisateur qui est diffamatoire, haineux, violent, obscène, pornographique, illégal ou
+                              offensant. CRYPTIZY peut supprimer le contenu de l''utilisateur, à la seule discrétion de CRYPTIZY et à tout moment et pour toute raison
+                              ou sans raison et sans préavis.'
+                subtitle5: '4.5. Accès au réseau et aux périphériques.'
+                subcontent5: 'L’Utilisateur est responsable de l''obtention de l''accès nécessaire pour utiliser les services de réseau de données. Des frais de données
+                               peuvent être demandés à l’Utilisateur. L’Utilisateur est responsable de l''acquisition et la mise à jour du matériel ou des appareils
+                               compatibles nécessaires pour accéder et utiliser les Services, le site Web et les Applications de CRYPTIZY. CRYPTIZY ne garantit pas
+                               que les services, ou toute partie de celle-ci, fonctionnent sur tout matériel ou dispositifs particuliers. En outre, les services peuvent être
+                               soumis à des dysfonctionnements et des retards inhérents à l''utilisation de l''Internet et des communications électroniques.'
+                subtitle6: '4.7. Dépôt et retrait des fonds en Euro.'
+                subcontent6: 'Pour pouvoir soumettre des ordres d’achat de monnaies cryptées via la Plateforme CRYPTIZY, l’Utilisateur sera invité à effectuer un dépôt sur
+                              le compte en banque de CRYPTIZY. Le compte Utilisateur sera crédité de la somme perçue par CRYPTIZY. Pour effectuer un retrait,
+                              l’Utilisateur soumet un ordre de retrait via son compte Utilisateur, le retrait sera au maximum équivalent à son solde euro sur son compte
+                              Utilisateur. Le compte utilisateur ne peut être utilisé pour le dépôt ou le retrait de fonds depuis ou vers un compte bancaire ne contenant
+                              pas les mêmes noms et prénoms que ceux indiquées dans le compte Utilisateur sur la plateforme CRYPTIZY.'
+                subtitle7: '4.8. Envoi d’un ordre d’achat ou de vente de monnaies cryptées.'
+                subcontent7: 'Pour envoyer un ordre d’achat ou de vente via Cryptizy, l’Utilisateur peut être invité à spécifier les informations suivantes :
+                              (i) La monnaie cryptée qu’il souhaite acheter ou vendre (ii) le montant en euro qu’il souhaite investir ou la quantité de la monnaie cryptée
+                              choisie qu’il souhaite vendre et (iii) l’adresse du Wallet de la monnaie cryptée qu’il a choisie pour recevoir la quantité qu’il a achetée.'
+                subcontent8: 'Si l’Utilisateur souhaite transférer ces monnaies cryptées achetées vers ses adresses Wallets, il peut le choisir directement depuis notre
+                              plateforme après avoir reçu la confirmation de la bonne exécution des ordres d’achat, le cas échéant, l’Utilisateur sera seul responsable
+                              de la sécurité de ses monnaies cryptées transférées. CRYPTIZY n’est en aucun cas responsable des monnaies cryptées transférées vers
+                              les adresses Wallets de l’Utilisateur.'
+                subcontent9: 'Une fois que l’Utilisateur soumet on ordre d’achat et de vente, CRYPTIZY exécutera un ordre selon les précisions de l’Utilisateur dès
+                              sa prise en compte par notre système d’information. Le prix de chaque monnaie cryptée étant très volatile, CRYPTIZY ne garantit pas
+                              l’exécution de l’ordre d’achat et de vente au prix affiché par le marché au moment de la soumission de l’ordre par l’Utilisateur de la
+                              Plateforme. L’utilisateur peut annuler un ordre d’achat et de vente avant que celui-ci soit pris en compte par notre système d’information.
+                              CRYPTIZY PRECISE QU’IL EST IMPOSSIBLE D’ANNULER UN ORDRE D’ACHAT ET DE VENTE APRES SON EXECUTION PAR NOTRE SYSTEME D’INFORMATION.'
+        art5:
+            title: 'Article 5. Modalités de paiement'
+            content:
+                subcontent-a: 'L’Utilisateur accepte que l''utilisation des services puisse entraîner des frais pour l’Utilisateur pour les services ou produits fournis
+                               par CRYPTIZY (les « frais »). Les frais peuvent inclure toutes les taxes applicables en France. Au moment où l’Utilisateur soumet un
+                               ordre d’achat ou de vente. L’Utilisateur autorise le paiement des frais lors de l’exécution des ordres d’achat, de vente ou de retrait.'
+                subcontent-b: 'Une fois que l’Utilisateur a reçu des services ou des biens obtenus grâce à son utilisation du Service, CRYPTIZY facilitera son paiement
+                               des frais applicables. Les frais comprendront les taxes applicables le cas échéant par la loi. Les frais payés par l’Utilisateur sont définitifs
+                               et non remboursables, sauf décision contraire de CRYPTIZY. Tous les frais sont immédiatement exigibles et le paiement sera exécuté par
+                               CRYPTIZY lors de l’exécution de l’ordre d’achat, de vente ou de retrait, après quoi CRYPTIZY enverra à l’Utilisateur un accusé de
+                               réception par email.'
+                subtitle1: '5.1. Entre l’Utilisateur et CRYPTIZY.'
+                subcontent1: 'CRYPTIZY se réserve le droit d''établir, supprimer et / ou réviser les frais de tout ou partie des services ou des produits obtenus grâce
+                              à l''utilisation des Services à tout moment à la seule discrétion de CRYPTIZY.'
+                subcontent2: 'CRYPTIZY peut de temps à autre fournir à certains utilisateurs des promotions commerciales. L’Utilisateur accepte que ces offres
+                              promotionnelles et ces réductions ne doivent avoir aucune incidence sur son utilisation des services. L’Utilisateur peut choisir d''annuler
+                              son ordre soumis avant que l’ordre ne soit exécuté. L’Utilisateur ne pourra pas annuler l’ordre exécuté sur le marché, la volatilité
+                              des monnaies cryptées est telle que la probabilité est très faible pour exécuter l’ordre inverse à un taux identique.'
+        art6:
+            title: 'Article 6. Résiliation ; Annulation'
+            content:
+                subtitle1: '6.1. Résiliation par CRYPTIZY.'
+                subcontent1: 'Nous pouvons résilier le présent Contrat ou résilier ou suspendre le droit d''utiliser les Services à tout moment avec ou sans raison
+                              (y compris, sans s''y limiter, dans le cas où nous croyons que l’Utilisateur a omis de faire un paiement pour le Service (s), ou si nous
+                              constatons que l’Utilisateur a fourni des informations personnelles erronées et / ou à cause d’un comportement offensant, ou si l’Utilisateur
+                              a enfreint les termes des présentes) en fournissant à l’Utilisateur un avis écrit ou par courriel de cette résiliation à l''adresse physique
+                              ou e-mail que l’Utilisateur nous a fournie , et la résiliation sera effective immédiatement après un tel avis. Si nous résilions ou suspendons
+                              le compte de l’Utilisateur pour une raison quelconque, il est interdit d''enregistrer et de créer un nouveau compte sous son nom ou un faux nom
+                              d''emprunt, ou le nom d''un tiers. En plus de mettre fin ou suspendre son compte, nous nous réservons le droit de prendre des mesures juridiques
+                              appropriées, y compris, sans s''y limiter, la poursuite de la réparation civile et pénale. En cas de résiliation du compte de l’Utilisateur,
+                              CRYPTIZY peut supprimer le compte et toutes les informations qu''il contient. L’Utilisateur n’a aucun droit de propriété sur son compte.'
+                subtitle2: '6.2. Résiliation par l’Utilisateur.'
+                subcontent2: 'L’Utilisateur peut résilier le présent Accord complètement et définitivement et cesser d''utiliser les Services (à condition qu''il n''y ait
+                              pas des ordres soumis et pas encore exécutés et qu’il n’y ait pas de monnaies cryptées non transférées vers son adresse Wallet sous son mot
+                              de passe ou compte). Si l’Utilisateur essaie de mettre fin à cet Accord alors qu''il y a encore des ordres déjà soumis et pas encore exécutés
+                              sur son compte ou s’il y a encore des monnaies cryptées pas encore transférées sur son/ses adresse(s) Wallet(s), le présent Accord ne prend
+                              pas fin jusqu''à ce que ces services aient été effectués ou autrement annulés dans la mesure permise par CRYPTIZY.'
+                subtitle3: '6.3. Annulation d''un ordre soumis'
+                subcontent3: 'Du fait de la nature irréversible de la technologie des crypto-actifs, il n’est pas possible d’annuler ou de modifier un ordre.'
+        art7:
+            title: 'Article 7. Vérification des Utilisateurs'
+            content: 'Les Utilisateurs peuvent être soumis à un processus de vérification approfondie avant et pendant l’utilisation de la plateforme CRYPTIZY,
+                      comprenant mais sans s''y limiter, une demande d’information concernant son identité et son lieu de domicile. Bien que nous puissions effectuer des
+                      demandes d''information des Utilisateurs, nous ne pouvons pas confirmer que chaque Utilisateur est celui qu''il prétend être et, par conséquent,
+                      CRYPTIZY n’assume aucune responsabilité quant à l''exactitude ou la fiabilité de l''identité ou des antécédents d''informations ou toute
+                      autre information fournie par la plateforme CRYPTIZY. CRYPTIZY N’EST PAS RESPONSABLE DE LA CONDUITE, EN LIGNE OU HORS LIGNE, DE TOUT
+                      UTILISATEUR DE LA PLATEFORME CRYPTIZY ET L’UTILISATEUR DÉGAGE CRYPTIZY DE TOUTE RESPONSABILITÉ Y AFFERENTE. CRYPTIZY NE SERA PAS
+                      RESPONSABLE DE TOUTE RECLAMATION, BLESSURES OU DOMMAGES EN RELATION AVEC L’UTILISATION DE LA PLATEFORME CRYPTIZY.'
+        art8:
+            title: 'Article 8. Avertissements'
+            content: 'LES SERVICES SONT MIS A LA DISPOSITION «TELS QUELS », « SELON LA DISPONIBILITÉ » ET « AVEC TOUS LES DÉFAUTS », SANS AUCUNE GARANTIE OU CONDITION,
+                      EXPLICITE OU IMPLICITE. L’UTILISATEUR UTILISE LES SERVICES À SES PROPRES RISQUES. CRYPTIZY NE FOURNIT, ET DECLINE EXPRESSEMENT, AUCUNE
+                      DÉCLARATION OU GARANTIE D''AUCUNE SORTE, DE L’UTILISATEUR OU TOUTE AUTRE PERSONNE OU ENTITÉ, Y COMPRIS, MAIS SANS S''Y LIMITER, TOUTE GARANTIE
+                      EXPLICITE OU IMPLICITE (I) DE COMMERCIALISATION OU D''ADAPTATION À UN USAGE PARTICULIER ; (II) DU CONTENU INFORMATIF ; (III) DE NON-VIOLATION ;
+                      (IV) DE DROIT DE JOUISSANCE ; (V) DE TITRE ; (VI) QUE LE SITE FONCTIONNERA SANS ERREUR, (VII) QUE TOUT DÉFAUT OU ERREUR DANS LE SITE SERONT
+                      CORRIGÉS ; (VIII) QUE TOUS LES PRODUITS ET SERVICES OFFERTS PAR CRYPTIZY OU AUTRES PARTIES SERONT DISPONIBLES EN FRANCE; OU (IX) QUE LE
+                      SITE SOIT COMPATIBLE AVEC TOUT MATÉRIELS OU PLATEFORMES PARTICULIERES. CRYPTIZY NE FAIT AUCUNE DÉCLARATION OU GARANTIE CONCERNANT LA
+                      FIABILITÉ, QUALITÉ, LA PERTINENCE OU LA DISPONIBILITÉ DES SERVICES DEMANDÉS PAR L''UTILISATION DES SERVICES, OU QUE LES SERVICES SERONT SANS
+                      INTERRUPTION OU SANS ERREUR. L’UTILISATEUR ACCEPTE QUE L''ENSEMBLE DES RISQUES DÉCOULANT DE SON UTILISATION DES SERVICES, ET TOUT SERVICE
+                      DEMANDÉ EN RELATION AVEC CELUI-CI, RESTE SEUL A L’UTILISATEUR, DANS LA MESURE MAXIMALE AUTORISEE PAR LA LOI APPLICABLE.'
+        art9:
+            title: 'Article 9. Limitations de responsabilité'
+            content:
+                subcontent-a: 'L’UTILISATEUR ACCEPTE DE NE PAS TENIR CRYPTIZY (OU, SES ACTIONNAIRES, SES FILIALES, SES CONCEDANTS, PARTENAIRES, MEMBRES, ADMINISTRATEURS,
+                               DIRECTEURS, DIRIGEANTS, EMPLOYÉS, AGENTS, SUCCESSEURS, CESSIONNAIRES ET FOURNISSEURS DE CONTENU (COLLECTIVEMENT, «membres»)) RESPONSABLES
+                               DES DOMMAGES , DEPENSES, PERTES, POURSUITES, REVENDICATIONS, ET / OU CONTROVERSES QUI ONT ETE OU POURRAIENT ETRE, CONNUS OU INCONNUS, RELATIFS
+                               À SON UTILISATION OU A SON INCAPACITE D''UTILISER LA PLATFORME DE CRYPTIZY, Y COMPRIS, SANS LIMITATION, TOUTE RESPONSABILITE EN RELATION
+                               AVEC LA CONDUITE, ACTE OU OMISSION DE TOUT UTILISATEUR (Y COMPRIS, SANS LIMITATION ACTES DE VIOLENCE PHYSIQUE ET PERTES OU DESTRUCTION DE BIENS
+                               PERSONNELS), SERVICES, TOUT LITIGE AVEC UN UTILISATEUR, TOUTE INSTRUCTION, CONSEIL, ACTE OU SERVICE FOURNI PAR CRYPTIZY, ET TOUTE DESTRUCTION
+                               DES INFORMATIONS DE L’UTILISATEUR. EN AUCUN CAS CRYPTIZY NE SERA TENU RESPONSABLE DE DOMMAGES DIRECTS, INDIRECTS, ACCESSOIRES OU SPÉCIAUX
+                               EN RELATION AVEC L’UTILISATION OU L''INCAPACITE D''UTILISER LA PLATEFORME CRYPTIZY PAR L’UTILISATEUR OU TOUT SERVICE OU MARCHANDISE, QUELLE QU''EN
+                               SOIT LA CAUSE ET SUR TOUTE BASE CONTRACTUELLE, Y COMPRIS SANS LIMITATION PERTE DE BÉNÉFICES, PERTE DE DONNÉES, DES BLESSURES OU DES DOMMAGES.
+                               CRYPTIZY N''ACCEPTE AUCUNE RESPONSABILITÉ QUANT À LA QUALITÉ OU L''ADAPTATION DE TOUT TRAVAIL ACCOMPLI EN RELATION AVEC LA PLATEFORME
+                               CRYPTIZY. CRYPTIZY NE SERA PAS RESPONSABLE DE TOUT DOMMAGE, RESPONSABILITÉ OU PERTES DE : (I) L’UTILISATION OU SUR LES SERVICES OU
+                               L’INCAPACITÉ À ACCÉDER OU UTILISER LES SERVICES ; OU (II) TOUTE TRANSACTION OU RELATION ENTRE L’UTILISATEUR, MÊME SI CRYPTIZY A ETE
+                               INFORME DE LA POSSIBILITE DE TELS DOMMAGES. S’IL EST DETERMINE QUE CRYPTIZY OU UN DE SES MEMBRES SONT TENUS RESPONSABLES DE DOMMAGES,
+                               EN AUCUN CAS LA RESPONSABILITÉ TOTALE, DECOULANT DU CONTRAT NE DÉPASSE LE MONTANT FACTURE POUR LA PRESTATION EN QUESTION.'
+                subcontent-b: 'LA PLATEFORME CRYPTIZY EST SEULEMENT PRESENTE POUR EXECUTER LES ORDRES DES UTILISATEURS. DANS LA MESURE OÙ LA PLATEFORME CRYPTIZY EXECUTE
+                               LES ORDRES AUX PRIX DU MARCHE AU MOMENT DE L’EXECUTION DES ORDRES, CRYPTIZY NE SERA PAS RESPONSABLE POUR ÉVALUER LA PERTINENCE, LA
+                               LEGALITE OU LA CAPACITÉ DE TOUTE PLATEFORME D''ECHANGE. L’UTILISATEUR DOIT DEGAGER CRYPTIZY DE TOUTE RESPONSABILITÉ, RÉCLAMATION OU DOMMAGE PROVENANT DU MARCHE
+                               DES MONNAIES CRYPTEES. L’UTILISATEUR COMPREND, DONC, QU’EN UTILISANT LA PLATFORME CRYPTIZY, L’UTILISATEUR PEUT ETRE EXPOSE AUX SERVICES QUI
+                               SONT DANGEREUX, OFFENSIFS, NUISIBLES, OU INADMISSIBLES, ET QUE L’UTILISATEUR UTILISE LA PLATEFORME CRYPTIZY À SES PROPRES RISQUES. EN
+                               UTILISANT LA PLATFORME CRYPTIZY, L’UTILISATEUR ACCEPTE QUE LES EXCLUSIONS ET LIMITATIONS DE RESPONSABILITÉ ÉNONCÉES DANS CE CONTRAT SONT
+                               RAISONNABLES. SI L’UTILISATEUR NE CROIT PAS QU’ILS SONT RAISONNABLES, L’UTILISATEUR NE DOIT PAS UTILISER LA PLATEFORME CRYPTIZY.'
+                subtitle1: '9.1. Indemnité.'
+                subcontent1: 'L’Utilisateur accepte d''indemniser, de défendre et d''exonérer CRYPTIZY de toute réclamation, perte, dépense, responsabilité,
+                              dommage ou demande (y compris les honoraires et frais engagés d''avocat), en relation avec ou résultant de, directement ou indirectement:
+                              (i) l’utilisation, la mauvaise utilisation ou de l''impossibilité d''utiliser la plateforme CRYPTIZY et / ou les Services, (ii) la violation
+                              du présent Accord par l’Utilisateur, (iii) la violation de toute loi ou réglementation applicable par l’Utilisateur; (iv) la violation des
+                              droits d''autrui par l’Utilisateur, et (v) les informations de l’Utilisateur et le contenu que l’Utilisateur soumet ou transmet à travers
+                              la plateforme CRYPTIZY. CRYPTIZY se réserve le droit, à ses propres frais, d''assumer la défense exclusive et le contrôle de toute affaire
+                              autrement sujette à l’indemnisation de l’Utilisateur.'
+        art10:
+            title: 'Article 10. Règlement des différends'
+            content:
+                subtitle1: '10.1. Arbitrage.'
+                subcontent1: 'L’Utilisateur accepte que tout litige, réclamation ou controverse soit réglé par un arbitrage exécutoire entre l’Utilisateur et CRYPTIZY
+                              conformément aux règles d''arbitrage en France par un arbitre unique nommé conformément à ces règles. Sous réserve des exigences valides de
+                              toute loi applicable, un tel arbitrage aura lieu à Paris, en France. Chaque partie est responsable de son propre avocat, expert et d''autres
+                              frais, à moins que ces frais soient attribués par l''arbitre à la partie gagnante. Nonobstant toute disposition contraire dans la présente
+                              section, dans la mesure où l’Utilisateur a de quelque manière violé ou menacé de violer les droits de propriété intellectuelle de CRYPTIZY,
+                              CRYPTIZY peut demander réparation appropriée ou autre devant un tribunal, et l’Utilisateur consent à la juridiction exclusive et au
+                              lieu de ces tribunaux. La sentence rendue par l''arbitre est définitive et exécutoire, et le jugement peut être saisi sur lui à toute juridiction
+                              d''un tribunal. Tout arbitrage aux termes des présentes sera confidentiel.'
+        art11:
+            title: 'Article 11. Mentions légales'
+            content:
+                subcontent-reparizy: 'Cryptizy.com plateforme détenue par Reparizy SAS'
+                subcontent-capital: 'SAS au Capital de 5 000€ Variable'
+                subcontent-rcs: 'RCS : Paris 82434138200011'
+                subcontent-publication: 'Directeur de la publication : Salah-Eddine KHOUIEL'
+                subcontent-hebergeur: 'Hébergeur : OVH, 2 rue Kellermann - 59100 Roubaix - France'
+                subcontent-president: 'Président : Salah-Eddine KHOUIEL'
+                subcontent-dg1: 'Directeur général: Jonathan KABLAN'
+                subcontent-dg2: 'Directeur général: Jordan MOREIRA'
+                subcontent: 'REPARIZY SAS détient l''intégralité des droits de propriété intellectuelle relatifs aux éléments et au contenu du site cryptizy.com. Pour cette
+                             raison,toute utilisation de quelque nature que ce soit et/ou toute reproduction de tout ou partie d''un élément du site cryptizy.com
+                             constituerait une contrefaçon.'
+        art12:
+            title: 'Article 12. Autres provisions'
+            content:
+                subtitle1: '12.1. Général.'
+                subcontent1: 'L’Utilisateur ne peut pas céder ces Conditions sans l''autorisation préalable écrite de CRYPTIZY. CRYPTIZY peut céder ces Conditions
+                              sans le consentement de l’Utilisateur à : (i) une filiale ou une société affiliée ; (ii) un acquéreur d''actions, entreprise ou des actifs de
+                              CRYPTIZY ; ou (iii) un successeur par fusion. Toute cession en violation du présent article est nulle. Si une disposition de ces conditions
+                              est jugée invalide ou inapplicable, cette disposition doit être annulée et les dispositions restantes seront appliquées dans toute la mesure en
+                              vertu du droit. L’échec de CRYPTIZY de faire respecter tout droit ou disposition dans les présentes Conditions ne constitue pas une
+                              renonciation à ce droit ou une disposition moins reconnue et acceptée par CRYPTIZY par écrit.'
+                subtitle2: '12.2. Droit applicable.'
+                subcontent2: 'Le présent Accord et la relation entre l’Utilisateur et CRYPTIZY seront régis par les lois Françaises.'
+                subtitle3: '12.3. Plaintes de violation du droit d''auteur.'
+                subcontent3: 'CRYPTIZY respecte la propriété intellectuelle d''autrui. CRYPTIZY répondra aux avis de violation du droit d''auteur, qui sont conformes
+                              à la loi applicable. Dans le cas où une personne ou une entité a une croyance de bonne foi que les documents fournis ou en relation avec
+                              les services portent atteinte à cette personne concernant les droits d''auteurs ou autre droit de propriété, il est tenu d’envoyer à CRYPTIZY
+                              un avis, comme indiqué ci-dessous, CRYPTIZY étudiera, et si elle détermine, à sa discrétion, que le contenu porte atteinte à cette personne,
+                              CRYPTIZY supprimera le contenu. Tous les avis portant réclamation pour violation des droits d''auteur doivent contenir les éléments suivants :
+                              (i) l''identification du droit de propriété intellectuelle qui aurait été violé ; (ii) Une déclaration indiquant précisément l''emplacement de ce
+                              qui aurait été violé, avec suffisamment de détails pour que CRYPTIZY puisse le trouver. Veuillez noter qu’il ne suffit pas de fournir
+                              simplement une URL; (iii) Le nom, l''adresse, le numéro de téléphone et l’adresse e-mail complète du plaignant; (iv) Une déclaration que le
+                              plaignant a une croyance de bonne foi que l''utilisation des documents qui auraient été violés ne soit pas autorisée par le propriétaire des
+                              droits ; (v) Une déclaration que les informations contenues dans la notification sont exactes ; (vi) Une signature physique ou électronique
+                              d''une personne autorisée à agir au nom du propriétaire des droits de propriété intellectuelle qui sont prétendument violés. Les informations
+                              de contact de CRYPTIZY pour avis de violation présumée du droit d''auteur sont à envoyer par e-mail à contact@cryptizy.com'
+                subtitle4: '12.4. Liens vers d''autres sites Web et affichage des marques ou des logos des tiers.'
+                subcontent4: 'La plateforme CRYPTIZY peut contenir des logos et / ou noms de marques de tiers, et / ou des liens (tels que des hyperliens) à des sites tiers.
+                              Ces marques, logos et liens ne constituent pas l''approbation par CRYPTIZY de ces parties, sites ou leur contenu. Ils sont seulement fournis
+                              comme un service d''information, de référence et de commodité. CRYPTIZY ne contrôle pas ces sites, et n’est pas responsable de leur
+                              (i) disponibilité ou exactitude, ou (ii) contenu, publicité, ou produits ou services. L''existence de liens sur la plateforme CRYPTIZY à
+                              ces sites ne signifie pas que CRYPTIZY approuve tout le contenu sur ces sites. Il est de la responsabilité de l’Utilisateur d''évaluer
+                              le contenu et l''utilité des informations obtenues à partir d''autres sites. CRYPTIZY décline expressément toute responsabilité découlant de
+                              l’utilisation et / ou consultation des sites, des marques ou des logos des tiers, ou tout autre matériel associé à des liens, des logos ou des
+                              noms de marque qui peuvent apparaître sur la plateforme CRYPTIZY. L’Utilisateur s’engage à exonérer CRYPTIZY de toute responsabilité qui
+                              pourrait résulter de l''utilisation de liens qui peuvent apparaître sur la plateforme CRYPTIZY.'
+                subtitle5: '12.5. Force majeure.'
+                subcontent5: 'Tout retard dans la disponibilité du service ou l''exécution de toute Prestation n’est pas considéré comme une violation du présent Accord
+                              si ce retard est causé par un cas de force majeure, notamment un incendie, tremblement de terre, inondation, guerre, acte de terrorisme,
+                              acte gouvernemental, échec des transporteurs publics (y compris service Internet de fournisseurs), ou tout autre événement hors du contrôle
+                              de CRYPTIZY.'
+                subtitle6: '12.6. Les questions.'
+                subcontent6: 'Pour toute question concernant le présent Accord veuillez nous écrire à contact@cryptizy.com.'
+    privacy:
+        title: 'Politique de confidentialité'
+        content1:
+            1: 'Comme utilisé ici, "Cryptizy" se réfère à la société REPARIZY SAS, y compris sans limitation de ce fait, ses propriétaires,
+            administrateurs, investisseurs, employés ou d''autres parties liées. ''REPARIZY SAS'' est une société par actions simplifiées,
+            constituée selon les lois de la France. Selon le contexte, "Cryptizy" peut également se référer à des services, des produits, du site,
+            du contenu ou d''autres documents (collectivement, "les documents") fournis par Cryptizy.'
+            2: 'Cryptizy (ci-après, "Cryptizy", "nous", "notre" ou "nos") s’engage à protéger et à respecter votre vie privée.'
+            3: 'Cette politique de confidentialité (ainsi que nos conditions d''utilisation) régit la collecte, le traitement et l''utilisation de
+            vos informations personnelles. Nous définissons " informations personnelles " comme étant des renseignements qui vous identifient
+            personnellement, par exemple votre nom, adresse, email, vos coordonnées bancaires, etc.'
+        definition:
+            title: 'Définitions'
+            information: '• « Information privée » : l''information qui vous identifie personnellement et qui est perçue et utilisée par Cryptizy
+            comme indiqué dans cette politique de confidentialité et/ou toute autre manière permise par la loi'
+            compte: '• « Compte » : accès qui est accordé aux membres comme indiqué dans nos conditions d''utilisation ;'
+            plateforme: '• « Plateforme » : technologies matérielles et logicielles qui sont utilisées par Cryptizy afin de fournir le service comme
+            indiqué dans nos conditions d''utilisation ;'
+            transaction: '• « Transaction » : signifie (i) l''accord entre l''acheteur et le vendeur pour échanger des Cryptomonnaies par le service
+            de devises à un taux d''accord commun ("Transaction d''achat des Cryptomonnaies"), (ii) la conversion des monnaies en Cryptomonnaies
+            déposée par les membres sur leur compte ("Transaction de conversion"), (iii) le transfert des Cryptomonnaies entre les membres
+            ("Transaction de transfert des Cryptomonnaies"), (iv) le transfert de devises entre les membres ("Transaction de transfert de devises")
+            et (v) l''achat de produits annexes ("Achat de transactions"). Cryptizy ne peut pas offrir tous ces types de transactions en ce moment,
+            sur la plateforme web ou application mobile, ou dans tous les pays où le service est disponible.'
+        informations:
+            title: 'COLLECTE ET UTILISATION DES INFORMATIONS PERSONNELLES'
+            content: 'Nous pouvons collecter vos informations personnelles lors de l’utilisation du site, ou l’ouverture d’un compte pour utiliser ou
+            exécuter des transactions sur la plate-forme. Les informations personnelles que nous collectons peuvent comprendre :'
+            type:
+                name: '• Votre nom et prénom;'
+                gender: '• Votre genre ;'
+                id: '• Votre photo d’identité, y compris une image de haute qualité de votre pièce d''identité officielle, passeport, carte d''identité
+                nationale, et permis de conduire;'
+                adresse: '• Votre adresse;'
+                email: '• Votre adresse email;'
+                phone: '• Votre numéro de téléphone ;'
+                bank: '• Vos coordonnées bancaires, y compris les numéros de compte;'
+                birthdate: '• Votre date de naissance;'
+                job: '• Vos profession; et'
+                bill: '• Votre facture de services publics ou un relevé bancaire confirmant votre adresse de résidence.'
+            use:
+                content: 'Nous pouvons utiliser vos informations personnelles à des fins suivantes:'
+                personnalize: '• Pour personnaliser votre expérience (votre information nous aide à mieux répondre à vos besoins individuels);'
+                upgrade1: '• Pour améliorer notre site web (nous nous efforçons continuellement d''améliorer nos offres de site web qui sont basées sur
+                les informations et les commentaires que nous recevons de votre part);'
+                analyze: '• Pour analyser l''utilisation de notre site web;'
+                upgrade2: '• Pour améliorer le service à la clientèle (votre information nous aide à répondre plus efficacement à vos demandes de service
+                clients et vos besoins de support);'
+                verify: '• Pour vérifier votre identité en accord avec notre politique anti-blanchiment d''argent (AML) et la politique de vérification
+                d''identité;'
+                transactions: '• Pour traiter les transactions. Vos informations, qu''elles soient publiques ou privées, ne seront en aucun cas vendues,
+                échangées, ou données à une autre société tierce, sans votre consentement, sauf dans le cas d''une livraison de produit acheté ou d''un
+                service demandé par le client;'
+                email: '• Pour envoyer des emails périodiques. L''adresse email que vous fournissez pour le traitement de la commande, peut être utilisée
+                pour vous envoyer des informations et des mises à jour relatives à votre commande ou demande, et pour recevoir des nouvelles de la
+                société, des mises à jour, des promotions, des informations occasionnelles sur un produit ou service suivi, etc.;'
+                promote: '• Pour administrer un concours, une promotion, un sondage ou un autre aspect du site.'
+            content1: 'Nous traiterons vos informations personnelles uniquement dans le(s) but(s) pour le(s)quel(s) ils sont fournis.'
+        ip:
+            title: 'ADRESSES IP'
+            content: 'Nous pouvons collecter des informations sur votre ordinateur, y compris votre adresse IP, votre système d''exploitation et le
+            type de navigateur utilisé pour l''administration système. Ce sont des données statistiques sur les actions et les habitudes de navigation
+            de nos utilisateurs et qui ne permettent pas d''identifier un individu.'
+        cookies:
+            title: 'COOKIES'
+            content:
+                a: 'Le site de Cryptizy utilise des cookies. Les cookies sont de petits fichiers de texte qui sont placés sur votre ordinateur par les sites
+                web que vous visitez. Ils sont largement utilisés pour que les sites web fonctionnent correctement, ou fonctionnent plus efficacement, et
+                aussi afin de fournir des informations aux propriétaires du site'
+                b: 'Les cookies sont généralement stockés sur le disque dur de votre ordinateur. Les informations collectées par les cookies sont utilisées
+                de notre part afin d’évaluer l''efficacité de notre site, analyser les tendances et administrer la plateforme. Les informations collectées
+                par les cookies nous permettent de déterminer des choses telles que les parties de notre site qui sont les plus visitées et les difficultés
+                que nos visiteurs peuvent rencontrer en accédant à notre site. Avec cette connaissance, nous pouvons améliorer la qualité de votre
+                expérience sur la plate-forme en reconnaissant et en livrant plus de caractéristiques et informations les plus souhaitées, tout comme la
+                résolution des difficultés d''accès.'
+                c: 'Nous utilisons des fournisseurs de services tiers pour nous aider à mieux comprendre l''utilisation de notre site. Nos fournisseurs de
+                services peuvent placer des cookies sur le disque dur de votre ordinateur et recevoir des informations que nous sélectionnons et qui nous
+                renseignent sur des choses comme la façon dont les visiteurs naviguent sur notre site, les produits visités, et les informations générales
+                de transaction. Nos fournisseurs de services analysent cette information et nous fournissent des rapports agrégés. Les informations et
+                analyses fournies par nos fournisseurs de services peuvent être utilisées pour nous aider à mieux comprendre les intérêts des visiteurs
+                sur notre site et la façon la mieux adaptée pour servir leurs intérêts. Les informations collectées par nos fournisseurs de services
+                peuvent être liées et combinées avec des informations que nous collectons à votre sujet lorsque vous utilisez la plateforme. Nos
+                fournisseurs de services n''ont contractuellement pas le droit d''utiliser les informations qu''ils reçoivent de notre site sauf dans le
+                cas de nous assister.'
+                d: 'En utilisant notre site, vous acceptez que nous puissions utiliser des cookies aux fins énoncées ci-dessus.'
+        disclosure:
+            title: 'DIVULGATION DES INFORMATIONS PERSONNELLES'
+            content:
+                a: 'Nous utilisons les informations personnelles aux fins indiquées au moment où vous nous les fournissez, et/ou autrement aux fins
+                énoncées dans la présente politique de confidentialité et/ou toute autre manière permise par la loi.'
+                b: 'Vous reconnaissez qu''en utilisant nos services et en donnant votre accord aux conditions d''utilisation de Cryptizy, vous serez en
+                mesure de nous fournir des informations personnelles. Vous consentez à ce que nous communiquions ces informations lorsque nous sommes
+                tenus par la loi à des tiers, à des fins d''identification électronique comme indiqué ci-dessus.'
+                c: 'Les informations non personnelles des visiteurs peuvent être fournies à d''autres parties pour le marketing, la publicité, ou
+                d''autres utilisations.'
+        third:
+            title: 'LIENS DE TIERS'
+            content:
+                a: 'Occasionnellement, à notre discrétion, nous pouvons inclure ou offrir des produits ou services de tiers sur notre site web. Ces sites
+                tiers ont des politiques de confidentialité distinctes et indépendantes. Nous vous encourageons à consulter l''ensemble des politiques,
+                règles, modalités et règlements, y compris les politiques de confidentialité, de chaque site que vous visitez. Néanmoins, nous cherchons
+                à protéger l''intégrité de notre site et nous vous invitons à laisser des commentaires à propos de ces sites.'
+                b: 'Nous ne contrôlons ni ces sites tiers ni tout contenu qui y figure, et vous acceptez que nous ne sommes en aucun cas responsables pour
+                tout ce qui figure sur ces sites tiers, y compris, sans limitation, leur contenu, les politiques, les échecs, les promotions, les produits,
+                des services ou des actions et/ou des dommages, pertes, pannes ou problèmes causés par, liés à ou découlant de ces sites.'
+        modify:
+            title: 'CORRECTION / MISE À JOUR / SUPPRESSION DES INFORMATIONS PERSONNELLES'
+            content:
+                a: 'Vous avez le droit d''accéder à vos informations personnelles et d''exiger la correction, la mise à jour et le blocage des données
+                inexactes et/ou incorrectes en envoyant un email à l''adresse: contact@cryptizy.com'
+                b: 'Cryptizy donnera suite à votre demande seulement si ce n''est pas incompatible avec ses conditions d''utilisation, juridique et des
+                obligations réglementaires. À votre demande écrite, nous allons vous fournir des informations personnelles vous concernant que nous
+                détenons et l''utilisation et la divulgation générale de vos informations personnelles. Cette demande sera acceptée une fois par trimestre
+                par titulaire de compte.'
+        security:
+            title: 'SÉCURITÉ'
+            content:
+                a: 'Nous avons mis en place des mesures de sécurité pour assurer la confidentialité de vos informations personnelles et les protéger contre
+                la perte, l''altération ou la destruction.'
+                b: 'Nous mettons en œuvre une variété de mesures de sécurité pour maintenir la sécurité de vos informations personnelles lorsque vous
+                soumettez une demande, passez une commande ou accédez à vos informations personnelles. Ces mesures de sécurité comprennent : la
+                protection du mot de passe, des répertoires et des bases de données. Pour protéger vos informations, nous utilisons la technologie SSL
+                (Secure Sockets Layered) pour nous assurer que votre information est entièrement cryptée et envoyée à travers Internet en toute sécurité
+                et nous utilisons d''autres mesures pour protéger nos serveurs contre les pirates et autres vulnérabilités.'
+                c: 'Seul le personnel autorisé de Cryptizy a accès à vos informations personnelles, et il est tenu de traiter l''information de façon
+                confidentielle. Les mesures de sécurité seront, de temps à autre, revues en fonction des évolutions juridiques et techniques.'
+        retention:
+            title: 'CONSERVATION DES INFORMATIONS PERSONNELLES'
+            content: 'Nous conserverons vos informations personnelles aussi longtemps que cela nous est nécessaire, vu aux fins décrites dans cette
+            politique de confidentialité et nos propres obligations légales et réglementaires. Conformément au maintien de nos obligations, nous
+            retiendrons les comptes et les informations personnelles pour, au moins une période de cinq ans après leur saisie par les utilisateurs.'
+        changes:
+            title: 'CHANGEMENTS'
+            content: 'Nos politiques de site, du contenu, des informations, des promotions, des informations, des avertissements et des caractéristiques
+            peuvent être révisés, modifiés, mis à jour et/ou complétés à tout moment et sans préavis, à la seule et entière discrétion de Cryptizy. Si
+            nous changeons cette politique de confidentialité, nous allons prendre des mesures pour informer les utilisateurs par un avis sur notre
+            site et nous publierons la politique de confidentialité modifiée sur le site.'
+        contact:
+            title: 'CONTACTEZ-NOUS'
+            content: 'Si vous avez des questions, des commentaires ou des préoccupations concernant notre politique de confidentialité et/ou pratiques
+            en rapport avec la plateforme, veuillez nous contacter: contact@cryptizy.com'
+        aml:
+            title: 'Politique AML'
+            content1: 'Cryptizy.com est une plateforme détenue et fournie par REPARIZY (ci-après "CRYPTIZY"). CRYPTIZY est engagée au plus haut niveau
+            dans la lutte anti-blanchiment d’argent et l’anti-terrorisme financier et demande aux managers comme aux employés de suivre les consignes
+            suivantes.'
+            content2: 'Blanchiment d’argent – fait de convertir des fonds issus d’activité illégale (telles que la fraude, la corruption, le
+            terrorisme etc.) en des fonds d’investissements qu’il semble légitime de dissimuler ou de détourner des sources réelles d’argent.'
+            policy:
+                title: 'Politique anti-blanchiment d’argent (Politique AML)'
+                content1: 'CRYPTIZY adhère aux principes anti-blanchiment d’argent et empêche activement toutes les actions qui ont pour but de
+                faciliter la légalisation de fonds acquis illégalement. La politique anti-blanchiment d’argent signifie une prévention de l’usage des
+                services de la société par des criminels, qui ont pour but de blanchir de l’argent, de financer le terrorisme ou d’autres activités
+                criminelles.'
+                content2: 'Dans cette optique, une politique stricte de détection, de prévention et d’avertissement de toutes activités suspicieuses a
+                été mise en place par la société. De plus, CRYPTIZY n’a pas le droit de reporter aux clients que les forces judiciaires sont informées
+                de leurs activités. Des systèmes électroniques complexes d’identification pour chaque client de la société, et suivi détaillé de
+                l’historique de toutes les opérations ont également été mis en place.'
+                content3: 'Afin de limiter le blanchiment d’argent CRYPTIZY n’accepte ni ne reverse de paiement en cash quelles que soient les circonstances.
+                La société se réserve le droit de suspendre n’importe quelle opération des clients qui peut sembler illégale ou qui est potentiellement
+                liée à du blanchiment d’argent, selon le point de vue des employés.'
+            procedure:
+                title: 'Procédures de la société'
+                content:
+                    p: 'CRYPTIZY vérifie que chaque personne impliquée dans les échanges est une entité légale. CRYPTIZY réalise aussi toutes les démarches
+                    requises par la loi et les différentes réglementations, mises en place par les autorités monétaires. La politique anti-blanchiment
+                    d’argent signifie les choses suivantes :'
+                    1: '• Politique Know your customer et due diligence'
+                    2: '• Contrôle de l’activité des clients'
+                    3: '• Gardez vos reçus'
+            kyc:
+                title: 'Know Your Customer et Due Diligence'
+                content: 'Du fait de l’engagement de la société pour des politiques AML et KYC, chaque client de la société doit achever les procédures
+                de vérification. Avant que CRYPTIZY ne commence une coopération quelconque avec le client, la société s’assure que les éléments nécessaires
+                ont été produits ou que des mesures ont été prises afin de fournir les éléments d’identification du client. La société a aussi recours à un
+                examen minutieux des clients qui résident dans les pays identifiés, par des sources fiables, comme des pays ayant une politique AML
+                inadéquate ou qui peuvent présenter un risque élevé de crimes et de corruption.'
+            individual:
+                title: 'Clients individuels'
+                content:
+                    p: 'Durant l’inscription, chaque client fournit des informations personnelles spécifiques : nom et prénom complet, genre, date de
+                    naissance, adresse complète avec code postal, email, numéro de téléphone. Les clients individuels envoient les documents suivant
+                    (si les documents ne sont pas rédigés en caractères romains, afin d’éviter des délais inutiles lors de la vérification, il est
+                    nécessaire de fournir des documents traduits en anglais et notariés) du fait des prérequis de la politique KYC et afin de confirmer
+                    les informations indiquées :'
+                    1: '• Une copie haute résolution de la première page du passeport international ou recto et verso de la carte d’identité nationale
+                    avec la photo et la signature clairement visibles. Les documents indiqués doivent être valable et ne pas être périmés.'
+                    2: '• Une copie haute résolution d’une facture d’usage publique ou d’un relevé bancaire qui contient le nom complet du client et
+                    son lieu actuel de résidence. Ces documents ne doivent pas être antérieurs à la date d’inscription de plus de 3 mois.'
+            monitor:
+                title: 'Contrôle de l’activité du client'
+                content: 'En plus de la collecte d’informations concernant le client, CRYPTIZY continue de contrôler les activités de chaque client
+                pour identifier et prévenir les transactions douteuses. Une transaction douteuse est connue comme une transaction qui diffère des
+                transactions usuelles du client connues grâce à l’historique des transactions. CRYPTIZY a implanté un système de contrôle du nom des
+                transactions (aussi bien automatique que manuel) pour prévenir un usage criminel des services de la société.'
+            deposit_withdraw:
+                title: 'Prérequis pour les dépôts et les retraits'
+                content:
+                    p: 'Toutes les opérations de dépôt et de retrait des clients ont les prérequis suivants :'
+                    1: '• Dans le cas d’un transfert bancaire, le nom, indiqué durant l’enregistrement, doit correspondre au nom du détenteur du compte bancaire.'
+                    2: '• Retirer des fonds depuis le compte utilisateur CRYPTIZY par une méthode différente de la méthode de dépôt n’est possible qu’après retrait
+                    du montant déposé par le client par la méthode initiale et à partir du même compte utilisé pour le dépôt.'
+                    3: '• Si le compte a été crédité d’une manière qui ne peut pas être utilise pour le retrait, les fonds peuvent être retirés sur un compte bancaire
+                    du client ou de n’importe quelle autre manière, en accord avec la société et de telle sorte que la société puisse prouver l’identité du
+                    détenteur du compte.'
+
+
+

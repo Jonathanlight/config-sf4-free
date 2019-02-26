@@ -1,0 +1,17 @@
+{% extends 'base_faq.html.twig' %}
+
+
+{% block body %}
+    <h3>Comment faire un retrait en Euro depuis mon compte Cryptizy vers mon compte bancaire ?</h3>
+    <p style="text-align: justify">
+        Pour pouvoir effectuer un retrait vous devez au préalable :<br><br>
+        1. disposer d’un solde € disponible,<br>
+        2. <a href="{{ url('compte') }}">ajouter votre IBAN</a>.<br><br>
+        À la suite de cela, dans la page <a href="{{ url('office_home') }}">« Tableau de bord »</a> de votre compte Utilisateur<br><br>
+        1. cliquez sur le bouton « Retrait » vous serez redirigé vers la page de retrait.<br>
+        2. Insérer le montant en Euro que vous souhaitez retirer et valider.<br><br>
+
+        Un email vous sera envoyé avec les détails de l'opération.
+
+    </p>
+{% endblock %}

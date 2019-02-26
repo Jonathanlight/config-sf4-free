@@ -1,0 +1,407 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row">
+                <div id="profile-page" class="section" style="padding-top: 0px; margin-top: 0px;">
+                    <!-- profile-page-header -->
+                    <div id="profile-page-header" class="card" style="overflow: hidden;">
+                        <div class="card-image waves-effect waves-block waves-light">
+                        </div>
+                        <figure class="card-profile-image">
+                            <img src="{{ asset('assets/user/office/img/boy.png') }}"  alt="profile image" class="circle z-depth-2 responsive-img gradient-45deg-white gradient-shadow">
+                            <a href="#parrain_info" class="btn modal-trigger waves-effect waves-light mt-5 gradient-45deg-white gradient-shadow accent-2 width-100" style="color: #17264B; padding: 0px 10px; font-size: 9px; text-align: left;">
+                                <i class="material-icons" style="vertical-align: sub; font-size: 14px;">history</i>Info Parrain
+                            </a>
+                            <a class="btn activator waves-effect waves-light gradient-45deg-white gradient-shadow accent-2 mt-5 width-100" style="color: #17264B; padding: 0px 10px; font-size: 9px; text-align: left;">
+                                <i class="material-icons" style="vertical-align: sub; font-size: 14px;">history</i>Historique
+                            </a>
+                        </figure>
+                        <div class="card-content">
+                            <!-- Modal Structure -->
+                            <div id="parrain_info" class="modal">
+                                <div class="modal-content">
+                                    <h4>Info parrainage</h4>
+
+                                    {% if monParrain[0] is defined %}
+                                        <ul class="collection with-header">
+                                            <li class="collection-header"><h5>Parrain</h5></li>
+                                            <li class="collection-item">
+                                                <div>{{ monParrain[0].utilisateurParrain.nom ~ ' '~ monParrain[0].utilisateurParrain.prenom }} Ref : {{ monParrain[0].utilisateurParrain.reference }}
+                                                    <a class="secondary-content"><i class="material-icons">person</i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <ul class="collection with-header">
+                                            <li class="collection-header"><h5>Pas de parrain</h5></li>
+                                        </ul>
+                                    {% endif %}
+
+                                    {% if listFilleuls|length > 0  %}
+                                        <ul class="collection with-header">
+                                            <li class="collection-header"><h5>Filleuls</h5></li>
+                                            {% for f in listFilleuls %}
+                                                <li class="collection-item">
+                                                    <div>{{ f.utilisateurFilleul.nom ~ ' '~ f.utilisateurFilleul.prenom }} - Ref : {{ f.utilisateurFilleul.reference }}
+
+                                                        {% if f.etat != 1 %}
+                                                            <a class="secondary-content"><i class="material-icons" style="color: orange;">person</i></a>
+                                                        {% else %}
+                                                            <a class="secondary-content"><i class="material-icons" style="color: green;">person</i></a>
+                                                        {% endif %}
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <ul class="collection with-header">
+                                            <li class="collection-header"><h5>Aucun filleuls</h5></li>
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"> X Close</a>
+                                </div>
+                            </div>
+                            <div class="row pt-2 px530-mt-150">
+                                <div class="col s12 m12 l3 offset-l2 center-align">
+                                    <h4 class="card-title grey-text text-darken-4">{{ user.prenom ~ ' '~ user.nom }}</h4>
+                                    <p class="medium-small grey-text">{{ user.username }}</p>
+                                    <p class="medium-small grey-text">{{ user.reference }}</p>
+                                    <p class="medium-small grey-text">{{ user.datenaissance | date('d/m/Y') }}</p>
+                                    <p>
+                                        {% if user.validated != 1 %}
+                                            <span class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2" style="float: none!important">Profil non verifié</span>
+                                        {% else %}
+                                            <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left" style="float: none!important">Profil vérifié</span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="col s12 m12 l2 center-align">
+                                    <h4 class="card-title grey-text text-darken-4">Coordonnées</h4>
+                                    <p class="medium-small grey-text">{{ user.email }}</p>
+                                    <p class="medium-small grey-text">{{ user.telephone }}</p>
+                                </div>
+                                <div class="col s12 m12 l2 center-align">
+                                    <h4 class="card-title grey-text text-darken-4">Adresse</h4>
+                                    {% if user.adresse is null %}
+                                        <p class="medium-small grey-text">En cours ...</p>
+                                    {% else %}
+                                        <p class="medium-small grey-text">{{ user.adresse }}</p>
+                                        <p class="medium-small grey-text">{{ user.codepostale }}</p>
+                                        <p class="medium-small grey-text">{{ user.ville }}</p>
+                                        <p class="medium-small grey-text">{{ user.ipadresse }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="col s12 m12 l2 center-align">
+                                    <h4 class="card-title grey-text text-darken-4"></h4>
+                                    <p class="medium-small grey-text">
+                                        {% if user.iban is null %}
+                                            ...
+                                        {% else %}
+                                            {{ user.iban }}
+                                        {% endif %}
+                                    </p>
+                                    <p class="medium-small grey-text">
+                                        {% if user.iban is null %}
+                                            ...
+                                        {% else %}
+                                            {{ user.bic }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-reveal" style="display: none; transform: translateY(0px);">
+                            <div class="row">
+                                <span class="card-title grey-text text-darken-4">
+                                  <i class="material-icons right">close</i>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <table class="highlight table-crypto img-crypto nom-crypto">
+                                    <thead>
+                                    <tr>
+                                        <th>Reference</th>
+                                        <th>Exchange</th>
+                                        <th>Cost</th>
+                                        <th>Coin</th>
+                                        <th>Amount</th>
+                                        <th>fees</th>
+                                        <th>Buy Price</th>
+                                        <th>State</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if transactions is defined %}
+                                            {% for operation in transactions %}
+                                                <tr>
+                                                    <td>{{ operation.reference }}</td>
+                                                    <td>{% if operation.exchange is null %} ... {% else %} {{ operation.exchange }} {% endif %}</td>
+                                                    <td>{{ operation.cost }} €</td>
+                                                    <td><img src="{{ asset('assets/user/office/img/' ~ operation.crypto.image ) }}" alt="logo crypto"><p>{{ operation.crypto.name }}</td>
+                                                    <td>{% if operation.amount is null or operation.amount == 0 %} ... {% else %} {{ operation.amount }} {% endif %}</td>
+                                                    <td>{% if operation.frais is null or operation.frais == 0 %} ... {% else %} {{ operation.frais }} {% endif %}</td>
+                                                    <td> {% if operation.buyPrice is null or operation.buyPrice == 0 %} ... {% else %} {{ operation.buyPrice }} € {% endif %}</td>
+                                                    <td>
+                                                        {% if operation.state != 1 %}
+                                                            <span class="badge white-text gradient-45deg-orange-amber gradient-shadow mt-2 mr-2 left">En cours</span>
+                                                        {% else %}
+                                                            <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">succès</span>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col s12 m6">
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <div class="card frame-admin gradient-45deg-cryptizy gradient-shadow white-text" style="min-height: 120px; overflow: visible;">
+                                <div class="padding-4">
+                                    <div class="row">
+                                        <div class="col s12 right-align">
+                                            <h5 class="mb-0 thin" id="tour-dispo"> {{ user.solde.solde|number_format(2, '.', ',') }} €</h5>
+                                            <p class="no-margin">{{ 'user.home.available'|trans }}</p>
+                                            <p>{{ 'user.home.totalDepot'|trans }} : <span id="soldeDeposit">{{ totalDepose }} €</span></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 l6">
+                            <div class="card frame-admin shadow-grey" style="min-height: 120px;">
+                                <div class="padding-4">
+                                    <div class="row">
+                                        <div class="col s12 right-align">
+                                            <h5 class="mb-0 thin" id="tour-total">0</h5>
+                                            <p class="no-margin">{{ 'user.home.totalEq'|trans }}</p>
+                                            <p id="delta">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-content">
+                                <div id="euro">
+                                    <div class="titre-crypto">
+                                        <form method="post" action="{{ path('details_user', {'id': user.id}) }}">
+                                            <div class="row">
+                                                <h1 class="col l4 s12 offset-l4 gradient-shadow">Dépôt Euro</h1>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col m6 s12 l4">
+                                                    <i class="material-icons prefix" style="color: #3c59b6">euro_symbol</i>
+                                                    <input id="costEuro" name="solde" type="text" class="validate" required>
+                                                    <label class="active" for="costEuro">Montant</label>
+                                                </div>
+                                                <div class="input-field col m6 s12 l4">
+                                                    <i class="material-icons prefix" style="color: #3c59b6">euro_symbol</i>
+                                                    <input id="costEuro" name="marge" type="text" class="validate" required>
+                                                    <label class="active" for="costEuro">%</label>
+                                                </div>
+                                                <div class="input-field col m6 s12 l4">
+                                                    <i class="material-icons prefix" style="color: #3c59b6">date_range</i>
+                                                    <input id="dateEuro" name="created" type="date" class="validate" required>
+                                                    <label class="active" for="dateEuro">Date</label>
+                                                </div>
+                                                <div class="input-field col s12" id="index" style="display: block;">
+                                                    <button class="waves-effect waves-light btn gradient-45deg-cryptizy gradient-shadow white-text"  type="submit" value="Prendre RDV" id="search" style="color: #fff; display: block; margin: auto">Valider</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!--show crypto market-->
+                        {% include 'ui-component/cryptoUser.html.twig' %}
+                </div>
+                <div class="col s12 m6">
+                    {% set values_identite = [] %}
+                    {% set values_identite = values_identite|merge([user.loadIdentite]) %}
+                    {% set var_piece_identite  = values_identite|join %}
+                    {% set size1_ = var_piece_identite|length %}
+                    {% set objet_type =  var_piece_identite|slice(-3, size1_) %}
+                    {% set values_loadJustificatifDomicile = [] %}
+                    {% set values_loadJustificatifDomicile = values_loadJustificatifDomicile|merge([user.loadJustificatifDomicile]) %}
+                    {% set var_justificatif  = values_loadJustificatifDomicile|join %}
+                    {% set size2_ = var_justificatif|length %}
+                    {% set objet_type_justificatif =  var_justificatif|slice(-3, size2_) %}
+                    {% set values_justificatifSelfie = [] %}
+                    {% set values_justificatifSelfie = values_justificatifSelfie|merge([user.justificatifSelfie]) %}
+                    {% set var_justificatifSelfie  = values_justificatifSelfie|join %}
+                    {% set size3_ = var_justificatifSelfie|length %}
+                    {% set objet_type_justificatifSelfie = var_justificatifSelfie|slice(-3, size3_) %}
+                    <div class="card-panel grey lighten-5 gradient-45deg-white gradient-shadow" style="border-radius: 15px;">
+                        <div class="row valign-wrapper">
+                            <div class="col s12 m12">
+                                <center>
+                                    {% if objet_type is empty or objet_type is null %}
+                                        <img src="{{ asset("assets/user/office/img/id-card.png") }}" title="Downloads" class="responsive-img" alt="download"/>
+                                    {% else %}
+                                        {% if objet_type != "pdf" %}
+                                            <a href="{{ asset('/document/wxp/' ~ var_piece_identite) }}" target="_blank">
+                                                <img src="{{ asset('/document/wxp/' ~ var_piece_identite) }}" style="width: 360px;height: 400px;" class="responsive-img">
+                                            </a>
+                                        {% else %}
+                                            <object data="{{ asset('/document/wxp/' ~ var_piece_identite) }}" type="application/pdf" class="responsive-img" title="cv" width="360" height="200"></object>
+                                        {% endif %}
+                                    {% endif %}
+                                    <p>Pièce d'identité</p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-panel grey lighten-5 gradient-45deg-white gradient-shadow" style="border-radius: 15px;">
+                        <div class="row valign-wrapper">
+                            <div class="col s12 m12">
+                                <center>
+                                    {% if objet_type_justificatif is empty or objet_type_justificatif is null %}
+                                        <img src="{{ asset("assets/user/office/img/file.png") }}" title="Downloads" class="responsive-img"/>
+                                    {% else %}
+                                        {% if objet_type_justificatif != "pdf" %}
+                                            <a href="{{ asset('/document/wxp/' ~ var_justificatif) }}" target="_blank">
+                                                <img src="{{ asset('/document/wxp/' ~ var_justificatif) }}" style="width: 360px;height: 400px;" class="responsive-img">
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ asset('/document/wxp/' ~ var_justificatif) }}" target="_blank">
+                                                <object data="{{ asset('/document/wxp/' ~ var_justificatif) }}" type="application/pdf" class="responsive-img" title="cv" width="360" height="200"></object>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                    <p>Justificatif de domicile</p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-panel grey lighten-5 gradient-45deg-white gradient-shadow" style="border-radius: 15px;">
+                        <div class="row valign-wrapper">
+                            <div class="col s12 m12">
+                                <center>
+                                    {% if objet_type_justificatifSelfie is empty or objet_type_justificatifSelfie is null %}
+                                        <img src="{{ asset("assets/user/office/img/selfie.png") }}" title="Downloads" class="responsive-img"/>
+                                    {% else %}
+                                        {% if objet_type_justificatifSelfie != "pdf" %}
+                                            <a href="{{ asset('/document/wxp/' ~ var_justificatifSelfie) }}" target="_blank">
+                                                <img src="{{ asset('/document/wxp/' ~ var_justificatifSelfie) }}" style="width: 360px;height: 400px;" class="responsive-img">
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ asset('/document/wxp/' ~ var_justificatifSelfie) }}" target="_blank">
+                                                <object data="{{ asset('/document/wxp/' ~ var_justificatifSelfie) }}" type="application/pdf" class="responsive-img" title="cv" width="360" height="200"></object>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                    <p>Selfie</p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field col s12" id="index" style="color: #fff;">
+                        <a class="waves-effect waves-light btn gradient-45deg-green-teal gradient-shadow" href="{{ url('validated_user', {'id':user.id}) }}"  style="color: #fff; display: block; margin: auto;">
+                            Confirmer la vérification
+                        </a><br><br>
+                        <a class="waves-effect waves-light btn gradient-45deg-red gradient-shadow" href="{{ url('disable_user', {'id':user.id}) }}"  style="color: #fff; display: block; margin: auto;">
+                            Désactiver la vérification
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="card-image waves-effect waves-block waves-light" id="card-compte">
+                    <h5 class="padding-2" style="color: #fff; text-align: center;">Depots en Traitement</h5>
+                </div>
+                <table class="highlight table-crypto img-crypto nom-crypto">
+                    <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Réference Utilisateur</th>
+                        <th>Nom et Prénom</th>
+                        <th>Email</th>
+                        <th>Solde Depot</th>
+                        <th>% Cryptizy</th>
+                        <th>Solde Valider</th>
+                        <th>Date de depot</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if depotUserEnCour is defined %}
+                            {% for depot in depotUserEnCour %}
+                                <tr>
+                                    <td><i class="material-icons right">done</i></td>
+                                    <td>{{ depot.utilisateur.reference }}</td>
+                                    <td>{{ depot.utilisateur.nom ~ ' '~ depot.utilisateur.prenom }}</td>
+                                    <td>{{ depot.utilisateur.email }}</td>
+                                    <td>{{ depot.solde }} €</td>
+                                    <td>{{ depot.marge }} €</td>
+                                    <td>{{ depot.montant }} €</td>
+                                    <td>{{ depot.created | date('d/m/Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="card-image waves-effect waves-block waves-light" id="card-compte">
+                    <h5 class="padding-2" style="color: #fff; text-align: center;">Depots Validé</h5>
+                </div>
+                <table class="highlight table-crypto img-crypto nom-crypto">
+                    <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Réference Utilisateur</th>
+                        <th>Nom et Prénom</th>
+                        <th>Email</th>
+                        <th>Solde Depot</th>
+                        <th>% Cryptizy</th>
+                        <th>Solde Valider</th>
+                        <th>Date de depot</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if depotUser is defined %}
+                            {% for depot in depotUser %}
+                                <tr>
+                                    <td><i class="material-icons right">done</i></td>
+                                    <td>{{ depot.utilisateur.reference }}</td>
+                                    <td>{{ depot.utilisateur.nom ~ ' '~ depot.utilisateur.prenom }}</td>
+                                    <td>{{ depot.utilisateur.email }}</td>
+                                    <td>{{ depot.solde }} €</td>
+                                    <td>{{ depot.marge }} €</td>
+                                    <td>{{ depot.montant }} €</td>
+                                    <td>{{ depot.created | date('d/m/Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% set domain = '/'~ 'api/admin_xgt45e8/dashboard/user/' ~ user.id   %}
+    <script>
+        var id = "{{ user.id }}";
+        var domain = "{{ domain }}";
+    </script>
+    <script src="{{ asset('assets/user/office/js/krakenTargetMarket.js') }}"></script>
+    <script src="{{ asset('assets/user/office/js/custom-script.js') }}"></script>
+{% endblock %}

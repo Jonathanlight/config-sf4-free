@@ -1,0 +1,104 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <section id="content">
+        <!--start container-->
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        {% if app.session.flashBag.has('success') %}
+                            <div class="card-panel teal lighten-2" style="background: #13C681 !important;color: #fff !important;">
+                                {% for msg in app.session.flashBag.get('success') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <table class="highlight table-crypto img-crypto nom-crypto">
+                            <thead>
+                            <tr>
+                                <th>Réference</th>
+                                <th>Etat</th>
+                                <th>Frais de transfert</th>
+                                <th>Montant à recevoir</th>
+                                <th>Adresse Wallet</th>
+                                <th>Date</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                            </thead>
+                            {% if allTransferts is defined %}
+                                {% for t in allTransferts %}
+                            <tbody>
+                                <form method="post" action="{{ path('transfertAdmin') }}">
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <p style="font-size: 13px; text-align: center">
+                                                    {{ t.utilisateur.reference }}<br>
+                                                    {{ t.utilisateur.email }}
+                                                </p>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            {% if t.validated != 0 %}
+                                                <span class="badge white-text gradient-45deg-green-teal gradient-shadow mt-2 mr-2 left">Validé</span>
+                                            {% else %}
+                                                <span class="badge white-text gradient-45deg-orange-deep-orange gradient-shadow mt-2 mr-2 left">En cours</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if t.validated != 0 %}
+                                                <div class="input-field">
+                                                    <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                                                    <input id="frais" disabled type="text" name="frais"  class="validate">
+                                                    <label class="active" for="frais">{{ t.frais }}</label>
+
+                                                </div>
+                                            {% else %}
+                                            <div class="input-field">
+                                                <i class="material-icons prefix" style="color: #3c58b5">local_offer</i>
+                                                <input id="frais" type="text" name="frais" required class="validate">
+                                                <label class="active" for="frais">Frais</label>
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                        <td> {{ t.amount }} {% if t.adressewallet.crypto.indice is defined %} {{ t.adressewallet.crypto.indice }} {% endif %}</td>
+                                        <td>
+                                            <center>
+                                                <p style="font-size: 13px;">
+                                                    {% if t.adressewallet.adresse is defined %} {{ t.adressewallet.adresse }} {% endif %}
+                                                </p>
+                                            </center>
+                                        </td>
+                                        <td>{{ t.created|date('d/m/Y') }}</td>
+                                        <td>
+                                            {% if t.validated != 1 %}
+                                                <input type="hidden" name="id" value="{{ t.id }}">
+                                                <input type="hidden" name="email" value="{{ t.utilisateur.email }}">
+                                                <input type="hidden" name="prenom" value="{{ t.utilisateur.prenom }}">
+                                                <input type="hidden" name="crypto" value="{% if t.adressewallet.crypto.name is defined %} {{ t.adressewallet.crypto.name }} {% endif %}">
+                                                <button class="waves-effect waves-light btn-floating gradient-45deg-purple-deep-purple gradient-shadow"  type="submit" style="color: #fff; display: block; margin: auto;">
+                                                    <i class="material-icons prefix" style="right: 0px; bottom: 0px; left: 0px">done</i>
+                                                </button>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if t.validated != 1 %}
+                                            <a class="waves-effect btn-floating gradient-45deg-red gradient-shadow" href="{{ path('transfert_delete', {'id': t.id}) }}">
+                                                <i class="material-icons prefix">delete</i>
+                                            </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </form>
+                            </tbody>
+                                {% endfor %}
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

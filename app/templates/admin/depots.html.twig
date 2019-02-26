@@ -1,0 +1,83 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+<section id="content" ng-app="myApp" ng-controller="myCtrl">
+    <!--start container-->
+    <div class="container">
+        <div id="card-widgets" class="seaction">
+            <div class="row">
+                <div class="col s12">
+                    <div id="profile-card-admin" class="card" style="overflow: hidden;">
+                        <div class="card-image waves-effect waves-block waves-light" id="card-compte">
+                            <h5 class="padding-2" style="color: #fff; text-align: center;">Historique des depots</h5>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">search</i>
+                                <input id="search" type="text" placeholder="Search" ng-model="search" class="validate">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <table class="highlight table-crypto img-crypto nom-crypto">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">Utilisateur</th>
+                                    <th>solde</th>
+                                    <th>marge</th>
+                                    <th>montant</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% verbatim %}
+                                      <tr ng-repeat="d in reponses | filter:search">
+                                        <td>
+                                            <center>
+                                                <span style="font-size: 13px; text-align: left;">
+                                                    {{ d.utilisateur.reference }}<br>
+                                                    {{ d.utilisateur.prenom }} {{ d.utilisateur.nom }}<br>
+                                                    {{ d.utilisateur.email }}<br>
+                                                </span>
+                                            </center>
+                                        </td>
+                                        <td>{{ d.solde }}</td>
+                                        <td>{{ d.marge }}</td>
+                                        <td>{{ d.montant }}</td>
+                                        <td>{{ d.created|date:'medium' }}</td>
+                                      </tr>
+                                    {% endverbatim %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--yearly & weekly revenue chart end-->
+</section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://code.angularjs.org/1.1.5/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+
+        {% if app.request.server.get('SERVER_NAME') == "localhost" %}
+        var host = "http://{{ app.request.server.get('HTTP_HOST') }}";
+        {% else %}
+        var host = "https://{{ app.request.server.get('HTTP_HOST') }}";
+        {% endif %}
+        var url = host + "/api/admin_xgt45e8/dashboard/depots";
+
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get(url)
+                .then(function(response) {
+                    $scope.reponses = response.data;
+                });
+        });
+    </script>
+{% endblock %}

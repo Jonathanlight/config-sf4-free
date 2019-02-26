@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    {% block metaseo %}<meta name="description" content="Formation Blockchain pour les entreprises. Bienvenue dans l'univers Blockchain et des cryptomonnaies. Qu'est-ce que le Bitcoin ? Qu'est-ce la Blockchain ? Comment ça marche ? Et comment l'implémenter dans vos métiers ?">
+        <meta name="keywords" content="formation blockchain, formation blockchain entreprise, formation blockchain pour les entreprises, formation bitcoin, formation cryptizy, cryptizy, formation blockchain cryptizy">{% endblock %}
+    <title>{% block title %}Formation Blockchain pour les entreprises - Cryptizy{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <!-- Favicons-->
+    <link rel="icon" href="{{ asset('assets/user/img/favicon.png') }}" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/user/img/favicon.png') }}">
+    <!-- For iPhone -->
+    <!-- SEO OG-->
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.cryptizy.com/fr/formation-blockchain"/>
+    <meta property="og:site_name" content="Cryptizy"/>
+    <meta property="og:image" content="https://cryptizy.com/assets/user/img/og-image-formation.jpg"/>
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+    <meta property="og:title" content="Formation Blockchain pour les entreprises - Cryptizy"/>
+    <meta property="og:description" content="Formation Blockchain pour les entreprises. Bienvenue dans l'univers Blockchain et des cryptomonnaies. Qu'est-ce que le Bitcoin ? Qu'est-ce la Blockchain ? Comment ça marche ? Et comment l'implémenter dans vos métiers ?"/>
+    <!-- SEO -->
+    <!-- SEO TWITTER-->
+    <meta name="twitter:card" content="summary"/>
+    <meta property="twitter:image" content="https://cryptizy.com/assets/user/img/og-image-formation.jpg"/>
+    <meta property="twitter:image:width" content="200">
+    <meta property="twitter:image:height" content="200">
+    <meta property="twitter:title" content="Formation Blockchain pour les entreprises - Cryptizy"/>
+    <meta property="twitter:description" content="Formation Blockchain pour les entreprises. Bienvenue dans l'univers Blockchain et des cryptomonnaies. Qu'est-ce que le Bitcoin ? Qu'est-ce la Blockchain ? Comment ça marche ? Et comment l'implémenter dans vos métiers ?"/>
+    <!-- SEO -->
+    <meta name="google-site-verification" content="2bJXzzto8OpdU2p7DuvKxviOalj9yRqKDbBmGNbIafc" />
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/user/img/favicon.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="http://materializecss.com/css/ghpages-materialize.css"> -->
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/colors.css') }}">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1607842129298768');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=1607842129298768&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav id="index-nav">
+        <div class="nav-wrapper">
+            <a href="{{ url('home') }}" id="logo" class="brand-logo" title="logo cryptizy" itemprop="url">
+                <img src="{{ asset('assets/user/img/logo.png') }}">
+            </a>
+            <a href="#" data-activates="mobile-demo" title="menu" class="button-collapse" id="nav-text" itemprop="url"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down" id="listeBoutons" style="margin-right: 40px;">
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('blog') }}" title="blog cryptizy" id="nav-text" itemprop="url"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                <li><a href="{{ url('faq') }}" title="faq cryptizy" id="nav-text" itemprop="url"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('office_home') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+                <li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 35px;">
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <img src="{{ asset('assets/user/img/gb.svg') }}" alt="flag_en" style="width: 43px;">
+                        </a>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <img src="{{ asset('assets/user/img/fr.svg') }}" alt="flag_fr" style="width: 43px;">
+                        </a>
+                    {% endif %}
+                </li>
+                <li><p id="nav-text"><b><u>{{ 'base.nav.phone'|trans }}</u></b></p></li>
+                <li><a href="{{ url('blog') }}" id="nav-text" itemprop="url"><p>{{ 'base.footer.blog'|trans }}</p></a></li>
+                <li><a href="{{ url('faq') }}" id="nav-text" itemprop="url"><p>{{ 'base.nav.question'|trans }}</p></a></li>
+                {% if app.user is defined and app.user is not null  %}
+                    <li><a href="{{ url('office_home') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url"><p style="display: inline-block; vertical-align: super; padding-right: 9px; color: white!important;">{{ app.user.prenom }}</p><i class="material-icons" style="line-height: 37px; display: inline-block; height: 34px;">account_circle</i></a></li>
+                {% else %}
+                    <li><a href="{{ url('login') }}" class="btn gradient-45deg-indigo-blue gradient-shadow white-text" id="nav-text" itemprop="url">{{ 'base.nav.login'|trans }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% block body %}{% endblock %}
+
+<footer class="page-footer" style="background-color: #3c59b6!important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5 class="white-text">CRYPTIZY</h5>
+                <ul>
+                    <li><a class="white-text" title="à propos" href="{{ url('aPropos') }}" itemprop="url">{{ 'base.footer.aboutUs'|trans }}</a></li>
+                    <li><a class="white-text" title="faq" href="{{ url('faq') }}" itemprop="url">{{ 'base.footer.faq'|trans }}</a></li>
+                    <li><a class="white-text" title="cryptizy blog" href="{{ url('blog') }}" itemprop="url">{{ 'base.footer.blog'|trans }}</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h5 class="white-text">{{ 'base.footer.legal'|trans }}</h5>
+                <ul>
+                    <li><a class="white-text" title="terms" href="{{ url('cgu') }}" itemprop="url">{{ 'base.footer.cgu'|trans }}</a></li>
+                    <li><a class="white-text" title="confidentialité" href="{{ url('privacy') }}" itemprop="url">{{ 'base.footer.privacy'|trans }}</a></li>
+                    <li><a class="white-text" title="aml" href="{{ url('aml') }}" itemprop="url">{{ 'base.footer.aml'|trans }}</a></li>
+                    <li><p></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <p class="white-text"><b>{{ 'base.footer.social'|trans }}</b></p>
+                <ul class="social">
+                    <li>
+                        <a href="https://facebook.com/cryptizy" title="facebook cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/facebook.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/cryptizy" title="twitter cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/twitter.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/cryptizy/" title="instagram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/instagram.png') }}">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://t.me/cryptizy" title="telegram cryptizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/telegram.png') }}" style="display: inline-block; width: 40px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCoiCtRcGzr3Q7br_5aZ7yEA/videos" title="youtube cryptizy" itemprop="url" target="_blank">
+                            <img src="{{ asset('assets/user/img/youtube.png') }}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                    <p style="text-align: left;">© 2018 Copyright Cryptizy</p>
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right;">
+                        {{ 'home.header.chaintech'|trans }}
+                        <a href="https://www.chaintech.fr" title="chaintech" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/logo-chaintech-ecriture.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="container">
+                <div class="col s12 m6">
+                </div>
+                <div class="col s12 m6 chaintech">
+                    <p style="text-align: right; display: block">
+                        Partenaire :
+                        <a href="https://reparizy.com" title="reparizy" target="_blank" itemprop="url">
+                            <img src="{{ asset('assets/user/img/reparizy.png') }}" style="width: 120px">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block javascripts %}{% endblock %}
+<script type="text/javascript" src="{{ asset('assets/user/js/jquery-3.1.1.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112839619-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112839619-1');
+</script>
+
+<script type="text/javascript">
+    jQuery(function() {
+        var opts = jQuery('#list option').map(function() {
+            return [[jQuery(this).text()]];
+        });
+
+        jQuery('#findItem').keyup(function() {
+
+            var rxp = new RegExp(jQuery('#findItem').val(), 'i');
+            var optlist = jQuery('#list').empty();
+
+            opts.each(function() {
+                if(rxp.test(this[0])) {
+                    optlist.append(jQuery('<option/>').text(this[0]));
+                }
+            });
+
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('.parallax').parallax();
+        $(".button-collapse").sideNav();
+        $('.collapsible').collapsible();
+        $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrainWidth: true, // Does not change width of dropdown to that of the activator
+                hover: false, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: false, // Displays dropdown below the button
+                alignment: 'left', // Displays dropdown with edge aligned to the left of button
+                stopPropagation: false // Stops event propagation
+            }
+        );
+    });
+</script>
+</body>
+</html>
